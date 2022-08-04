@@ -41,11 +41,13 @@ public class PlayerMovement : MonoBehaviour
 
         _moving = true;
 
+        var nextPosition = Position(_input.Direction);
+
         DOTween.Sequence()
             .Append
             (
-                transform.DOMove(Position(_input.Direction),
-                Vector3.Distance(transform.position, Position(_input.Direction)) / _speed)
+                transform.DOMove(nextPosition,
+                Vector3.Distance(transform.position, nextPosition) / _speed)
             )
             .onComplete += () => _moving = false;
     }
