@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312b1a7996db1d749ad4755296a50647, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  <Complexity>k__BackingField: 0
+  <Maze>k__BackingField: {fileID: 3291102573001180816, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}

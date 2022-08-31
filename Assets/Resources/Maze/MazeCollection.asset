@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff853cdae2111dd4b88c4b3b576dfd5e, type: 3}
+  m_Name: MazeCollection
+  m_EditorClassIdentifier: 
+  _items:
+  - {fileID: 11400000, guid: 2b40dc3f985a4b94796eb9223dce3cf3, type: 2}
+  - {fileID: 11400000, guid: 764eb42ac2b54514eacff15c2df6f94c, type: 2}
+  _complexity: {fileID: 11400000, guid: e507c949917fe87409ddf940aeefa0b0, type: 2}
+  _minComplexitySubtractor: 1

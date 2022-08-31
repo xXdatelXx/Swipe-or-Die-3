@@ -1,18 +1,30 @@
 using UnityEngine;
+using FluentValidation;
 
 public class Radius : MonoBehaviour
 {
-    [SerializeField, Range(0, 10)] private float _radius;
+    [SerializeField, Range(0, 10)] private float _value;
+
+    private void Awake()
+    {
+        new Validator().ValidateAndThrow(this);
+    }
 
     public Vector3 Indent(Vector3 movementDirection)
     {
-        return movementDirection switch
+        if (!movementDirection.IsDirection())
+            return Vector3.zero;
+
+        var indent = Vector3.one.Multiply(-movementDirection) * _value;
+
+        return indent;
+    }
+
+    private class Validator : AbstractValidator<Radius>
+    {
+        public Validator()
         {
-            var v when v == Vector3.up => new Vector3(0, -_radius),
-            var v when v == Vector3.down => new Vector3(0, _radius),
-            var v when v == Vector3.right => new Vector3(-_radius, 0),
-            var v when v == Vector3.left => new Vector3(_radius, 0),
-            _ => Vector3.zero
-        };
+            RuleFor(radius => radius._value).GreaterThanOrEqualTo(0);
+        }
     }
 }
