@@ -2,12 +2,13 @@ using System;
 using System.Threading.Tasks;
 using FluentValidation;
 
-public struct Timer : ITickable
+public class Timer : ITickable
 {
-    private readonly float _time;
+    private float _time;
     private float _accumulatedTime;
     private readonly Action _onEnd;
-    private readonly TaskCompletionSource<bool> _end;
+    private readonly TaskCompletionSource<bool> _task;
+    private bool Interactive;
     public bool End => _time <= _accumulatedTime;
 
     public Timer(float time) : this(time, null)
@@ -18,7 +19,7 @@ public struct Timer : ITickable
         _time = time;
         _onEnd = onEnd;
         _accumulatedTime = 0;
-        _end = new();
+        _task = new();
 
         new Validator().ValidateAndThrow(this);
     }
@@ -27,21 +28,33 @@ public struct Timer : ITickable
     {
         if (deltaTime < 0)
             throw new ArgumentOutOfRangeException($"{nameof(deltaTime)} < 0");
-        if (End)
+        if (End || !Interactive)
             return;
 
         _accumulatedTime += deltaTime;
 
         if (End)
         {
-            _end.SetResult(true);
+            _task.SetResult(true);
             _onEnd?.Invoke();
         }
     }
 
+    public void Play(float time)
+    {
+        Interactive = true;
+        _accumulatedTime = 0;
+        _time = time;
+    }
+
+    public void Stop()
+    {
+        Interactive = false;
+    }
+
     public async Task AweitEnd()
     {
-        await _end.Task;
+        await _task.Task;
     }
 
     private class Validator : AbstractValidator<Timer>

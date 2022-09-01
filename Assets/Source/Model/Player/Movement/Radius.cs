@@ -1,12 +1,14 @@
 using UnityEngine;
 using FluentValidation;
 
-public class Radius : MonoBehaviour, IRadius
+public class Radius : IRadius
 {
-    [SerializeField, Range(0, 10)] private float _value;
+    private float _value;
 
-    private void Awake()
+    public Radius(float value)
     {
+        _value = value;
+
         new Validator().ValidateAndThrow(this);
     }
 

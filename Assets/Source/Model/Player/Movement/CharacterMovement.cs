@@ -1,53 +1,35 @@
 using UnityEngine;
-using Zenject;
 using DG.Tweening;
 using FluentValidation;
-using Sirenix.OdinInspector;
 
-public class CharacterMovement : SerializedMonoBehaviour
+public class CharacterMovement : ICharacterMovement
 {
-    [SerializeField, Range(0, 100)] private float _speed;
-    [SerializeField] private IRadius _radius;
-    private Position _position;
-    private IInput _input;
+    private Transform _transform;
+    private float _speed;
+    private IPosition _position;
     private bool _moving;
 
-    [Inject]
-    public void Construct(IInput input)
+    public CharacterMovement(Transform transform, float speed, IPosition position)
     {
-        _input = input;
-        _position = new Position(transform, _radius);
+        _transform = transform;
+        _speed = speed;
+        _position = position;
 
         new Validator().ValidateAndThrow(this);
     }
 
-    private void OnEnable()
-    {
-        _input.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _input.Disable();
-    }
-
-    private void Update()
-    {
-        Move();
-    }
-
-    private void Move()
+    public void Move(Vector2 direction)
     {
         if (_moving)
             return;
 
         _moving = true;
 
-        var nextPosition = _position.NextByRay(_input.Direction);
-        var movingTime = Vector3.Distance(transform.position, nextPosition) / _speed;
+        var nextPosition = _position.Next(direction);
+        var movingTime = Vector3.Distance(_transform.position, nextPosition) / _speed;
 
         DOTween.Sequence()
-            .Append(transform.DOMove(nextPosition, movingTime))
+            .Append(_transform.DOMove(nextPosition, movingTime))
             .onComplete += () => _moving = false;
     }
 
@@ -55,8 +37,8 @@ public class CharacterMovement : SerializedMonoBehaviour
     {
         public Validator()
         {
-            RuleFor(movement => movement._radius).NotNull();
-            RuleFor(movement => movement._input).NotNull();
+            RuleFor(movement => movement._transform).NotNull();
+            RuleFor(movement => movement._speed).GreaterThan(0);
             RuleFor(movement => movement._position).NotNull();
         }
     }

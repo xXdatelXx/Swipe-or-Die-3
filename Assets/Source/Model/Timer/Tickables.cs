@@ -30,11 +30,6 @@ public class Tickables : MonoBehaviour, IITickables
     private void Tick()
     {
         foreach (var tickable in _tickables.ToList())
-        {
             tickable.Tick(Time.deltaTime);
-
-            if (tickable.End)
-                _tickables.Remove(tickable);
-        }
     }
 }

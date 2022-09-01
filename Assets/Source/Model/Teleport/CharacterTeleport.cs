@@ -8,14 +8,12 @@ public class CharacterTeleport : MonoBehaviour, ICharacterTeleport
 {
     [SerializeField, Range(0, 10)] private float _time;
     private Timer _timer;
-    private IITickables _tickable;
     private ICharacterTeleportView _view;
 
     [Inject]
-    public void Construct(IITickables tickable)
+    public void Construct(Timer timer)
     {
-        _timer = new Timer(_time);
-        _tickable = tickable;
+        _timer = timer;
         _view = GetComponent<ICharacterTeleportView>();
     }
 
@@ -32,7 +30,7 @@ public class CharacterTeleport : MonoBehaviour, ICharacterTeleport
     private async Task Start()
     {
         _view.OnStart();
-        _tickable.Run(_timer);
+        _timer.Restart();
 
         await _timer.AweitEnd();
     }
@@ -40,11 +38,6 @@ public class CharacterTeleport : MonoBehaviour, ICharacterTeleport
     private void OnEnd()
     {
         _view.OnEnd();
-        _tickable.Stop(_timer);
-    }
-
-    private void OnDestroy()
-    {
-        _tickable.Stop(_timer);
+        _timer.Stop();
     }
 }

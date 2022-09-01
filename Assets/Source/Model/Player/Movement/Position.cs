@@ -1,7 +1,7 @@
 using UnityEngine;
 using FluentValidation;
 
-public class Position
+public class Position : IPosition
 {
     private readonly Transform _transform;
     private readonly IRadius _radius;
@@ -16,7 +16,7 @@ public class Position
         _validator.ValidateAndThrow(this);
     }
 
-    public Vector3 NextByRay(Vector2 direction)
+    public Vector3 Next(Vector2 direction)
     {
         if (!_validator.ValidDirection(direction))
             return _transform.position;
