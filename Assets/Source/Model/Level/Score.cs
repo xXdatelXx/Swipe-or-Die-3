@@ -1,4 +1,4 @@
-public struct Score
+public class Score : IScore
 {
     public int Value { get; private set; }
 

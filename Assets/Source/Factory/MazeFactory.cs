@@ -1,10 +1,10 @@
 using UnityEngine;
 using FluentValidation;
+using Sirenix.OdinInspector;
 
-public class MazeFactory : MonoBehaviour
+public class MazeFactory : SerializedMonoBehaviour
 {
-    [SerializeField, Range(0.1f, 100)] private float _mazeSpeed = 0.1f;
-    [SerializeField] private MonoBehaviourFactory _factory;
+    [SerializeField] private IMonoBehaviourFactory _factory;
     [SerializeField] private MazeItems _items;
     [SerializeField] private Transform _enablePoint;
     [SerializeField] private Maze _previousMaze;
@@ -13,8 +13,6 @@ public class MazeFactory : MonoBehaviour
     private void Awake()
     {
         new Validator().ValidateAndThrow(this);
-
-        _previousMaze.Init(_mazeSpeed);
     }
 
     private void Start()
@@ -22,10 +20,9 @@ public class MazeFactory : MonoBehaviour
         Create(new Score());
     }
 
-    public Maze Create(Score score)
+    public Maze Create(IScore score)
     {
         _nextMaze = _factory.Create(_items.Get(score));
-        _nextMaze.Init(_mazeSpeed);
 
         return _previousMaze;
     }
@@ -44,7 +41,6 @@ public class MazeFactory : MonoBehaviour
     {
         public Validator()
         {
-            RuleFor(factory => factory._mazeSpeed).GreaterThan(0);
             RuleFor(factory => factory._factory).NotNull();
             RuleFor(factory => factory._items).NotNull();
             RuleFor(factory => factory._enablePoint).NotNull();

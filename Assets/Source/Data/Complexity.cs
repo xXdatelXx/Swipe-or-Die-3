@@ -19,11 +19,11 @@ public class Complexity : ScriptableObject
         _level.SortHerringbone();
     }
 
-    public Value Get(int score)
+    public Value Get(IScore score)
     {
         for (int i = 0; i < _level.Count; i++)
         {
-            if (score <= _level[i])
+            if (score.Value <= _level[i])
                 return (Value)i;
         }
 

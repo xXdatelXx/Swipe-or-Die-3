@@ -753,8 +753,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32ea211f38a49b4e9319072c3036b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mazeSpeed: 30
-  _factory: {fileID: 1862943487}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1862943487}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _factory
+      Entry: 10
+      Data: 0
   _items: {fileID: 11400000, guid: 83d57816eb478e14097b72a17f9adb50, type: 2}
   _enablePoint: {fileID: 778117492}
   _previousMaze: {fileID: 1820147797}

@@ -6,7 +6,7 @@ using FluentValidation;
 public class Maze : MonoBehaviour
 {
     [field: SerializeField] public Start StartPoint { get; private set; }
-    private float _speed;
+    private const float Speed = 30;
 
     private void Start()
     {
@@ -14,18 +14,10 @@ public class Maze : MonoBehaviour
             .ValidateAndThrow(this);
     }
 
-    public void Init(float speed)
-    {
-        if (speed <= 0)
-            throw new ArgumentOutOfRangeException($"{nameof(speed)} must be > 0");
-
-        _speed = speed;
-    }
-
     public void Enable(Transform enablePosition)
     {
         var nextPosition = enablePosition.position;
-        var movingTime = Vector3.Distance(nextPosition, transform.position) / _speed;
+        var movingTime = Vector3.Distance(nextPosition, transform.position) / Speed;
 
         transform.DOMove(nextPosition, movingTime);
     }
@@ -46,7 +38,6 @@ public class Maze : MonoBehaviour
 
             RuleFor(maze => maze.StartPoint).Equal(childStart).WithMessage($"{nameof(StartPoint)} must be child");
             RuleFor(maze => maze.StartPoint).NotNull();
-            RuleFor(maze => maze._speed).GreaterThan(0);
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class MonoBehaviourFactory : MonoBehaviour
+public class MonoBehaviourFactory : MonoBehaviour, IMonoBehaviourFactory
 {
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Transform _parent;

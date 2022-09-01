@@ -1,7 +1,7 @@
 using UnityEngine;
 using FluentValidation;
 
-public class Radius : MonoBehaviour
+public class Radius : MonoBehaviour, IRadius
 {
     [SerializeField, Range(0, 10)] private float _value;
 

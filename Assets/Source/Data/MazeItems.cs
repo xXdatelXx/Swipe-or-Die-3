@@ -18,7 +18,7 @@ public class MazeItems : ScriptableObject
         new Validator().ValidateAndThrow(this);
     }
 
-    public Maze Get(Score score)
+    public Maze Get(IScore score)
     {
         var item = RandomItem(Items(score));
         _items.Remove(item);
@@ -28,7 +28,7 @@ public class MazeItems : ScriptableObject
         return item.Maze;
     }
 
-    private List<MazeItem> Items(Score score)
+    private List<MazeItem> Items(IScore score)
     {
         var complexity = ComplexityRange(score);
 
@@ -52,9 +52,9 @@ public class MazeItems : ScriptableObject
         _previousItem = item;
     }
 
-    private EnumRange<Complexity.Value> ComplexityRange(Score score)
+    private EnumRange<Complexity.Value> ComplexityRange(IScore score)
     {
-        var complexity = _complexity.Get(score.Value);
+        var complexity = _complexity.Get(score);
         return new EnumRange<Complexity.Value>(complexity.Next(-_minComplexitySubtractor), complexity);
     }
 

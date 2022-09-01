@@ -4,10 +4,10 @@ using FluentValidation;
 public class Position
 {
     private readonly Transform _transform;
-    private readonly Radius _radius;
+    private readonly IRadius _radius;
     private readonly Validator _validator;
 
-    public Position(Transform transform, Radius radius)
+    public Position(Transform transform, IRadius radius)
     {
         _transform = transform;
         _radius = radius;

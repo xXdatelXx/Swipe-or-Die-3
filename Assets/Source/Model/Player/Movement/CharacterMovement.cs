@@ -2,11 +2,12 @@ using UnityEngine;
 using Zenject;
 using DG.Tweening;
 using FluentValidation;
+using Sirenix.OdinInspector;
 
-public class CharacterMovement : MonoBehaviour
+public class CharacterMovement : SerializedMonoBehaviour
 {
     [SerializeField, Range(0, 100)] private float _speed;
-    [SerializeField] private Radius _radius;
+    [SerializeField] private IRadius _radius;
     private Position _position;
     private IInput _input;
     private bool _moving;
