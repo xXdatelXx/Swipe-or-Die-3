@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(CubeCollider))]
+[RequireComponent(typeof(BoxCollider))]
 public class Character : MonoBehaviour
 {
     [SerializeField, Range(0, 30)] private float _speed;
@@ -15,7 +13,7 @@ public class Character : MonoBehaviour
     {
         _input = input;
 
-        var radius = new Radius(GetComponent<CubeCollider>().Radius);
+        var radius = new Radius(GetComponent<BoxCollider>().ToCube().Radius());
         var position = new Position(transform, radius);
 
         _movement = new CharacterMovement(transform, _speed, position);

@@ -14,9 +14,12 @@ public class Finish : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.GetComponent<CharacterMovement>() == null)
-            return;
-        
-        _levelCreator.Create();
+        if (IsPlayer(collision))
+            _levelCreator.Create();
+    }
+
+    private bool IsPlayer(Collision collision)
+    {
+        return collision.collider.GetComponent<Character>() != null;
     }
 }

@@ -1,19 +1,19 @@
 using UnityEngine;
-using Zenject;
-using System;
 using System.Threading.Tasks;
+using System;
+using Sirenix.OdinInspector;
 
 [RequireComponent(typeof(ICharacterTeleportView))]
-public class CharacterTeleport : MonoBehaviour, ICharacterTeleport
+public class CharacterTeleport : SerializedMonoBehaviour, ICharacterTeleport
 {
-    [SerializeField, Range(0, 10)] private float _time;
-    private Timer _timer;
+    [SerializeField] private ITimer _timer;
     private ICharacterTeleportView _view;
 
-    [Inject]
-    public void Construct(Timer timer)
+    private void Awake()
     {
-        _timer = timer;
+        if (_timer == null)
+            throw new NullReferenceException($"{nameof(_timer)} == null");
+
         _view = GetComponent<ICharacterTeleportView>();
     }
 
@@ -30,14 +30,11 @@ public class CharacterTeleport : MonoBehaviour, ICharacterTeleport
     private async Task Start()
     {
         _view.OnStart();
-        _timer.Restart();
-
-        await _timer.AweitEnd();
+        await _timer.Play();
     }
 
     private void OnEnd()
     {
         _view.OnEnd();
-        _timer.Stop();
     }
 }
