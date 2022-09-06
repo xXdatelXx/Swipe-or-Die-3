@@ -1,22 +1,25 @@
 using UnityEngine;
 
-public static class ColliderExtension
+namespace SwipeOrDie.Extension
 {
-    public static BoxCollider ToCube(this BoxCollider collider)
+    public static class ColliderExtension
     {
-        var radius = Diameter(collider);
-        collider.size = new Vector3(radius, radius, radius);
+        public static BoxCollider ToCube(this BoxCollider collider)
+        {
+            var radius = Diameter(collider);
+            collider.size = new Vector3(radius, radius, radius);
 
-        return collider;
-    }
+            return collider;
+        }
 
-    public static float Diameter(this BoxCollider collider)
-    {
-        return collider.size.x;
-    }
+        public static float Diameter(this BoxCollider collider)
+        {
+            return collider.size.x;
+        }
 
-    public static float Radius(this BoxCollider collider)
-    {
-        return Diameter(collider) / 2;
+        public static float Radius(this BoxCollider collider)
+        {
+            return Diameter(collider) / 2;
+        }
     }
 }

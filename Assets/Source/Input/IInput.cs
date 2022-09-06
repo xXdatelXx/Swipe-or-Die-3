@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public interface IInput
+namespace SwipeOrDie.Input
 {
-    Vector2 Direction { get; }
+    public interface IInput
+    {
+        Vector2 Direction { get; }
 
-    void Enable();
-    void Disable();
+        void Enable();
+        void Disable();
+    }
 }

@@ -16,12 +16,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public partial class @CharacterInput : IInputActionCollection2, IDisposable, IInput
+namespace SwipeOrDie.Input
 {
-    public InputActionAsset asset { get; }
-    public @CharacterInput()
+    public partial class @CharacterInput : IInputActionCollection2, IDisposable, IInput
     {
-        asset = InputActionAsset.FromJson(@"{
+        public InputActionAsset asset { get; }
+
+        public @CharacterInput()
+        {
+            asset = InputActionAsset.FromJson(@"{
     ""name"": ""CharacterInput"",
     ""maps"": [
         {
@@ -122,118 +125,151 @@ public partial class @CharacterInput : IInputActionCollection2, IDisposable, IIn
         }
     ]
 }");
+            // Character
+            m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
+            m_Character_Move = m_Character.FindAction("Move", throwIfNotFound: true);
+        }
+
+        public void Dispose()
+        {
+            UnityEngine.Object.Destroy(asset);
+        }
+
+        public InputBinding? bindingMask
+        {
+            get => asset.bindingMask;
+            set => asset.bindingMask = value;
+        }
+
+        public ReadOnlyArray<InputDevice>? devices
+        {
+            get => asset.devices;
+            set => asset.devices = value;
+        }
+
+        public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
+
+        public bool Contains(InputAction action)
+        {
+            return asset.Contains(action);
+        }
+
+        public IEnumerator<InputAction> GetEnumerator()
+        {
+            return asset.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public void Enable()
+        {
+            asset.Enable();
+        }
+
+        public void Disable()
+        {
+            asset.Disable();
+        }
+
+        public IEnumerable<InputBinding> bindings => asset.bindings;
+
+        public InputAction FindAction(string actionNameOrId, bool throwIfNotFound = false)
+        {
+            return asset.FindAction(actionNameOrId, throwIfNotFound);
+        }
+
+        public int FindBinding(InputBinding bindingMask, out InputAction action)
+        {
+            return asset.FindBinding(bindingMask, out action);
+        }
+
         // Character
-        m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
-        m_Character_Move = m_Character.FindAction("Move", throwIfNotFound: true);
-    }
+        private readonly InputActionMap m_Character;
+        private ICharacterActions m_CharacterActionsCallbackInterface;
+        private readonly InputAction m_Character_Move;
 
-    public void Dispose()
-    {
-        UnityEngine.Object.Destroy(asset);
-    }
-
-    public InputBinding? bindingMask
-    {
-        get => asset.bindingMask;
-        set => asset.bindingMask = value;
-    }
-
-    public ReadOnlyArray<InputDevice>? devices
-    {
-        get => asset.devices;
-        set => asset.devices = value;
-    }
-
-    public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
-
-    public bool Contains(InputAction action)
-    {
-        return asset.Contains(action);
-    }
-
-    public IEnumerator<InputAction> GetEnumerator()
-    {
-        return asset.GetEnumerator();
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    public void Enable()
-    {
-        asset.Enable();
-    }
-
-    public void Disable()
-    {
-        asset.Disable();
-    }
-    public IEnumerable<InputBinding> bindings => asset.bindings;
-
-    public InputAction FindAction(string actionNameOrId, bool throwIfNotFound = false)
-    {
-        return asset.FindAction(actionNameOrId, throwIfNotFound);
-    }
-    public int FindBinding(InputBinding bindingMask, out InputAction action)
-    {
-        return asset.FindBinding(bindingMask, out action);
-    }
-
-    // Character
-    private readonly InputActionMap m_Character;
-    private ICharacterActions m_CharacterActionsCallbackInterface;
-    private readonly InputAction m_Character_Move;
-    public struct CharacterActions
-    {
-        private @CharacterInput m_Wrapper;
-        public CharacterActions(@CharacterInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Character_Move;
-        public InputActionMap Get() { return m_Wrapper.m_Character; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(CharacterActions set) { return set.Get(); }
-        public void SetCallbacks(ICharacterActions instance)
+        public struct CharacterActions
         {
-            if (m_Wrapper.m_CharacterActionsCallbackInterface != null)
+            private @CharacterInput m_Wrapper;
+
+            public CharacterActions(@CharacterInput wrapper)
             {
-                @Move.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
+                m_Wrapper = wrapper;
             }
-            m_Wrapper.m_CharacterActionsCallbackInterface = instance;
-            if (instance != null)
+
+            public InputAction @Move => m_Wrapper.m_Character_Move;
+
+            public InputActionMap Get()
             {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
+                return m_Wrapper.m_Character;
+            }
+
+            public void Enable()
+            {
+                Get().Enable();
+            }
+
+            public void Disable()
+            {
+                Get().Disable();
+            }
+
+            public bool enabled => Get().enabled;
+
+            public static implicit operator InputActionMap(CharacterActions set)
+            {
+                return set.Get();
+            }
+
+            public void SetCallbacks(ICharacterActions instance)
+            {
+                if (m_Wrapper.m_CharacterActionsCallbackInterface != null)
+                {
+                    @Move.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
+                    @Move.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
+                    @Move.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnMove;
+                }
+
+                m_Wrapper.m_CharacterActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Move.started += instance.OnMove;
+                    @Move.performed += instance.OnMove;
+                    @Move.canceled += instance.OnMove;
+                }
             }
         }
-    }
-    public CharacterActions @Character => new CharacterActions(this);
-    private int m_KeyboardSchemeIndex = -1;
-    public Vector2 Direction => Character.Move.ReadValue<Vector2>();
-    public InputControlScheme KeyboardScheme
-    {
-        get
+
+        public CharacterActions @Character => new CharacterActions(this);
+        private int m_KeyboardSchemeIndex = -1;
+        public Vector2 Direction => Character.Move.ReadValue<Vector2>();
+
+        public InputControlScheme KeyboardScheme
         {
-            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
-            return asset.controlSchemes[m_KeyboardSchemeIndex];
+            get
+            {
+                if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+                return asset.controlSchemes[m_KeyboardSchemeIndex];
+            }
         }
-    }
-    private int m_AndroidSchemeIndex = -1;
-    public InputControlScheme AndroidScheme
-    {
-        get
+
+        private int m_AndroidSchemeIndex = -1;
+
+        public InputControlScheme AndroidScheme
         {
-            if (m_AndroidSchemeIndex == -1) m_AndroidSchemeIndex = asset.FindControlSchemeIndex("Android");
-            return asset.controlSchemes[m_AndroidSchemeIndex];
+            get
+            {
+                if (m_AndroidSchemeIndex == -1) m_AndroidSchemeIndex = asset.FindControlSchemeIndex("Android");
+                return asset.controlSchemes[m_AndroidSchemeIndex];
+            }
         }
-    }
-    public interface ICharacterActions
-    {
-        void OnMove(InputAction.CallbackContext context);
+
+        public interface ICharacterActions
+        {
+            void OnMove(InputAction.CallbackContext context);
+        }
     }
 }

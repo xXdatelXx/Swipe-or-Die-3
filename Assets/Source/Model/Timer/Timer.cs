@@ -2,34 +2,37 @@ using System;
 using FluentValidation;
 using Cysharp.Threading.Tasks;
 
-public class Timer : ITimer
+namespace SwipeOrDie.GameLogic
 {
-    private Action _onEnd;
-    private float _time;
-
-    public Timer(float time) : this(time, null)
+    public class Timer : ITimer
     {
-    }
+        private readonly Action _onEnd;
+        public float Time { get; private set; }
 
-    public Timer(float time, Action onEnd)
-    {
-        _time = time;
-        _onEnd = onEnd;
-
-        new Validator().ValidateAndThrow(this);
-    }
-
-    public async UniTask Play()
-    {
-        await UniTask.Delay(TimeSpan.FromSeconds(_time));
-        _onEnd?.Invoke();
-    }
-
-    private class Validator : AbstractValidator<Timer>
-    {
-        public Validator()
+        public Timer(float time) : this(time, null)
         {
-            RuleFor(timer => timer._time).GreaterThanOrEqualTo(0);
+        }
+
+        public Timer(float time, Action onEnd)
+        {
+            Time = time;
+            _onEnd = onEnd;
+
+            new Validator().ValidateAndThrow(this);
+        }
+
+        public async UniTask Play()
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(Time));
+            _onEnd?.Invoke();
+        }
+
+        private class Validator : AbstractValidator<Timer>
+        {
+            public Validator()
+            {
+                RuleFor(timer => timer.Time).GreaterThanOrEqualTo(0);
+            }
         }
     }
 }

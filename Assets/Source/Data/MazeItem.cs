@@ -1,17 +1,21 @@
 using UnityEngine;
 using FluentValidation;
+using SwipeOrDie.GameLogic;
 
-[CreateAssetMenu(menuName = "MazeItem")]
-public class MazeItem : ScriptableObject
+namespace SwipeOrDie.Data
 {
-    [field: SerializeField] public Complexity.Value Complexity { get; private set; }
-    [field: SerializeField] public Maze Maze { get; private set; }
-
-    public class Validator : AbstractValidator<MazeItem>
+    [CreateAssetMenu(menuName = "MazeItem")]
+    public class MazeItem : ScriptableObject
     {
-        public Validator()
+        [field: SerializeField] public Complexity.Value Complexity { get; private set; }
+        [field: SerializeField] public Maze Maze { get; private set; }
+
+        public class Validator : AbstractValidator<MazeItem>
         {
-            RuleFor(item => item.Maze).NotNull();
+            public Validator()
+            {
+                RuleFor(item => item.Maze).NotNull();
+            }
         }
     }
 }

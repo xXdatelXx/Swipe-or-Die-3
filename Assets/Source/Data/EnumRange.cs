@@ -1,16 +1,20 @@
 using System;
+using SwipeOrDie.Extension;
 
-public struct EnumRange<T> where T : Enum
+namespace SwipeOrDie.Data
 {
-    public readonly T Min;
-    public readonly T Max;
-
-    public EnumRange(T min, T max)
+    public struct EnumRange<T> where T : Enum
     {
-        if (min.Id() > max.Id())
-            throw new ArgumentOutOfRangeException($"id {nameof(min)} > id {nameof(max)}");
+        public readonly T Min;
+        public readonly T Max;
 
-        Min = min;
-        Max = max;
+        public EnumRange(T min, T max)
+        {
+            if (min.Id() > max.Id())
+                throw new ArgumentOutOfRangeException($"id {nameof(min)} > id {nameof(max)}");
+
+            Min = min;
+            Max = max;
+        }
     }
 }

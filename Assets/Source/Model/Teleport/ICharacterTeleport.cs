@@ -1,4 +1,7 @@
-public interface ICharacterTeleport
+namespace SwipeOrDie.GameLogic
 {
-    void Teleport(Start target);
+    public interface ICharacterTeleport
+    {
+        void Teleport(Start target);
+    }
 }

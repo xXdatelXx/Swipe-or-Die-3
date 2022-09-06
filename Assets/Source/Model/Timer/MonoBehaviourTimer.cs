@@ -1,19 +1,21 @@
 using UnityEngine;
-using System;
 using Cysharp.Threading.Tasks;
 
-public class MonoBehaviourTimer : MonoBehaviour, ITimer
+namespace SwipeOrDie.GameLogic
 {
-    [SerializeField, Range(0, 50)] private float _time;
-    private ITimer _timer;
-
-    private void Awake()
+    public class MonoBehaviourTimer : MonoBehaviour, ITimer
     {
-        _timer = new Timer(_time);
-    }
+        [field: SerializeField, Range(0.02f, 50)] public float Time { get; private set; }
+        private ITimer _timer;
 
-    public async UniTask Play()
-    {
-        await _timer.Play();
+        private void Awake()
+        {
+            _timer = new Timer(Time);
+        }
+
+        public async UniTask Play()
+        {
+            await _timer.Play();
+        }
     }
 }

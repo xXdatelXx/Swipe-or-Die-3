@@ -1,4 +1,7 @@
-public interface IScore
+namespace SwipeOrDie.GameLogic
 {
-    int Value { get; }
+    public interface IScore
+    {
+        int Value { get; }
+    }
 }

@@ -1,5 +1,8 @@
-public interface ICharacterTeleportView
+namespace SwipeOrDie.GameLogic
 {
-    void OnStart();
-    void OnEnd();
+    public interface ICharacterTeleportView
+    {
+        void OnStart();
+        void OnEnd();
+    }
 }

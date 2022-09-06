@@ -1,25 +1,24 @@
 using System;
 using UnityEngine;
 using Zenject;
+using SwipeOrDie.Extension;
 
-public class Finish : MonoBehaviour
+namespace SwipeOrDie.GameLogic
 {
-    private LevelCreator _levelCreator;
-
-    [Inject]
-    public void Init(LevelCreator levelCreator)
+    public class Finish : MonoBehaviour
     {
-        _levelCreator = levelCreator ?? throw new ArgumentNullException($"{nameof(levelCreator)} == null");
-    }
+        private LevelCreator _levelCreator;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (IsPlayer(collision))
-            _levelCreator.Create();
-    }
+        [Inject]
+        public void Init(LevelCreator levelCreator)
+        {
+            _levelCreator = levelCreator ?? throw new ArgumentNullException($"{nameof(levelCreator)} == null");
+        }
 
-    private bool IsPlayer(Collision collision)
-    {
-        return collision.collider.GetComponent<Character>() != null;
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.Is<ICharacter>())
+                _levelCreator.Create();
+        }
     }
 }

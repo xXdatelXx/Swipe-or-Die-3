@@ -1,6 +1,10 @@
 using Cysharp.Threading.Tasks;
 
-public interface ITimer
+namespace SwipeOrDie.GameLogic
 {
-    UniTask Play();
+    public interface ITimer
+    {
+        float Time { get; }
+        UniTask Play();
+    }
 }

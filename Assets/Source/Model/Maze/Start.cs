@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class Start : MonoBehaviour
+namespace SwipeOrDie.GameLogic
 {
-    public Transform Parent => transform.parent;
-    public Vector3 LocalPosition => transform.localPosition;
+    public class Start : MonoBehaviour
+    {
+        public Transform Parent => transform.parent;
+        public Vector3 LocalPosition => transform.localPosition;
+    }
 }

@@ -1,9 +1,12 @@
-public class Score : IScore
+namespace SwipeOrDie.GameLogic
 {
-    public int Value { get; private set; }
-
-    public void Append()
+    public class Score : IScore
     {
-        Value++;
+        public int Value { get; private set; }
+
+        public void Append()
+        {
+            Value++;
+        }
     }
 }

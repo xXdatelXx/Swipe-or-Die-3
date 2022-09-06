@@ -1,21 +1,24 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class CharacterTeleportView : MonoBehaviour, ICharacterTeleportView
+namespace SwipeOrDie.GameLogic
 {
-    private Animator _animator;
-
-    private void Awake()
+    [RequireComponent(typeof(Animator))]
+    public class CharacterTeleportView : MonoBehaviour, ICharacterTeleportView
     {
-        _animator = GetComponent<Animator>();
-    }
+        private Animator _animator;
 
-    public void OnStart()
-    {
-        // фшиу пау рапапам 
-    }
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
 
-    public void OnEnd()
-    {
+        public void OnStart()
+        {
+            // фшиу пау рапапам 
+        }
+
+        public void OnEnd()
+        {
+        }
     }
 }

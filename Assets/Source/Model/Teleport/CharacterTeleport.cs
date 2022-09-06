@@ -3,38 +3,41 @@ using System.Threading.Tasks;
 using System;
 using Sirenix.OdinInspector;
 
-[RequireComponent(typeof(ICharacterTeleportView))]
-public class CharacterTeleport : SerializedMonoBehaviour, ICharacterTeleport
+namespace SwipeOrDie.GameLogic
 {
-    [SerializeField] private ITimer _timer;
-    private ICharacterTeleportView _view;
-
-    private void Awake()
+    [RequireComponent(typeof(ICharacterTeleportView))]
+    public class CharacterTeleport : SerializedMonoBehaviour, ICharacterTeleport
     {
-        if (_timer == null)
-            throw new NullReferenceException($"{nameof(_timer)} == null");
+        [SerializeField] private readonly ITimer _timer;
+        private ICharacterTeleportView _view;
 
-        _view = GetComponent<ICharacterTeleportView>();
-    }
+        private void Awake()
+        {
+            if (_timer == null)
+                throw new NullReferenceException($"{nameof(_timer)} == null");
 
-    public async void Teleport(Start target)
-    {
-        await Start();
+            _view = GetComponent<ICharacterTeleportView>();
+        }
 
-        transform.parent = target.Parent;
-        transform.localPosition = target.LocalPosition;
+        public async void Teleport(Start target)
+        {
+            await Start();
 
-        OnEnd();
-    }
+            transform.parent = target.Parent;
+            transform.localPosition = target.LocalPosition;
 
-    private async Task Start()
-    {
-        _view.OnStart();
-        await _timer.Play();
-    }
+            OnEnd();
+        }
 
-    private void OnEnd()
-    {
-        _view.OnEnd();
+        private async Task Start()
+        {
+            _view.OnStart();
+            await _timer.Play();
+        }
+
+        private void OnEnd()
+        {
+            _view.OnEnd();
+        }
     }
 }
