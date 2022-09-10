@@ -16,7 +16,7 @@ namespace SwipeOrDie.GameLogic
 
         public void Die()
         {
-            _view.OnDie();   
+            _view.OnDie(); 
         }
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using FluentValidation;
+using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
@@ -28,7 +29,7 @@ namespace SwipeOrDie.GameLogic
             _moving = true;
 
             var nextPosition = _position.Next(direction);
-            var movingTime = Vector3.Distance(_transform.position, nextPosition) / _speed;
+            var movingTime = _transform.Time(nextPosition, _speed);
 
             DOTween.Sequence()
                 .Append(_transform.DOMove(nextPosition, movingTime))
