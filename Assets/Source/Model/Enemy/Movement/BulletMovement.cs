@@ -2,25 +2,27 @@ using UnityEngine;
 using SwipeOrDie.GameLogic;
 using SwipeOrDie.Extension;
 using DG.Tweening;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 
-public class BulletMovement : SerializedMonoBehaviour
+namespace Source.Model.Enemy.Movement
 {
-    [SerializeField, Range(0, 100)] private readonly float _speed;
-    [SerializeField] private readonly IPosition _position;
-    [SerializeField] private IDestroyView _destroyView;
-
-    private void Awake()
+    public class BulletMovement : SerializedMonoBehaviour
     {
-        Move();
-    }
+        [SerializeField] private readonly ISpeed _speed;
+        [SerializeField] private readonly IPosition _position;
 
-    private void Move()
-    {
-        var nextPosition = _position.Next(transform.forward);
-        var movingTime = transform.Time(nextPosition, _speed);
+        private void Awake()
+        {
+            Move();
+        }
 
-        transform.DOMove(nextPosition, movingTime);
-        _destroyView.Destroy(movingTime);
+        private void Move()
+        {
+            var nextPosition = _position.Next(transform.forward);
+            var movingTime = transform.Time(nextPosition, _speed);
+
+            transform.DOMove(nextPosition, movingTime);
+        }
     }
 }

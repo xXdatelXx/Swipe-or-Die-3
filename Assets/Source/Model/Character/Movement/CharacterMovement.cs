@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using FluentValidation;
+using Source.Model;
 using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
@@ -8,11 +9,11 @@ namespace SwipeOrDie.GameLogic
     public class CharacterMovement : ICharacterMovement
     {
         private readonly Transform _transform;
-        private readonly float _speed;
+        private readonly ISpeed _speed;
         private readonly IPosition _position;
         private bool _moving;
 
-        public CharacterMovement(Transform transform, float speed, IPosition position)
+        public CharacterMovement(Transform transform, ISpeed speed, IPosition position)
         {
             _transform = transform;
             _speed = speed;
@@ -46,8 +47,8 @@ namespace SwipeOrDie.GameLogic
             public Validator()
             {
                 RuleFor(movement => movement._transform).NotNull();
-                RuleFor(movement => movement._speed).GreaterThan(0);
                 RuleFor(movement => movement._position).NotNull();
+                RuleFor(movement => movement._speed).NotNull();
             }
         }
     }

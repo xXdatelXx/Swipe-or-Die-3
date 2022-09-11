@@ -1,3 +1,4 @@
+using Source.Model;
 using SwipeOrDie.Extension;
 using SwipeOrDie.Input;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace SwipeOrDie.GameLogic
     [RequireComponent(typeof(BoxCollider))]
     public class Character : MonoBehaviour, ICharacter
     {
-        [SerializeField, Range(0, 30)] private float _speed;
+        [SerializeField] private ISpeed _speed;
         private ICharacterMovement _movement;
         private IInput _input;
 

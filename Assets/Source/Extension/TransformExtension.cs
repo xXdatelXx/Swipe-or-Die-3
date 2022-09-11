@@ -1,4 +1,5 @@
 using System;
+using Source.Model;
 using UnityEngine;
 
 namespace SwipeOrDie.Extension
@@ -18,17 +19,14 @@ namespace SwipeOrDie.Extension
             return Vector3.Distance(position.position, to);
         }
 
-        public static float Time(this Transform transform, Transform to, float speed)
+        public static float Time(this Transform transform, Transform to, ISpeed speed)
         {
             return Time(transform, to.position, speed);
         }
 
-        public static float Time(this Transform transform, Vector3 to, float speed)
+        public static float Time(this Transform transform, Vector3 to, ISpeed speed)
         {
-            if (speed <= 0)
-                throw new ArgumentOutOfRangeException($"{nameof(speed)} <= 0");
-
-            return Distance(transform, to) / speed;
+            return Distance(transform, to) / speed.Value;
         }
     }
 }

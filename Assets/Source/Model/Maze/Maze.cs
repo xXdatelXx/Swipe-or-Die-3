@@ -3,14 +3,16 @@ using DG.Tweening;
 using UnityEngine;
 using FluentValidation;
 using Sirenix.OdinInspector;
+using Source.Model;
+using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
     public class Maze : SerializedMonoBehaviour
     {
-        [field: SerializeField] public readonly Start StartPoint;
         [SerializeField] private readonly IDestroyStrategy _destroyStrategy;
-        private const float Speed = 30;
+        private readonly Speed _speed = new(30);
+        public readonly Start StartPoint;
 
         private void Start()
         {
@@ -21,7 +23,7 @@ namespace SwipeOrDie.GameLogic
         public void Enable(Transform enablePosition)
         {
             var nextPosition = enablePosition.position;
-            var movingTime = Vector3.Distance(nextPosition, transform.position) / Speed;
+            var movingTime = transform.Time(nextPosition, _speed);
 
             transform.DOMove(nextPosition, movingTime);
         }

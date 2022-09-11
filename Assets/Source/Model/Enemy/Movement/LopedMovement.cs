@@ -12,7 +12,7 @@ namespace Source.Model.Enemy.Movement
     public class LopedMovement : SerializedMonoBehaviour
     {
         [SerializeField] private List<Transform> _point = new();
-        [SerializeField, Range(0, 100)] private float _speed;
+        [SerializeField] private readonly ISpeed _speed;
 
         private void Awake()
         {
@@ -39,7 +39,7 @@ namespace Source.Model.Enemy.Movement
         {
             public Validator()
             {
-                RuleFor(move => move._speed).GreaterThan(0);
+                RuleFor(move => move._speed).NotNull();
                 RuleFor(move => move._point).NotNull();
             }
         }
