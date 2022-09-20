@@ -15,5 +15,15 @@ namespace SwipeOrDie.Extension
         {
             return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
         }
+
+        public static Vector3 Circle(this Vector3 vector)
+        {
+            return new Vector3(0, 0, 360);
+        }
+
+        public static Vector3 HalfCircle(this Vector3 vector)
+        {
+            return Circle(vector) / 2;
+        }
     }
 }

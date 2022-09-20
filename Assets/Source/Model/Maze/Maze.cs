@@ -1,31 +1,34 @@
 using System;
-using DG.Tweening;
 using UnityEngine;
 using FluentValidation;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using Source.Model;
-using SwipeOrDie.Extension;
+using Source.Model.Movement.Interface;
 
 namespace SwipeOrDie.GameLogic
 {
     public class Maze : SerializedMonoBehaviour
     {
-        [SerializeField] private readonly IDestroyStrategy _destroyStrategy;
-        private readonly Speed _speed = new(30);
-        public readonly Start StartPoint;
+        [SerializeField] private IDestroyStrategy _destroyStrategy;
+        [SerializeField] private IMazeEvent _event;
+        private readonly ISpeed _speed = new Speed(30);
+        public readonly IStartPoint StartPoint;
+        private IMovement _movement;
 
         private void Start()
         {
-            new Validator(GetComponentInChildren<Start>(), GetComponentInChildren<Finish>())
+            _movement = new InterpolationMovement(transform, _speed);
+            _event ??= new MazeEvent();
+            
+            new Validator(GetComponentInChildren<IStartPoint>(), GetComponentInChildren<IFinishPoint>())
                 .ValidateAndThrow(this);
         }
 
         public void Enable(Transform enablePosition)
         {
-            var nextPosition = enablePosition.position;
-            var movingTime = transform.Time(nextPosition, _speed);
-
-            transform.DOMove(nextPosition, movingTime);
+            _event.OnMazeEnabled();
+            _movement.Move(enablePosition.position);
         }
 
         public void Destroy()
@@ -35,16 +38,19 @@ namespace SwipeOrDie.GameLogic
 
         private class Validator : AbstractValidator<Maze>
         {
-            public Validator(Start childStart, Finish childFinish)
+            public Validator(IStartPoint childStart, IFinishPoint childFinish)
             {
                 if (childStart == null)
                     throw new NullReferenceException("Dont have Start in child");
                 if (childFinish == null)
                     throw new NullReferenceException("Dont have Finish in child");
 
-                RuleFor(maze => maze.StartPoint).Equal(childStart).WithMessage($"{nameof(StartPoint)} must be child");
-                RuleFor(maze => maze.StartPoint).NotNull();
                 RuleFor(maze => maze._destroyStrategy).NotNull();
+                RuleFor(maze => maze._movement).NotNull();
+                RuleFor(maze => maze._event).NotNull();
+                RuleFor(maze => maze.StartPoint)
+                    .Equal(childStart).WithMessage($"{nameof(StartPoint)} must be child")
+                    .NotNull();
             }
         }
     }

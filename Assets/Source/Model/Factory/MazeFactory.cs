@@ -8,15 +8,15 @@ namespace SwipeOrDie.Factory
 {
     public class MazeFactory : SerializedMonoBehaviour
     {
-        [SerializeField] private readonly MazeItems _items;
-        [SerializeField] private readonly Transform _enablePoint;
+        [SerializeField] private MazeItems _items;
+        [SerializeField] private Transform _enablePoint;
         [SerializeField] private Maze _previousMaze;
         private IFactory<Maze> _factory;
         private Maze _nextMaze;
 
         private void Awake()
         {
-            _factory = new MonoBehaviourFactory<Maze>(transform, transform);
+            _factory = new MonoBehaviourFactory<Maze>(transform);
             new Validator().ValidateAndThrow(this);
         }
 

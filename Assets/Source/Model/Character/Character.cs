@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using Source.Model;
 using SwipeOrDie.Extension;
 using SwipeOrDie.Input;
@@ -7,7 +8,7 @@ using Zenject;
 namespace SwipeOrDie.GameLogic
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class Character : MonoBehaviour, ICharacter
+    public class Character : SerializedMonoBehaviour, ICharacter
     {
         [SerializeField] private ISpeed _speed;
         private ICharacterMovement _movement;

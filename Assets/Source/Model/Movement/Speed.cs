@@ -6,7 +6,7 @@ namespace Source.Model
     [Serializable]
     public struct Speed : ISpeed
     {
-        [field: Min(0)] public float Value { get; }
+        [field: SerializeField, Min(0)] public float Value { get; private set; }
 
         public Speed(float value)
         {

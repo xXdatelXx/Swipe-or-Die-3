@@ -7,8 +7,8 @@ namespace SwipeOrDie.Strategy
 {
     public class MazeDestroyStrategy : SerializedMonoBehaviour, IDestroyStrategy
     {
-        [SerializeField] private readonly ITimer _destroyTimer;
-        [SerializeField] private readonly IDestroyView _view;
+        [SerializeField] private ITimer _destroyTimer;
+        [SerializeField] private IDestroyView _view;
 
         private void Awake()
         {

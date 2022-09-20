@@ -5,7 +5,7 @@ using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class Finish : MonoBehaviour
+    public class Finish : MonoBehaviour, IFinishPoint
     {
         private LevelCreator _levelCreator;
 

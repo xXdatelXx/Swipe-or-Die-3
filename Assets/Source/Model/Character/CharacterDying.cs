@@ -6,17 +6,19 @@ namespace SwipeOrDie.GameLogic
 {
     public class CharacterDying : SerializedMonoBehaviour, IDying
     {
-        [SerializeField] private readonly IDyingView _view;
+        [SerializeField] private readonly IDyingView _dieView;
+        [SerializeField] private readonly ILoseView _loseView;
 
         private void OnEnable()
         {
-            if (_view == null)
-                throw new NullReferenceException($"{nameof(_view)} == null");
+            if (_dieView == null)
+                throw new NullReferenceException($"{nameof(_dieView)} == null");
         }
 
         public void Die()
         {
-            _view.OnDie(); 
+            _dieView.OnDie();
+            _loseView.OnLose();
         }
     }
 }

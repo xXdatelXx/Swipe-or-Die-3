@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 using System.Linq;
 using FluentValidation;
-using SwipeOrDie.Extension;
 using SwipeOrDie.GameLogic;
 using Random = UnityEngine.Random;
 using Sirenix.OdinInspector;
@@ -13,8 +11,8 @@ namespace SwipeOrDie.Data
     [CreateAssetMenu(menuName = "MazeItems", fileName = "MazeItems")]
     public class MazeItems : SerializedScriptableObject
     {
-        [SerializeField] private readonly List<MazeItem> _items = new();
-        [SerializeField] private readonly Complexity _complexity;
+        [SerializeField] private List<MazeItem> _items = new();
+        [SerializeField] private Complexity _complexity;
         [SerializeField, Range(0, 10)] private int _minComplexitySubtractor;
         private MazeItem _previousItem;
 
@@ -37,11 +35,9 @@ namespace SwipeOrDie.Data
         {
             var complexity = ComplexityRange(score);
 
-            var items = _items
-                .Where(item => item.Complexity == complexity.Min || item.Complexity == complexity.Max)
+            return _items
+                .Where(item => complexity.InRange(item.Complexity))
                 .ToList();
-
-            return items ?? throw new InvalidOperationException();
         }
 
         private MazeItem RandomItem(List<MazeItem> collection)
@@ -57,10 +53,10 @@ namespace SwipeOrDie.Data
             _previousItem = item;
         }
 
-        private EnumRange<Complexity.Value> ComplexityRange(IScore score)
+        private Range ComplexityRange(IScore score)
         {
-            var complexity = _complexity.Get(score);
-            return new EnumRange<Complexity.Value>(complexity.Next(-_minComplexitySubtractor), complexity);
+            int scoreValue = _complexity.Get(score);
+            return new Range(scoreValue - _minComplexitySubtractor, scoreValue);
         }
 
         private class Validator : AbstractValidator<MazeItems>

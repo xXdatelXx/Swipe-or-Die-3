@@ -8,9 +8,9 @@ namespace SwipeOrDie.View
 {
     public class MazeDestroyView : SerializedMonoBehaviour, IDestroyView
     {
-        [SerializeField] private readonly Transform _destroyPoint;
-        [SerializeField] private readonly Vector3 _destroyRotate;
-        [SerializeField] private readonly Color _destroyColor;
+        [SerializeField] private Transform _destroyPoint;
+        [SerializeField] private Vector3 _destroyRotate;
+        [SerializeField] private Color _destroyColor;
         private Material _material;
 
         private void Awake()

@@ -21,4 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _minComplexitySubtractor: 1
+  _items: []
+  _complexity: {fileID: 0}
+  _minComplexitySubtractor: 0

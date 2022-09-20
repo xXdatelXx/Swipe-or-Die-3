@@ -29,5 +29,10 @@ namespace SwipeOrDie.Extension
         {
             return list.Any(i => i.Equals(item));
         }
+
+        public static T Max<T>(this List<T> list)
+        {
+            return list[list.Count];
+        }
     }
 }

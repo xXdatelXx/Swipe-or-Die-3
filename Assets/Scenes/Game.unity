@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &126596806 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7707828037251291217, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
+  m_PrefabInstance: {fileID: 3291102571462215363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a742a1e4530584ab971db338bd1e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &126721217
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +314,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cab6da8b8245bc4bb46a43c72668e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _speed
+      Entry: 6
+      Data: 
 --- !u!114 &185988027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f717d88284661469db6cb8aa1adb3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Time>k__BackingField: 0.1
+  <Time>k__BackingField: 0.02
 --- !u!1 &376893732
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +448,7 @@ GameObject:
   - component: {fileID: 679224665}
   - component: {fileID: 679224664}
   - component: {fileID: 679224663}
+  - component: {fileID: 679224667}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -511,6 +534,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &679224667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679224662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529b891121094220a8a99643373fbcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +884,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22abbf44aa4c4601abebb235d627c036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _speed
+      Entry: 6
+      Data: 
   _point:
   - {fileID: 1208139259}
   - {fileID: 376893736}
@@ -1101,6 +1148,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  _items: {fileID: 0}
+  _enablePoint: {fileID: 0}
   _previousMaze: {fileID: 1820147797}
 --- !u!4 &1862943486
 Transform:
@@ -1164,6 +1213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ca57f48dfd45e408cde2c473b0870e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterTeleport: {fileID: 0}
+  _mazeFactory: {fileID: 0}
+  _gameTimerLoseView: {fileID: 0}
+  _gameTimerView: {fileID: 0}
 --- !u!114 &1896720572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,23 +1264,31 @@ PrefabInstance:
     - target: {fileID: 3291102573001180816, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3291102573001180816, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
     - target: {fileID: 3291102573001180816, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3291102573001180816, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
       value: '"path":"_destroyStrategy","value":$eref:0'
       objectReference: {fileID: 0}
     - target: {fileID: 3291102573001180816, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[1]
+      value: '"path":"StartPoint","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3291102573001180816, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3291102573001180816, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
       objectReference: {fileID: 1820147800}
+    - target: {fileID: 3291102573001180816, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 126596806}
     - target: {fileID: 3291102573001180817, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: m_Name
       value: Maze

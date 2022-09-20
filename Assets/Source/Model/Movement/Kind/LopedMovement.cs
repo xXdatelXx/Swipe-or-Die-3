@@ -12,7 +12,7 @@ namespace Source.Model.Enemy.Movement
     public class LopedMovement : SerializedMonoBehaviour
     {
         [SerializeField] private List<Transform> _point = new();
-        [SerializeField] private readonly ISpeed _speed;
+        [SerializeField] private ISpeed _speed;
 
         private void Awake()
         {

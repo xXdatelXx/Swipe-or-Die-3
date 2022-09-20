@@ -6,7 +6,7 @@ namespace Source.Model.Enemy
 {
     public class BulletDestroyStrategy : MonoBehaviour
     {
-        [SerializeField] private readonly IDestroyView _destroyView;
+        [SerializeField] private IDestroyView _destroyView;
 
         private void Awake()
         {

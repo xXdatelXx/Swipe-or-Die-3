@@ -1,10 +1,11 @@
 using SwipeOrDie.Extension;
+using SwipeOrDie.Factory;
 using SwipeOrDie.GameLogic;
 using UnityEngine;
 
 namespace Source.Model.Enemy
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour, IEnemy
     {
         private void OnCollisionEnter(Collision collision)
         {

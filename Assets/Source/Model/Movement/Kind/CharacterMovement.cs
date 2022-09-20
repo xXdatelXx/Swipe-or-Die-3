@@ -1,40 +1,34 @@
 using UnityEngine;
-using DG.Tweening;
 using FluentValidation;
 using Source.Model;
-using SwipeOrDie.Extension;
+using Source.Model.Movement.Interface;
 
 namespace SwipeOrDie.GameLogic
 {
     public class CharacterMovement : ICharacterMovement
     {
-        private readonly Transform _transform;
-        private readonly ISpeed _speed;
         private readonly IPosition _position;
+        private readonly IMovement _movement;
         private bool _moving;
 
         public CharacterMovement(Transform transform, ISpeed speed, IPosition position)
         {
-            _transform = transform;
-            _speed = speed;
             _position = position;
-
+            _movement = new InterpolationMovement(transform, speed);
+            
             new Validator().ValidateAndThrow(this);
         }
 
-        public void Move(Vector2 direction)
+        public async void Move(Vector2 direction)
         {
             if (!CanMove(direction))
                 return;
 
             _moving = true;
 
-            var nextPosition = _position.Next(direction);
-            var movingTime = _transform.Time(nextPosition, _speed);
+            await _movement.Move(_position.Next(direction));
 
-            DOTween.Sequence()
-                .Append(_transform.DOMove(nextPosition, movingTime))
-                .onComplete += () => _moving = false;
+            _moving = false;
         }
 
         private bool CanMove(Vector2 direction)
@@ -46,9 +40,8 @@ namespace SwipeOrDie.GameLogic
         {
             public Validator()
             {
-                RuleFor(movement => movement._transform).NotNull();
                 RuleFor(movement => movement._position).NotNull();
-                RuleFor(movement => movement._speed).NotNull();
+                RuleFor(movement => movement._movement).NotNull();
             }
         }
     }

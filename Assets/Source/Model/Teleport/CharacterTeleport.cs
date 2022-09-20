@@ -8,7 +8,7 @@ namespace SwipeOrDie.GameLogic
     [RequireComponent(typeof(ICharacterTeleportView))]
     public class CharacterTeleport : SerializedMonoBehaviour, ICharacterTeleport
     {
-        [SerializeField] private readonly ITimer _timer;
+        [SerializeField] private ITimer _timer;
         private ICharacterTeleportView _view;
 
         private void Awake()
@@ -19,7 +19,7 @@ namespace SwipeOrDie.GameLogic
             _view = GetComponent<ICharacterTeleportView>();
         }
 
-        public async void Teleport(Start target)
+        public async void Teleport(IStartPoint target)
         {
             await Start();
 

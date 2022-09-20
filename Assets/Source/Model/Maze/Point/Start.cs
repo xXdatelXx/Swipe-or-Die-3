@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class Start : MonoBehaviour
+    public class Start : MonoBehaviour, IStartPoint
     {
         public Transform Parent => transform.parent;
         public Vector3 LocalPosition => transform.localPosition;

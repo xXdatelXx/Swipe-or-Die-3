@@ -688,6 +688,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 4669149381424982829}
+    - {fileID: 7707828037251291217}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -696,6 +697,9 @@ MonoBehaviour:
     - Name: _destroyStrategy
       Entry: 10
       Data: 0
+    - Name: StartPoint
+      Entry: 10
+      Data: 1
 --- !u!114 &3025577514664808865
 MonoBehaviour:
   m_ObjectHideFlags: 0
