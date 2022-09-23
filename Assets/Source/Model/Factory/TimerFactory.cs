@@ -7,29 +7,34 @@ namespace SwipeOrDie.Factory
 {
     public class TimerFactory : SerializedMonoBehaviour
     {
-        [SerializeField, Range(0, 10)] private readonly float _reload;
-        [SerializeField] private readonly MonoBehaviour _prefab;
-        [SerializeField] private readonly ITimer _timer;
+        [SerializeField] private MonoBehaviour _prefab;
+        [SerializeField] private ITimer _timer;
         private IFactory<MonoBehaviour> _factory;
 
         private void Awake()
         {
             _factory = new MonoBehaviourFactory<MonoBehaviour>(transform);
+            new Validator().ValidateAndThrow(this);
+            
+            Spawn();
         }
 
-        private async void Update()
+        private async void Spawn()
         {
-            await _timer.Play();
-            _factory.Create(_prefab);
+            while (true)
+            {
+                await _timer.Play();
+                _factory.Create(_prefab);
+            }
         }
 
         private class Validator : AbstractValidator<TimerFactory>
         {
             public Validator()
             {
-                RuleFor(factory => factory._reload).GreaterThanOrEqualTo(0);
                 RuleFor(factory => factory._prefab).NotNull();
                 RuleFor(factory => factory._timer).NotNull();
+                RuleFor(factory => factory._factory).NotNull();
             }
         }
     }

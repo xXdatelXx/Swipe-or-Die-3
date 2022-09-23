@@ -3,13 +3,13 @@ using FluentValidation;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class Position : IPosition
+    public class RayPosition : IPosition
     {
         private readonly Transform _transform;
         private readonly IRadius _radius;
         private readonly Validator _validator;
 
-        public Position(Transform transform, IRadius radius)
+        public RayPosition(Transform transform, IRadius radius)
         {
             _transform = transform;
             _radius = radius;
@@ -30,7 +30,7 @@ namespace SwipeOrDie.GameLogic
                 : hit.point + _radius.Indent(direction);
         }
 
-        private class Validator : AbstractValidator<Position>
+        private class Validator : AbstractValidator<RayPosition>
         {
             public Validator()
             {

@@ -2,24 +2,25 @@ using System.Collections.Generic;
 using System.Collections;
 using DG.Tweening;
 using Sirenix.OdinInspector;
-using Source.Model;
 using UnityEngine;
 using System.Linq;
-using Color = SwipeOrDie.Data.Color;
+using SwipeOrDie.Data;
+using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class MazeApocaliptika : SerializedMonoBehaviour, IMazeEvent
+    public class MazeEpilepsy : SerializedMonoBehaviour, IMazeEvent
     {
-        [SerializeField] private Speed _duration;
-        [SerializeField] private Speed _colorForce;
-        private List<Material> _materials;
-        private Color _color;
+        [SerializeField, Min(0)] private float _duration;
+        [SerializeField, Min(0)] private float _colorForce;
+        private IReadOnlyList<Material> _materials;
+        private RandomColor _randomColor;
 
         private void Awake()
         {
             _materials = GetComponentsInChildren<Renderer>().Select(r => r.material).ToList();
-            _color = new(_colorForce);
+            _randomColor = new(_colorForce);
+            _duration.TryThrowSubZeroException();
         }
 
         public void OnMazeEnabled()
@@ -34,11 +35,11 @@ namespace SwipeOrDie.GameLogic
                 foreach (var material in _materials)
                 {
                     material
-                        .DOColor(_color.Random(), _duration.Value)
+                        .DOColor(_randomColor.Next(), _duration)
                         .SetEase(Ease.Linear);
                 }
 
-                yield return new WaitForSeconds(_duration.Value);
+                yield return new WaitForSeconds(_duration);
             }
         }
     }

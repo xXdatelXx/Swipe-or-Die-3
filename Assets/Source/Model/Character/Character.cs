@@ -20,7 +20,7 @@ namespace SwipeOrDie.GameLogic
             _input = input;
 
             var radius = new Radius(GetComponent<BoxCollider>().ToCube().Radius());
-            var position = new Position(transform, radius);
+            var position = new RayPosition(transform, radius);
 
             _movement = new CharacterMovement(transform, _speed, position);
         }

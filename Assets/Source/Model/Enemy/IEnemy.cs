@@ -1,6 +1,6 @@
 namespace SwipeOrDie.Factory
 {
-    public interface IEnemy 
+    public interface IEnemy
     {
     }
 }

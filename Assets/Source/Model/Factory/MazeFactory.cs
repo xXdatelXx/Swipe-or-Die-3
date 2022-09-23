@@ -8,9 +8,9 @@ namespace SwipeOrDie.Factory
 {
     public class MazeFactory : SerializedMonoBehaviour
     {
-        [SerializeField] private MazeItems _items;
+        [SerializeField] private IMazeItems _items;
         [SerializeField] private Transform _enablePoint;
-        [SerializeField] private Maze _previousMaze;
+        [SerializeField] private Maze _activeMaze;
         private IFactory<Maze> _factory;
         private Maze _nextMaze;
 
@@ -28,18 +28,17 @@ namespace SwipeOrDie.Factory
         public Maze Create(Score score)
         {
             _nextMaze = _factory.Create(_items.Get(score));
-
-            return _previousMaze;
+            return _activeMaze;
         }
 
         public void Destroy()
         {
-            if (_previousMaze == null)
+            if (_activeMaze == null)
                 return;
 
-            _previousMaze.Destroy();
+            _activeMaze.Destroy();
             _nextMaze.Enable(_enablePoint);
-            _previousMaze = _nextMaze;
+            _activeMaze = _nextMaze;
         }
 
         private class Validator : AbstractValidator<MazeFactory>
@@ -49,7 +48,7 @@ namespace SwipeOrDie.Factory
                 RuleFor(factory => factory._factory).NotNull();
                 RuleFor(factory => factory._items).NotNull();
                 RuleFor(factory => factory._enablePoint).NotNull();
-                RuleFor(factory => factory._previousMaze).NotNull();
+                RuleFor(factory => factory._activeMaze).NotNull();
             }
         }
     }

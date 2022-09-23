@@ -669,7 +669,7 @@ Transform:
   - {fileID: 1456908274023879012}
   - {fileID: 4605311838567114997}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3291102573001180816
 MonoBehaviour:
@@ -697,6 +697,21 @@ MonoBehaviour:
     - Name: _destroyStrategy
       Entry: 10
       Data: 0
+    - Name: _event
+      Entry: 7
+      Data: 0|MazeEvent, Assembly
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _speed
+      Entry: 7
+      Data: 1|Source.Model.Speed, Assembly
+    - Name: <Value>k__BackingField
+      Entry: 4
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: StartPoint
       Entry: 10
       Data: 1
@@ -776,6 +791,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  _destroyPoint: {fileID: 4605311838567114997}
+  _destroyRotate: {x: 0, y: 0, z: 30}
+  _destroyColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &4837721795837990183
 GameObject:
   m_ObjectHideFlags: 0

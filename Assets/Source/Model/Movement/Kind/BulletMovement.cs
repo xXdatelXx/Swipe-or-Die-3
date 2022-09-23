@@ -1,25 +1,29 @@
 using UnityEngine;
 using SwipeOrDie.GameLogic;
+using SwipeOrDie.Extension;
 using Sirenix.OdinInspector;
 using Source.Model.Movement.Interface;
 
 namespace Source.Model.Enemy.Movement
 {
+    [RequireComponent(typeof(SphereCollider))]
     public class BulletMovement : SerializedMonoBehaviour
     {
         [SerializeField] private ISpeed _speed;
-        [SerializeField] private IPosition _position;
+        private IPosition _position;
         private IMovement _movement;
 
         private void Awake()
         {
+            _position = new RayPosition(transform, new Radius(GetComponent<SphereCollider>().radius));
             _movement = new InterpolationMovement(transform, _speed);
+
             Move();
         }
 
-        private async void Move()
+        private void Move()
         {
-            await _movement.Move(_position.Next(transform.forward));
+            _movement.Move(_position.Next(Vector2.right));
         }
     }
 }

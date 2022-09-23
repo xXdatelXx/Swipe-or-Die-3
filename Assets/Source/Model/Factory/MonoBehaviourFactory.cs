@@ -15,11 +15,11 @@ namespace SwipeOrDie.Factory
 
         public MonoBehaviourFactory(Transform spawnPoint, Transform parent)
         {
-            _spawnPoint = spawnPoint ? spawnPoint : throw  new ArgumentNullException(nameof(spawnPoint));
+            _spawnPoint = spawnPoint ? spawnPoint : throw new ArgumentNullException(nameof(spawnPoint));
             _parent = parent;
         }
 
-        public T Create(T obj) 
+        public T Create(T obj)
         {
             return Object.Instantiate(obj, _spawnPoint.position, _spawnPoint.rotation, _parent);
         }

@@ -16,7 +16,7 @@ public class InterpolationMovement : IMovement
         _speed = speed;
     }
 
-    public async Task Move(Vector2 nextPosition)
+    public async Task Move(Vector3 nextPosition)
     {
         var movingTime = _transform.Time(nextPosition, _speed);
         await _transform.DOMove(nextPosition, movingTime).AsyncWaitForCompletion();

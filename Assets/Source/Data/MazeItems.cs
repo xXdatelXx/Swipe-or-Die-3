@@ -3,18 +3,18 @@ using UnityEngine;
 using System.Linq;
 using FluentValidation;
 using SwipeOrDie.GameLogic;
-using Random = UnityEngine.Random;
+using SwipeOrDie.Extension;
 using Sirenix.OdinInspector;
 
 namespace SwipeOrDie.Data
 {
-    [CreateAssetMenu(menuName = "MazeItems", fileName = "MazeItems")]
-    public class MazeItems : SerializedScriptableObject
+    [CreateAssetMenu(fileName = nameof(MazeItems))]
+    public class MazeItems : SerializedScriptableObject, IMazeItems
     {
-        [SerializeField] private List<MazeItem> _items = new();
-        [SerializeField] private Complexity _complexity;
+        [SerializeField] private IReadOnlyList<IMazeItem> _items;
+        [SerializeField] private IComplexity _complexity;
         [SerializeField, Range(0, 10)] private int _minComplexitySubtractor;
-        private MazeItem _previousItem;
+        private IMazeItem _previousItem;
 
         private void OnEnable()
         {
@@ -23,34 +23,21 @@ namespace SwipeOrDie.Data
 
         public Maze Get(IScore score)
         {
-            var item = RandomItem(Items(score));
-            _items.Remove(item);
-
-            UpdatePreviousItem(item);
+            var item = Items(score).Random();
+            _previousItem = item;
 
             return item.Maze;
         }
 
-        private List<MazeItem> Items(IScore score)
+        private IReadOnlyList<IMazeItem> Items(IScore score)
         {
             var complexity = ComplexityRange(score);
 
-            return _items
+            var items = _items
                 .Where(item => complexity.InRange(item.Complexity))
                 .ToList();
-        }
 
-        private MazeItem RandomItem(List<MazeItem> collection)
-        {
-            return collection[Random.Range(0, collection.Count)];
-        }
-
-        private void UpdatePreviousItem(MazeItem item)
-        {
-            if (_previousItem != null)
-                _items.Add(_previousItem);
-
-            _previousItem = item;
+            return items.Count == 1 ? items : items.Where(item => item != _previousItem).ToList();
         }
 
         private Range ComplexityRange(IScore score)
@@ -63,14 +50,13 @@ namespace SwipeOrDie.Data
         {
             public Validator()
             {
-                RuleFor(collection => collection._complexity).NotNull();
-                RuleFor(collection => collection._items.Count()).GreaterThan(0);
-
                 var mazeValidator = new MazeItem.Validator();
 
+                RuleFor(collection => collection._complexity).NotNull();
+                RuleFor(collection => collection._items.Count()).GreaterThan(0);
                 RuleForEach(collection => collection._items)
-                    .NotNull()
-                    .SetValidator(mazeValidator);
+                    .SetValidator(mazeValidator)
+                    .NotNull();
             }
         }
     }

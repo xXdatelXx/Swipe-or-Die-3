@@ -15,12 +15,39 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: d74cb4c31ecbcd4469debddf0715c9da, type: 2}
+    - {fileID: 11400000, guid: 764eb42ac2b54514eacff15c2df6f94c, type: 2}
+    - {fileID: 11400000, guid: 2b40dc3f985a4b94796eb9223dce3cf3, type: 2}
+    - {fileID: 11400000, guid: e507c949917fe87409ddf940aeefa0b0, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  _items: []
-  _complexity: {fileID: 0}
-  _minComplexitySubtractor: 0
+    SerializationNodes:
+    - Name: _items
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SwipeOrDie.Data.IMazeItem, Assembly]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _complexity
+      Entry: 10
+      Data: 3
+  _minComplexitySubtractor: 1

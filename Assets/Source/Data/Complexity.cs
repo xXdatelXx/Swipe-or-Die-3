@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace SwipeOrDie.Data
 {
-    [CreateAssetMenu(menuName = "Complexity", fileName = "Complexity")]
-    public class Complexity : ScriptableObject
+    [CreateAssetMenu(fileName = nameof(Complexity))]
+    public class Complexity : ScriptableObject, IComplexity
     {
         [SerializeField] private List<int> _level = new();
 
@@ -18,8 +18,11 @@ namespace SwipeOrDie.Data
 
         public int Get(IScore score)
         {
-            foreach (int i in _level.Where(i => score.Value <= i))
-                return i;
+            for (int i = 0; i < _level.Count; i++)
+            {
+                if (score.Value <= _level[i])
+                    return i;
+            }
 
             return _level.Max();
         }

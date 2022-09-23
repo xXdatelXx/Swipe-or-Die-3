@@ -5,6 +5,6 @@ namespace Source.Model.Movement.Interface
 {
     public interface IMovement
     {
-        Task Move(Vector2 nextPosition);
+        Task Move(Vector3 nextPosition);
     }
 }

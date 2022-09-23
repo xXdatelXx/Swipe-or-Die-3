@@ -9,7 +9,7 @@ namespace SwipeOrDie.GameLogic
 {
     public class MazeRotate : SerializedMonoBehaviour, IMazeEvent
     {
-        [SerializeField] private Speed _duration;
+        [SerializeField] private ISpeed _duration;
         private readonly Vector3 _rotateAngle = new Vector3().HalfCircle();
 
         public void OnMazeEnabled()
