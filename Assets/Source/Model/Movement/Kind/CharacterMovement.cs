@@ -15,7 +15,7 @@ namespace SwipeOrDie.GameLogic
         {
             _position = position;
             _movement = new InterpolationMovement(transform, speed);
-            
+
             new Validator().ValidateAndThrow(this);
         }
 

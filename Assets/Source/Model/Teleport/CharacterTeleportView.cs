@@ -6,6 +6,8 @@ namespace SwipeOrDie.GameLogic
     public class CharacterTeleportView : MonoBehaviour, ICharacterTeleportView
     {
         private Animator _animator;
+        private string _startAnimation => "TeleportStart";
+        private string _endAnimation => "TeleportEnd";
 
         private void Awake()
         {
@@ -14,11 +16,12 @@ namespace SwipeOrDie.GameLogic
 
         public void OnStart()
         {
-            // фшиу пау рапапам 
+            _animator.SetTrigger(_startAnimation);
         }
 
         public void OnEnd()
         {
+            _animator.SetTrigger(_endAnimation);
         }
     }
 }

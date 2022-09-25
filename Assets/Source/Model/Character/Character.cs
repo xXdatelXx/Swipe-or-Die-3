@@ -23,21 +23,23 @@ namespace SwipeOrDie.GameLogic
             var position = new RayPosition(transform, radius);
 
             _movement = new CharacterMovement(transform, _speed, position);
-        }
 
-        private void OnEnable()
-        {
-            _input.Enable();
-        }
-
-        private void OnDisable()
-        {
-            _input.Disable();
+            Enable();
         }
 
         private void Update()
         {
             _movement.Move(_input.Direction);
+        }
+
+        public void Enable()
+        {
+            _input.Enable();
+        }
+
+        public void Disable()
+        {
+            _input.Disable();
         }
     }
 }

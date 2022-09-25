@@ -1,27 +1,28 @@
 using UnityEngine;
 using System.Threading.Tasks;
-using System;
+using FluentValidation;
 using Sirenix.OdinInspector;
 
 namespace SwipeOrDie.GameLogic
 {
-    [RequireComponent(typeof(ICharacterTeleportView))]
+    [RequireComponent(typeof(ICharacterTeleportView), typeof(ICharacter))]
     public class CharacterTeleport : SerializedMonoBehaviour, ICharacterTeleport
     {
         [SerializeField] private ITimer _timer;
+        private ICharacter _character;
         private ICharacterTeleportView _view;
 
         private void Awake()
         {
-            if (_timer == null)
-                throw new NullReferenceException($"{nameof(_timer)} == null");
-
+            _character = GetComponent<ICharacter>();
             _view = GetComponent<ICharacterTeleportView>();
+
+            new Validator().ValidateAndThrow(this);
         }
 
         public async void Teleport(IStartPoint target)
         {
-            await Start();
+            await Begin();
 
             transform.parent = target.Parent;
             transform.localPosition = target.LocalPosition;
@@ -29,15 +30,28 @@ namespace SwipeOrDie.GameLogic
             OnEnd();
         }
 
-        private async Task Start()
+        private async Task Begin()
         {
+            _character.Disable();
             _view.OnStart();
+
             await _timer.Play();
         }
 
         private void OnEnd()
         {
+            _character.Enable();
             _view.OnEnd();
+        }
+
+        private class Validator : AbstractValidator<CharacterTeleport>
+        {
+            public Validator()
+            {
+                RuleFor(teleport => teleport._timer).NotNull();
+                RuleFor(teleport => teleport._character).NotNull();
+                RuleFor(teleport => teleport._view).NotNull();
+            }
         }
     }
 }

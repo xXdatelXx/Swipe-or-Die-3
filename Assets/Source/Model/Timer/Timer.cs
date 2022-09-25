@@ -1,7 +1,6 @@
 using System;
 using FluentValidation;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 namespace SwipeOrDie.GameLogic
 {
@@ -10,11 +9,7 @@ namespace SwipeOrDie.GameLogic
         private readonly Action _onEnd;
         public float Time { get; private set; }
 
-        public Timer(float time) : this(time, null)
-        {
-        }
-
-        public Timer(float time, Action onEnd)
+        public Timer(float time, Action onEnd = null)
         {
             Time = time;
             _onEnd = onEnd;

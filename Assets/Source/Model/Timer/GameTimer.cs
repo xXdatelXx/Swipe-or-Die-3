@@ -5,15 +5,15 @@ namespace Source
 {
     public class GameTimer : IGameTimer
     {
-        private readonly ILoseView _loseView;
+        private readonly ILose _lose;
         private readonly ITimerView _timerView;
         private const float AddedTimeOnFinish = 2;
         private const float AllTime = 30;
         private ITimer _timer;
 
-        public GameTimer(ILoseView loseView, ITimerView timerView)
+        public GameTimer(ILose lose, ITimerView timerView)
         {
-            _loseView = loseView;
+            _lose = lose;
             _timerView = timerView;
         }
 
@@ -21,7 +21,7 @@ namespace Source
         {
             Play(_timer.Time + AddedTimeOnFinish);
         }
-        
+
         public void Play()
         {
             Play(AllTime);
@@ -30,15 +30,15 @@ namespace Source
         private void Play(float time)
         {
             _timer = new Timer(time, Lose);
-            
-            _timerView.OnSetTime(_timer.Time);
+
+            _timerView.OnSetTime(_timer.Time * AllTime / 100);
             _timer.Play();
         }
-        
+
         private void Lose()
         {
             _timerView.OnEndTime();
-            _loseView.OnLose();
+            _lose.Lose();
         }
     }
 }

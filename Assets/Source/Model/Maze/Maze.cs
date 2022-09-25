@@ -11,8 +11,8 @@ namespace SwipeOrDie.GameLogic
         [SerializeField] private IDestroyStrategy _destroyStrategy;
         [SerializeField] private IMazeEvent _event;
         [SerializeField, ReadOnly] private readonly ISpeed _speed = new Speed(30);
-        public readonly IStartPoint StartPoint;
         private IMovement _movement;
+        public readonly IStartPoint StartPoint;
 
         private void Start()
         {
@@ -38,10 +38,10 @@ namespace SwipeOrDie.GameLogic
                 RuleFor(maze => maze._destroyStrategy).NotNull();
                 RuleFor(maze => maze._movement).NotNull();
                 RuleFor(maze => maze._event).NotNull();
-                // RuleFor(maze => maze.GetComponent<IFinishPoint>()).NotNull();
-                //  RuleFor(maze => maze.GetComponent<IStartPoint>())
-                //     .Equal(maze => maze.StartPoint)
-                //     .NotNull();
+                //RuleFor(maze => maze.GetComponent<IFinishPoint>()).NotNull();
+                //RuleFor(maze => maze.StartPoint)
+                //    .Equal(maze => maze.StartPoint)
+                //    .NotNull();
             }
         }
     }
