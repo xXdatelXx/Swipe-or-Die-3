@@ -8,7 +8,7 @@ using Zenject;
 namespace SwipeOrDie.GameLogic
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class Character : SerializedMonoBehaviour, ICharacter
+    public class Character : SerializedMonoBehaviour, ICharacter, IPauseHandler
     {
         [SerializeField] private ISpeed _speed;
         private ICharacterMovement _movement;
@@ -32,14 +32,12 @@ namespace SwipeOrDie.GameLogic
             _movement.Move(_input.Direction);
         }
 
-        public void Enable()
-        {
-            _input.Enable();
-        }
+        public void Enable() => _input.Enable();
 
-        public void Disable()
-        {
-            _input.Disable();
-        }
+        public void Disable() => _input.Disable();
+
+        public void OnPause() => Disable();
+        
+        public void OnPlay() => Enable();
     }
 }

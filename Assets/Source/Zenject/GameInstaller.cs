@@ -5,6 +5,7 @@ using SwipeOrDie.GameLogic;
 using SwipeOrDie.Input;
 using SwipeOrDie.View;
 using Zenject;
+using SwipeOrDie.Data;
 using UnityEngine;
 
 public class GameInstaller : MonoInstaller
@@ -13,12 +14,13 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private MazeFactory _mazeFactory;
     [SerializeField] private LoseView _loseView;
     [SerializeField] private TimerView _gameTimerView;
+    [SerializeField] private TimeBalance _balance;
 
     public override void InstallBindings()
     {
         var pause = new GamePause();
         var lose = new Losing(_loseView, pause);
-        var gameTimer = new GameTimer(lose, _gameTimerView);
+        var gameTimer = new GameTimer(lose, _gameTimerView, _balance);
         gameTimer.Play();
 
         Container.BindInterfacesAndSelfTo<CharacterInput>().FromNew().AsSingle();

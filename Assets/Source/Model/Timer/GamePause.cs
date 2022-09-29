@@ -4,16 +4,21 @@ namespace Source.Model.Timer
 {
     public class GamePause : IPause
     {
-        private List<IPauseView> _views = new();
+        private readonly List<IPauseHandler> _handlers = new();
 
-        public void Add(IPauseView view)
+        public void Add(IPauseHandler handler)
         {
-            _views.Add(view);
+            _handlers.Add(handler);
         }
 
         public void Pause()
         {
-            _views.ForEach(i => i.View());
+            _handlers.ForEach(i => i.OnPause());
+        }
+
+        public void Play()
+        {
+            _handlers.ForEach(i => i.OnPlay());
         }
     }
 }

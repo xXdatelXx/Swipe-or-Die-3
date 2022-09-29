@@ -5,11 +5,12 @@ using UnityEngine;
 
 namespace SwipeOrDie.Factory
 {
-    public class TimerFactory : SerializedMonoBehaviour
+    public class TimerFactory : SerializedMonoBehaviour, IPauseHandler
     {
         [SerializeField] private MonoBehaviour _prefab;
         [SerializeField] private ITimer _timer;
         private IFactory<MonoBehaviour> _factory;
+        private bool _pause;
 
         private void Awake()
         {
@@ -21,12 +22,16 @@ namespace SwipeOrDie.Factory
 
         private async void Spawn()
         {
-            while (true)
+            while (!_pause)
             {
                 await _timer.Play();
                 _factory.Create(_prefab);
             }
         }
+        
+        public void OnPause() => _pause = true;
+        
+        public void OnPlay() => _pause = false;
 
         private class Validator : AbstractValidator<TimerFactory>
         {

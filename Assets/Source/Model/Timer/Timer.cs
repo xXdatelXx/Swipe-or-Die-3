@@ -1,6 +1,7 @@
 using System;
 using FluentValidation;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 
 namespace SwipeOrDie.GameLogic
 {
@@ -19,7 +20,8 @@ namespace SwipeOrDie.GameLogic
 
         public async UniTask Play()
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(Time));
+            await DOTween.To(() => Time, x => Time = x, 0, Time).AsyncWaitForCompletion();
+            
             _onEnd?.Invoke();
         }
 
