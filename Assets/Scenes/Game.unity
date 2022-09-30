@@ -1413,6 +1413,7 @@ MonoBehaviour:
   _loseView: {fileID: 737193579}
   _gameTimerView: {fileID: 1953383192}
   _balance: {fileID: 11400000, guid: 541f8967aba151b43a71c2c7b086ad1a, type: 2}
+  _scoreView: {fileID: 0}
 --- !u!114 &1896720572
 MonoBehaviour:
   m_ObjectHideFlags: 0

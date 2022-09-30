@@ -20,11 +20,6 @@ namespace SwipeOrDie.Factory
             new Validator().ValidateAndThrow(this);
         }
 
-        private void Start()
-        {
-            Create(new Score());
-        }
-
         public Maze Create(Score score)
         {
             _nextMaze = _factory.Create(_items.Get(score));

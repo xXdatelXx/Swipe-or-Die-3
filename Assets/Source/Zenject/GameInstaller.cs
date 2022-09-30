@@ -1,5 +1,8 @@
 using Source;
+using Source.Model;
+using Source.Model.Storage;
 using Source.Model.Timer;
+using Source.View;
 using SwipeOrDie.Factory;
 using SwipeOrDie.GameLogic;
 using SwipeOrDie.Input;
@@ -15,17 +18,22 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private LoseView _loseView;
     [SerializeField] private TimerView _gameTimerView;
     [SerializeField] private TimeBalance _balance;
+    [SerializeField] private ScoreView _scoreView;
 
     public override void InstallBindings()
     {
         var pause = new GamePause();
-        var lose = new Losing(_loseView, pause);
+        var score = new Score(_scoreView);
+        var maxScore = new MaxScoreStorage(new BinaryStorage(), score);
+        var lose = new Losing(_loseView, pause, maxScore);
         var gameTimer = new GameTimer(lose, _gameTimerView, _balance);
         gameTimer.Play();
-
+        _mazeFactory.Create(score);
+        
         Container.BindInterfacesAndSelfTo<CharacterInput>().FromNew().AsSingle();
-        Container.BindInstance(new LevelCreator(_mazeFactory, new Score(), _characterTeleport, gameTimer));
+        Container.BindInstance(new LevelCreator(_mazeFactory, score, _characterTeleport, gameTimer));
         Container.BindInstance(lose);
         Container.BindInstance(pause);
+        Container.BindInstance(maxScore);
     }
 }
