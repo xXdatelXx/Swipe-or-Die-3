@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6766960947223968479}
   - component: {fileID: 6766960947223968472}
   - component: {fileID: 6766960947223968478}
+  - component: {fileID: 8196930618277368949}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6766960947223968474
 MeshFilter:
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b3c535488b4a8cc42ac726a55d48ce49, type: 2}
+  - {fileID: 2100000, guid: b935f1b9a7799324c9b24975204b1b30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,8 +131,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _radius:
-    <Value>k__BackingField: 0.5
 --- !u!114 &6766960947223968472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +168,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99cbe19dc2e946c4c85f287ac2cf3dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &8196930618277368949
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766960947223968469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

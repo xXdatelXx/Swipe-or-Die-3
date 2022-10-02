@@ -1,5 +1,5 @@
-using System;
 using Source.View.Interfaces;
+using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
@@ -10,7 +10,7 @@ namespace SwipeOrDie.GameLogic
 
         public Score(IScoreView view)
         {
-            _view = view ?? throw new ArgumentNullException(nameof(view));
+            _view = view.TryThrowNullReferenceException();
         }
 
         public void Append()

@@ -2,6 +2,7 @@ using System;
 using Sirenix.OdinInspector;
 using SwipeOrDie.GameLogic;
 using UnityEngine;
+using SwipeOrDie.Extension;
 
 namespace Source.Model.Enemy
 {
@@ -11,8 +12,7 @@ namespace Source.Model.Enemy
 
         private void Awake()
         {
-            if (_destroyView == null)
-                throw new NullReferenceException(nameof(_destroyView));
+            _destroyView.TryThrowNullReferenceException();
         }
 
         private void OnCollisionEnter(Collision collision)

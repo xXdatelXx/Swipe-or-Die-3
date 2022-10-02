@@ -2,7 +2,7 @@ using System;
 
 namespace SwipeOrDie.Extension
 {
-    public static class NumericExtension
+    public static class ExceptionExtension
     {
         public static dynamic TryThrowSubZeroException(this IComparable value)
         {
@@ -18,6 +18,11 @@ namespace SwipeOrDie.Extension
                 throw new SubZeroException(nameof(value));
 
             return value;
+        }
+
+        public static T TryThrowNullReferenceException<T>(this T value)
+        {
+            return value ?? throw new NullReferenceException($"{nameof(value)} == null");
         }
     }
 }

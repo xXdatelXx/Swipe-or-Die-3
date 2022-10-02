@@ -1,7 +1,7 @@
-using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
+using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
@@ -18,13 +18,11 @@ namespace SwipeOrDie.GameLogic
         {
             _lose = lose;
         }
-        
+
         private void OnEnable()
         {
-            if (_dieView == null)
-                throw new NullReferenceException($"{nameof(_dieView)} == null");
-            if (_lose == null)
-                throw new NullReferenceException($"{nameof(_lose)} == null");
+            _dieView.TryThrowNullReferenceException();
+            _lose.TryThrowNullReferenceException();
 
             _animator = GetComponent<Animator>();
         }

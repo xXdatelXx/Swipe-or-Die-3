@@ -1,6 +1,6 @@
-using System;
 using Source.Model.Storage;
 using SwipeOrDie.GameLogic;
+using SwipeOrDie.Extension;
 
 namespace Source.Model
 {
@@ -12,12 +12,12 @@ namespace Source.Model
 
         public MaxScoreStorage(IStorage storage, IScore score)
         {
-            _storage = storage ?? throw new NullReferenceException(nameof(storage));
-            _score = score ?? throw new NullReferenceException(nameof(score));
+            _storage = storage.TryThrowNullReferenceException();
+            _score = score.TryThrowNullReferenceException();
         }
 
         public bool Exists() => _storage.Exists(_key);
-        
+
         public IScore Load() => _storage.Load<IScore>(_key);
 
         public void TrySave()

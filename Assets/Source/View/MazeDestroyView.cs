@@ -3,6 +3,7 @@ using UnityEngine;
 using SwipeOrDie.GameLogic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.View
 {
@@ -16,9 +17,7 @@ namespace SwipeOrDie.View
 
         private void Awake()
         {
-            if (_destroyPoint == null)
-                throw new NullReferenceException($"{nameof(_destroyPoint)} == null");
-
+            _destroyPoint.TryThrowNullReferenceException();
             _material = GetComponent<Material>();
         }
 
