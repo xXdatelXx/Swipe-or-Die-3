@@ -1,8 +1,7 @@
 namespace SwipeOrDie.GameLogic
 {
-    public interface IGameTimer
+    internal interface IGameView
     {
         void Play();
-        void AddTime();
     }
 }

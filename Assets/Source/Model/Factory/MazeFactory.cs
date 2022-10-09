@@ -6,7 +6,7 @@ using SwipeOrDie.GameLogic;
 
 namespace SwipeOrDie.Factory
 {
-    public class MazeFactory : SerializedMonoBehaviour
+    public class MazeFactory : SerializedMonoBehaviour, IMazeFactory
     {
         [SerializeField] private IMazeItems _items;
         [SerializeField] private Transform _enablePoint;

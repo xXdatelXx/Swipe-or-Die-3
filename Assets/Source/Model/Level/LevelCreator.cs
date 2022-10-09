@@ -3,14 +3,14 @@ using SwipeOrDie.Factory;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class LevelCreator
+    public class LevelCreator : ILevelCreator
     {
-        private readonly MazeFactory _factory;
+        private readonly IMazeFactory _factory;
         private readonly Score _score;
         private readonly ICharacterTeleport _teleport;
         private readonly IGameTimer _gameTimer;
 
-        public LevelCreator(MazeFactory factory, Score score, ICharacterTeleport teleport, IGameTimer gameTimer)
+        public LevelCreator(IMazeFactory factory, Score score, ICharacterTeleport teleport, IGameTimer gameTimer)
         {
             _factory = factory;
             _score = score;

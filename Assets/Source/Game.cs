@@ -1,0 +1,30 @@
+using JetBrains.Annotations;
+using Sirenix.OdinInspector;
+using SwipeOrDie.Factory;
+using SwipeOrDie.Extension;
+using UnityEngine;
+using Zenject;
+
+namespace SwipeOrDie.GameLogic
+{
+    public class Game : SerializedMonoBehaviour
+    {
+        [SerializeField, CanBeNull] private IGameView _view;
+        private IMazeFactory _factory;
+        private IGameTimer _gameTimer;
+
+        [Inject]
+        public void Construct(IMazeFactory factory, IGameTimer timer)
+        {
+            _factory = factory.TryThrowNullReferenceException();
+            _gameTimer = timer.TryThrowNullReferenceException();
+        }
+
+        public void Play()
+        {
+            _view?.Play();
+            _factory.Create(new Score());
+            _gameTimer.Play();
+        }
+    }
+}

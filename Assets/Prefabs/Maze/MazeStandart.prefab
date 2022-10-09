@@ -2052,7 +2052,6 @@ GameObject:
   - component: {fileID: 7055715942251474944}
   - component: {fileID: 6510935109629490595}
   - component: {fileID: 316762439534206109}
-  - component: {fileID: 6138209806193306181}
   - component: {fileID: 3042362463920138546}
   m_Layer: 0
   m_Name: MazeStandart
@@ -2138,7 +2137,6 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6138209806193306181}
     - {fileID: 3042362463920138546}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -2146,24 +2144,17 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: _destroyTimer
-      Entry: 10
-      Data: 0
+      Entry: 7
+      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+    - Name: <Time>k__BackingField
+      Entry: 4
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _view
       Entry: 10
-      Data: 1
---- !u!114 &6138209806193306181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055715942251474945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f717d88284661469db6cb8aa1adb3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Time>k__BackingField: 1
+      Data: 0
 --- !u!114 &3042362463920138546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2179,16 +2170,21 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 6138209806193306181}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: _delayTimer
-      Entry: 10
-      Data: 0
+      Entry: 7
+      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+    - Name: <Time>k__BackingField
+      Entry: 4
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
   _destroyPoint: {fileID: 3158819483670236168}
   _destroyRotate: {x: 0, y: 0, z: 35}
   _destroyColor: {r: 0, g: 0, b: 0, a: 0}

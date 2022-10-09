@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,13 +10,15 @@ namespace SwipeOrDie.GameLogic
     public class Finish : MonoBehaviour, IFinishPoint
     {
         [SerializeField] private List<int> _collisionAngles = new() { 0, 90, -90, 180 };
-        private LevelCreator _levelCreator;
+        private ILevelCreator _levelCreator;
 
         [Inject]
-        public void Init(LevelCreator levelCreator)
+        public void Init(ILevelCreator levelCreator)
         {
-            Debug.Log("bomjara");
-            _levelCreator = levelCreator.TryThrowNullReferenceException();;
+            _levelCreator = levelCreator.TryThrowNullReferenceException();
+
+            if (_collisionAngles.Count == 0)
+                throw new NullReferenceException($"{nameof(_collisionAngles)}.Count == 0");
         }
 
         private void OnCollisionEnter(Collision collision)

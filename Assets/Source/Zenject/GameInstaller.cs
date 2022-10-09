@@ -19,26 +19,21 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private TimerView _gameTimerView;
     [SerializeField] private TimeBalance _balance;
     [SerializeField] private ScoreView _scoreView;
-    private Score _score;
 
     public override void InstallBindings()
     {
         var pause = new GamePause();
-        _score = new Score(_scoreView);
-        var maxScore = new MaxScoreStorage(new BinaryStorage(), _score);
+        var score = new Score(_scoreView);
+        var maxScore = new MaxScoreStorage(new BinaryStorage(), score);
         var lose = new Losing(_loseView, pause, maxScore);
         var gameTimer = new GameTimer(lose, _gameTimerView, _balance);
-        gameTimer.Play();
-        
+
         Container.BindInterfacesAndSelfTo<CharacterInput>().FromNew().AsSingle();
-        Container.BindInstance(new LevelCreator(_mazeFactory, _score, _characterTeleport, gameTimer));
+        Container.BindInstance((ILevelCreator)new LevelCreator(_mazeFactory, score, _characterTeleport, gameTimer));
+        Container.BindInstance((IMazeFactory)_mazeFactory);
         Container.BindInstance(lose);
+        Container.BindInstance((IGameTimer)gameTimer);
         Container.BindInstance(pause);
         Container.BindInstance((IMaxScore)maxScore);
-    }
-
-    private void Awake()
-    {
-        _mazeFactory.Create(_score);
     }
 }

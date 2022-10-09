@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Source.View.Interfaces;
 using SwipeOrDie.Extension;
 
@@ -5,18 +6,18 @@ namespace SwipeOrDie.GameLogic
 {
     public class Score : IScore
     {
-        private readonly IScoreView _view;
+        [CanBeNull] private readonly IScoreView _view;
         public int Value { get; private set; }
 
-        public Score(IScoreView view)
+        public Score(IScoreView view = null)
         {
-            _view = view.TryThrowNullReferenceException();
+            _view = view;
         }
 
         public void Append()
         {
             Value++;
-            _view.OnSetScore(Value);
+            _view?.OnSetScore(Value);
         }
     }
 }

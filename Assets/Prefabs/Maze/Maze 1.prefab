@@ -2280,7 +2280,6 @@ GameObject:
   - component: {fileID: 7055715942251474944}
   - component: {fileID: -8846392257109777747}
   - component: {fileID: 1040202220285965155}
-  - component: {fileID: 5541599266331896063}
   - component: {fileID: 2671077857749734834}
   m_Layer: 0
   m_Name: Maze 1
@@ -2366,7 +2365,6 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 5541599266331896063}
     - {fileID: 2671077857749734834}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -2374,24 +2372,17 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: _destroyTimer
-      Entry: 10
-      Data: 0
+      Entry: 7
+      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+    - Name: <Time>k__BackingField
+      Entry: 4
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _view
       Entry: 10
-      Data: 1
---- !u!114 &5541599266331896063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055715942251474945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f717d88284661469db6cb8aa1adb3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Time>k__BackingField: 1
+      Data: 0
 --- !u!114 &2671077857749734834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2407,16 +2398,21 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 5541599266331896063}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
     - Name: _delayTimer
-      Entry: 10
-      Data: 0
+      Entry: 7
+      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+    - Name: <Time>k__BackingField
+      Entry: 4
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
   _destroyPoint: {fileID: 5392946799471198026}
   _destroyRotate: {x: 0, y: 0, z: 35}
   _destroyColor: {r: 0, g: 0, b: 0, a: 0}
@@ -4121,6 +4117,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 7055715941578341852}
     m_Modifications:
+    - target: {fileID: -7824181793170390387, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
+      propertyPath: _containerSource
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 314269711138311188, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
       propertyPath: m_RootOrder
       value: -1

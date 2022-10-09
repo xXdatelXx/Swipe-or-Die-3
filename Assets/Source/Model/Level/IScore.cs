@@ -1,3 +1,5 @@
+using System;
+
 namespace SwipeOrDie.GameLogic
 {
     public interface IScore

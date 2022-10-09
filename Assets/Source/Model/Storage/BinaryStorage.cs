@@ -20,7 +20,14 @@ namespace Source.Model.Storage
             _formatter.Serialize(file, saveObject);
         }
 
-        public bool Exists(string name) => File.Exists(CreatePath(name));
-        private string CreatePath(string name) => Path.Combine(Application.persistentDataPath, name);
+        public bool Exists(string name)
+        {
+            return File.Exists(CreatePath(name));
+        }
+
+        private string CreatePath(string name)
+        {
+            return Path.Combine(Application.persistentDataPath, name);
+        }
     }
 }

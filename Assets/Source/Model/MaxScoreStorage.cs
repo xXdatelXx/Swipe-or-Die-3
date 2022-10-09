@@ -18,7 +18,7 @@ namespace Source.Model
 
         public bool Exists() => _storage.Exists(_key);
 
-        public IScore Load() => _storage.Load<IScore>(_key);
+        public IScore Load() { return new Score(); }// => _storage.Load<IScore>(_key);
 
         public void TrySave()
         {
