@@ -29,7 +29,7 @@ namespace Source
 
         public void AddTime()
         {
-            Play(_timer.Time + _balance.OnAdd);
+            Play(_timer.AccumulatedTime + _balance.OnAdd);
         }
 
         public void OnPause() => _pause = true;
@@ -40,7 +40,7 @@ namespace Source
         {
             _timer = new Timer(time, Lose);
 
-            _view.OnSetTime(_timer.Time / _balance.All * 100, _timer.Time);
+            _view.OnSetTime(_timer.AccumulatedTime / _balance.All * 100, _timer.Time);
             _timer.Play();
         }
 

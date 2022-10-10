@@ -24,8 +24,7 @@ namespace SwipeOrDie.GameLogic
         {
             await Begin();
 
-            transform.parent = target.Parent;
-            transform.localPosition = target.LocalPosition;
+            transform.position = target.Position;
 
             OnEnd();
         }

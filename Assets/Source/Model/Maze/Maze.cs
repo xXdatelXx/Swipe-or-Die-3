@@ -6,17 +6,20 @@ using Source.Model.Movement.Interface;
 
 namespace SwipeOrDie.GameLogic
 {
+    [RequireComponent(typeof(IDestroyStrategy))]
     public class Maze : SerializedMonoBehaviour
     {
-        [SerializeField] private IDestroyStrategy _destroyStrategy;
         [SerializeField] private IMazeEvent _event;
-        [SerializeField, ReadOnly] private readonly ISpeed _speed = new Speed(30);
+        [SerializeField, ReadOnly] private readonly ISpeed _speed = new Speed(20);
+        private IDestroyStrategy _destroyStrategy;
         private IMovement _movement;
         public readonly IStartPoint StartPoint;
 
         private void Start()
         {
+            _destroyStrategy = GetComponent<IDestroyStrategy>();
             _movement = new InterpolationMovement(transform, _speed);
+
             new Validator().ValidateAndThrow(this);
         }
 

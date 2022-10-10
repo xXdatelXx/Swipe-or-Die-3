@@ -1,6 +1,5 @@
 using JetBrains.Annotations;
 using Source.View.Interfaces;
-using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {

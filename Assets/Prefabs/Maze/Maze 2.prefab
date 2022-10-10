@@ -2439,7 +2439,7 @@ MonoBehaviour:
       Data: 1|Source.Model.Speed, Assembly
     - Name: <Value>k__BackingField
       Entry: 4
-      Data: 30
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -2473,7 +2473,7 @@ MonoBehaviour:
       Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -2506,7 +2506,7 @@ MonoBehaviour:
       Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
-      Data: 2
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 

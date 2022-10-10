@@ -10,8 +10,9 @@ namespace SwipeOrDie.GameLogic
     public class Timer : ITimer
     {
         private readonly Action _onEnd;
-        [field: SerializeField] public float Time { get; private set; }
-        
+        [field: SerializeField] public float Time { get; }
+        public float AccumulatedTime { get; private set; }
+
         public Timer(float time, Action onEnd = null)
         {
             Time = time;
@@ -22,7 +23,8 @@ namespace SwipeOrDie.GameLogic
 
         public async UniTask Play()
         {
-            await DOTween.To(() => Time, x => Time = x, 0, Time).AsyncWaitForCompletion();
+            await DOTween.To(() => AccumulatedTime, x => AccumulatedTime = x, 0, Time).AsyncWaitForCompletion();
+            AccumulatedTime = Time;
 
             _onEnd?.Invoke();
         }

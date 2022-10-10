@@ -2054,7 +2054,7 @@ GameObject:
   - component: {fileID: 316762439534206109}
   - component: {fileID: 3042362463920138546}
   m_Layer: 0
-  m_Name: MazeStandart
+  m_Name: Maze 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2148,7 +2148,7 @@ MonoBehaviour:
       Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -2181,7 +2181,7 @@ MonoBehaviour:
       Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
-      Data: 2
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 

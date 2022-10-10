@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 130523526}
   - component: {fileID: 130523529}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,11 +193,11 @@ RectTransform:
   m_Father: {fileID: 1836029291}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258.2, y: -200.8}
+  m_AnchorMin: {x: 0.5, y: 0.114853576}
+  m_AnchorMax: {x: 0.5, y: 0.114853576}
+  m_AnchoredPosition: {x: 0, y: -1.3000488}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &130523526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185988014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 3.5, z: 0}
+  m_LocalPosition: {x: -3.5, y: 3.5, z: 18.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -422,7 +422,10 @@ MonoBehaviour:
       Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
-      Data: 2
+      Data: 0.8
+    - Name: <A>k__BackingField
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -639,6 +642,9 @@ MonoBehaviour:
     - Name: <Time>k__BackingField
       Entry: 4
       Data: 1
+    - Name: <A>k__BackingField
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -831,11 +837,11 @@ RectTransform:
   m_Father: {fileID: 1836029291}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 203.153, y: 42.613}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1120017747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,7 +908,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -934,7 +940,7 @@ GameObject:
   - component: {fileID: 1265429890}
   - component: {fileID: 1265429889}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -980,7 +986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1644,7 +1650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862943484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 18.6, z: 12.1}
+  m_LocalPosition: {x: 0, y: 18.6, z: 31.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1824,11 +1830,11 @@ RectTransform:
   m_Father: {fileID: 1836029291}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -176.20001, y: -160.62679}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000002861023, y: 0}
   m_SizeDelta: {x: 160, y: 20}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1953383192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,20 +1972,10 @@ PrefabInstance:
       objectReference: {fileID: 316762439534206109, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
     - target: {fileID: 316762439534206109, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 316762439534206109, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"_destroyTimer","value":{"$id":0,"$type":"SwipeOrDie.GameLogic.Timer,
-        Assembly","<Time>k__BackingField":2}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 316762439534206109, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[1]
-      value: '"path":"_destroyTimer.<Time>k__BackingField","value":{"$id":0,"$type":"System.Single,
-        mscorlib",2}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 316762439534206109, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[2]
       value: '"path":"_view","value":$eref:0'
       objectReference: {fileID: 0}
     - target: {fileID: 316762439534206109, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
@@ -1996,17 +1992,22 @@ PrefabInstance:
       objectReference: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
     - target: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
       value: '"path":"_delayTimer","value":{"$id":0,"$type":"SwipeOrDie.GameLogic.Timer,
-        Assembly","<Time>k__BackingField":2}'
+        Assembly","<Time>k__BackingField":0.5,"<A>k__BackingField":1}'
       objectReference: {fileID: 0}
     - target: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[1]
+      value: '"path":"_delayTimer.<A>k__BackingField","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[2]
       value: '"path":"_delayTimer.<Time>k__BackingField","value":{"$id":0,"$type":"System.Single,
-        mscorlib",2}'
+        mscorlib",0.5}'
       objectReference: {fileID: 0}
     - target: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
