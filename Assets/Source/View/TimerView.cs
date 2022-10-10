@@ -19,11 +19,10 @@ namespace SwipeOrDie.View
 
         public void OnSetTime(float percent, float time)
         {
-            Logger.Log(percent, time);
             // percent / 100 так как slider принимает значение от 0 до 1
             DOTween.Sequence()
                 .Append(_slider.DOValue(percent / 100, _appendTime))
-                .Append(_slider.DOValue(0, time));
+                .Append(_slider.DOValue(0, time - _appendTime));
         }
 
         public void OnEndTime()

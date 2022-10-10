@@ -10,6 +10,7 @@ namespace SwipeOrDie.GameLogic
     public class Game : SerializedMonoBehaviour
     {
         [SerializeField, CanBeNull] private IGameView _view;
+        [SerializeField] private ICharacter _character;
         private IMazeFactory _factory;
         private IGameTimer _gameTimer;
 
@@ -18,11 +19,13 @@ namespace SwipeOrDie.GameLogic
         {
             _factory = factory.TryThrowNullReferenceException();
             _gameTimer = timer.TryThrowNullReferenceException();
+            _character.Disable();
         }
 
         public void Play()
         {
             _view?.Play();
+            _character.Enable();
             _factory.Create(new Score());
             _gameTimer.Play();
         }
