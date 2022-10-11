@@ -23,8 +23,8 @@ namespace SwipeOrDie.GameLogic
 
         public async UniTask Play()
         {
-            await DOTween.To(() => AccumulatedTime, x => AccumulatedTime = x, 0, Time).AsyncWaitForCompletion();
-            AccumulatedTime = Time;
+            await DOTween.To(() => AccumulatedTime, x => AccumulatedTime = x, Time, Time - AccumulatedTime).AsyncWaitForCompletion();
+            AccumulatedTime = 0;
 
             _onEnd?.Invoke();
         }

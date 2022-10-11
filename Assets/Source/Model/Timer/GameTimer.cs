@@ -29,6 +29,7 @@ namespace Source
 
         public void AddTime()
         {
+            Logger.Log(_timer.AccumulatedTime);
             Play(_timer.AccumulatedTime + _balance.OnAdd);
         }
 
@@ -46,6 +47,7 @@ namespace Source
 
         private void Lose()
         {
+            Logger.Log();
             if (_pause)
                 return;
 
