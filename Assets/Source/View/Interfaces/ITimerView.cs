@@ -2,7 +2,7 @@ namespace SwipeOrDie.View
 {
     public interface ITimerView
     {
-        void OnSetTime(float percent, float time);
+        void OnSetTime(float time, float percent = 100);
         void OnEndTime();
     }
 }

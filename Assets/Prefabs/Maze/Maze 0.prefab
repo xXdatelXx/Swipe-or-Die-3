@@ -2093,16 +2093,12 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 316762439534206109}
     - {fileID: 998664200749736747}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _destroyStrategy
-      Entry: 10
-      Data: 0
     - Name: _event
       Entry: 7
       Data: 0|MazeEvent, Assembly
@@ -2120,7 +2116,7 @@ MonoBehaviour:
       Data: 
     - Name: StartPoint
       Entry: 10
-      Data: 1
+      Data: 0
 --- !u!114 &316762439534206109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,7 +2141,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _destroyTimer
       Entry: 7
-      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+      Data: 0|AsyncTimer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
       Data: 1
@@ -2178,7 +2174,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _delayTimer
       Entry: 7
-      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+      Data: 0|AsyncTimer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
       Data: 0.5

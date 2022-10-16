@@ -16,9 +16,9 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: d74cb4c31ecbcd4469debddf0715c9da, type: 2}
-    - {fileID: 11400000, guid: 764eb42ac2b54514eacff15c2df6f94c, type: 2}
-    - {fileID: 11400000, guid: 2b40dc3f985a4b94796eb9223dce3cf3, type: 2}
+    - {fileID: 6510935109629490595, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
+    - {fileID: -3897291214553184016, guid: 54307faee22957d47a854cfe9da69faf, type: 3}
+    - {fileID: -3897291214553184016, guid: cd90d27fc1f8f1648bb2558c10e064c2, type: 3}
     - {fileID: 11400000, guid: e507c949917fe87409ddf940aeefa0b0, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -33,14 +33,41 @@ MonoBehaviour:
       Entry: 12
       Data: 3
     - Name: 
+      Entry: 7
+      Data: 1|SwipeOrDie.Data.MazeItem, Assembly
+    - Name: <Complexity>k__BackingField
+      Entry: 3
+      Data: 0
+    - Name: <Maze>k__BackingField
       Entry: 10
       Data: 0
     - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|SwipeOrDie.Data.MazeItem, Assembly
+    - Name: <Complexity>k__BackingField
+      Entry: 3
+      Data: 1
+    - Name: <Maze>k__BackingField
       Entry: 10
       Data: 1
     - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|SwipeOrDie.Data.MazeItem, Assembly
+    - Name: <Complexity>k__BackingField
+      Entry: 3
+      Data: 2
+    - Name: <Maze>k__BackingField
       Entry: 10
       Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 

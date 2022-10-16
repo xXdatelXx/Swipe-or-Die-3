@@ -8,7 +8,7 @@ namespace SwipeOrDie.GameLogic
     [RequireComponent(typeof(ICharacterTeleportView), typeof(ICharacter))]
     public class CharacterTeleport : SerializedMonoBehaviour, ICharacterTeleport
     {
-        [SerializeField] private ITimer _timer;
+        [SerializeField] private IAsyncTimer _timer;
         private ICharacter _character;
         private ICharacterTeleportView _view;
 

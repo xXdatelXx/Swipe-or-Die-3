@@ -1,6 +1,5 @@
 using UnityEngine;
 using SwipeOrDie.GameLogic;
-using SwipeOrDie.Extension;
 using Sirenix.OdinInspector;
 using Source.Model.Movement.Interface;
 

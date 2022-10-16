@@ -2375,7 +2375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7055715942251474944}
-  - component: {fileID: 859448717889835478}
+  - component: {fileID: -3897291214553184016}
   - component: {fileID: 7649635152311016701}
   - component: {fileID: 7245185411209130288}
   m_Layer: 0
@@ -2402,7 +2402,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &859448717889835478
+--- !u!114 &-3897291214553184016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2418,16 +2418,12 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 7649635152311016701}
     - {fileID: 4906726273352193719}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _destroyStrategy
-      Entry: 10
-      Data: 0
     - Name: _event
       Entry: 7
       Data: 0|MazeEvent, Assembly
@@ -2439,13 +2435,13 @@ MonoBehaviour:
       Data: 1|Source.Model.Speed, Assembly
     - Name: <Value>k__BackingField
       Entry: 4
-      Data: 20
+      Data: 30
     - Name: 
       Entry: 8
       Data: 
     - Name: StartPoint
       Entry: 10
-      Data: 1
+      Data: 0
 --- !u!114 &7649635152311016701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2470,7 +2466,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _destroyTimer
       Entry: 7
-      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+      Data: 0|AsyncTimer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
       Data: 1
@@ -2503,7 +2499,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _delayTimer
       Entry: 7
-      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+      Data: 0|AsyncTimer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
       Data: 0.5
@@ -4119,15 +4115,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 314269711138311187, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
       propertyPath: _collisionAngles.Array.size
-      value: 1
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 314269711138311187, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
+      propertyPath: _collisionAngles.Array.data[0]
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 314269711138311187, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
       propertyPath: _collisionAngles.Array.data[1]
-      value: 180
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 314269711138311187, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
       propertyPath: _collisionAngles.Array.data[2]
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 314269711138311187, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
+      propertyPath: _collisionAngles.Array.data[3]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 314269711138311188, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
       propertyPath: m_RootOrder

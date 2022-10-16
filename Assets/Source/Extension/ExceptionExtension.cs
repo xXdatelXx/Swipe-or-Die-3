@@ -6,7 +6,7 @@ namespace SwipeOrDie.Extension
     {
         public static dynamic TryThrowSubZeroException(this IComparable value)
         {
-            if (value.CompareTo(0) < 0)
+            if ((dynamic)value < 0)
                 throw new SubZeroException(nameof(value));
 
             return value;
@@ -14,8 +14,8 @@ namespace SwipeOrDie.Extension
 
         public static dynamic TryThrowSubOrEqualZeroException(this IComparable value)
         {
-            if (value.CompareTo(0) <= 0)
-                throw new SubZeroException(nameof(value));
+            if ((dynamic)value <= 0)
+                throw new SubOrEqualZeroException(nameof(value));
 
             return value;
         }

@@ -42,7 +42,9 @@ namespace SwipeOrDie.Data
 
         private Range ComplexityRange(IScore score)
         {
-            int scoreValue = _complexity.Get(score);
+            int maxItemValue = _items.Max(i => i.Complexity);
+            int scoreValue = maxItemValue < _complexity.Get(score) ? maxItemValue : _complexity.Get(score);
+
             return new Range(scoreValue - _minComplexitySubtractor, scoreValue);
         }
 

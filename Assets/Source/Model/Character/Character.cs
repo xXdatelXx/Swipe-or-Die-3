@@ -4,6 +4,7 @@ using SwipeOrDie.Extension;
 using SwipeOrDie.Input;
 using UnityEngine;
 using Zenject;
+using Source.Model.Timer;
 
 namespace SwipeOrDie.GameLogic
 {
@@ -15,9 +16,10 @@ namespace SwipeOrDie.GameLogic
         private IInput _input;
 
         [Inject]
-        public void Construct(IInput input)
+        public void Construct(IInput input, IPause pause)
         {
             _input = input;
+            pause.Add(this);
 
             var radius = new Radius(GetComponent<BoxCollider>().ToCube().Radius());
             var position = new RayPosition(transform, radius);
@@ -34,10 +36,13 @@ namespace SwipeOrDie.GameLogic
 
         public void Enable() => _input.Enable();
 
-        public void Disable() => _input.Disable();
+        public void Disable()
+        {
+            _input.Disable();
+        }
 
         public void OnPause() => Disable();
-        
+
         public void OnPlay() => Enable();
     }
 }

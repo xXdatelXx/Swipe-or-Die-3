@@ -1,11 +1,8 @@
-using Cysharp.Threading.Tasks;
-
 namespace SwipeOrDie.GameLogic
 {
-    public interface ITimer
+    public interface ITimer : IAsyncTimer
     {
-        float Time { get; }
         float AccumulatedTime { get; }
-        UniTask Play();
+        void Effect(float effect);
     }
 }

@@ -7,7 +7,7 @@ namespace SwipeOrDie.Strategy
 {
     public class MazeDestroyStrategy : SerializedMonoBehaviour, IDestroyStrategy
     {
-        [SerializeField] private ITimer _destroyTimer;
+        [SerializeField] private IAsyncTimer _destroyTimer;
         [SerializeField] private IDestroyView _view;
 
         private void Awake()
@@ -19,6 +19,7 @@ namespace SwipeOrDie.Strategy
         {
             _view.Destroy(_destroyTimer.Time);
             await _destroyTimer.Play();
+
             Destroy(gameObject);
         }
 

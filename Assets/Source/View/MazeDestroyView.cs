@@ -10,7 +10,7 @@ namespace SwipeOrDie.View
     public class MazeDestroyView : SerializedMonoBehaviour, IDestroyView
     {
         [SerializeField] private Transform _destroyPoint;
-        [SerializeField] private ITimer _delayTimer;
+        [SerializeField] private IAsyncTimer _delayTimer;
         [SerializeField] private Vector3 _destroyRotate;
         [SerializeField] private Color _destroyColor;
         private Material _material;

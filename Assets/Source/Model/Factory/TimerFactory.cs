@@ -1,46 +1,24 @@
-using FluentValidation;
-using Sirenix.OdinInspector;
+using Source.Model.Timer;
+using SwipeOrDie.Extension;
 using SwipeOrDie.GameLogic;
-using UnityEngine;
 
 namespace SwipeOrDie.Factory
 {
-    public class TimerFactory : SerializedMonoBehaviour, IPauseHandler
+    public class TimerFactory : ITimerFactory
     {
-        [SerializeField] private MonoBehaviour _prefab;
-        [SerializeField] private ITimer _timer;
-        private IFactory<MonoBehaviour> _factory;
-        private bool _pause;
+        private readonly IUpdatebles _updatebles;
 
-        private void Awake()
+        public TimerFactory(IUpdatebles updatebles)
         {
-            _factory = new MonoBehaviourFactory<MonoBehaviour>(transform);
-            new Validator().ValidateAndThrow(this);
-            
-            Spawn();
-        }
-
-        private async void Spawn()
-        {
-            while (!_pause)
-            {
-                await _timer.Play();
-                _factory.Create(_prefab);
-            }
+            _updatebles = updatebles.TryThrowNullReferenceException();
         }
         
-        public void OnPause() => _pause = true;
-        
-        public void OnPlay() => _pause = false;
-
-        private class Validator : AbstractValidator<TimerFactory>
+        public ITimer Create(float time)
         {
-            public Validator()
-            {
-                RuleFor(factory => factory._prefab).NotNull();
-                RuleFor(factory => factory._timer).NotNull();
-                RuleFor(factory => factory._factory).NotNull();
-            }
+            var timer = new Timer(time);
+            _updatebles.Add(timer);
+
+            return timer;
         }
     }
 }

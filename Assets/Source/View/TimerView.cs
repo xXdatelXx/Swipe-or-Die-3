@@ -17,7 +17,7 @@ namespace SwipeOrDie.View
             _animator = GetComponent<Animator>();
         }
 
-        public void OnSetTime(float percent, float time)
+        public void OnSetTime(float time, float percent = 100)
         {
             // percent / 100 так как slider принимает значение от 0 до 1
             DOTween.Sequence()

@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 using FluentValidation;
 using SwipeOrDie.GameLogic;
 
 namespace SwipeOrDie.Data
 {
-    [CreateAssetMenu(fileName = nameof(MazeItem))]
-    public class MazeItem : ScriptableObject, IMazeItem
+    [Serializable]
+    public class MazeItem : IMazeItem
     {
         [field: SerializeField] public int Complexity { get; private set; }
         [field: SerializeField] public Maze Maze { get; private set; }

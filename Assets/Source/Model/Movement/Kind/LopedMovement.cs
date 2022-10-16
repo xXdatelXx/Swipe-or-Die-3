@@ -13,11 +13,12 @@ namespace Source.Model.Enemy.Movement
     {
         [SerializeField] private List<Transform> _point = new();
         [SerializeField] private ISpeed _speed;
+        [SerializeField, Min(0)] private float _delay;
 
         private void Awake()
         {
             new Validator().ValidateAndThrow(this);
-            
+
             Move();
         }
 
@@ -29,18 +30,19 @@ namespace Source.Model.Enemy.Movement
                 {
                     var movingTime = transform.Time(nextPoint, _speed);
 
-                    transform.DOMove(nextPoint.position, movingTime);
-                    await UniTask.Delay(TimeSpan.FromSeconds(movingTime));
+                    transform.DOLocalMove(nextPoint.localPosition, movingTime);
+                    await UniTask.Delay(TimeSpan.FromSeconds(movingTime + _delay));
                 }
             }
         }
-        
+
         private class Validator : AbstractValidator<LopedMovement>
         {
             public Validator()
             {
                 RuleFor(move => move._speed).NotNull();
                 RuleFor(move => move._point).NotNull();
+                RuleFor(move => move._delay).GreaterThanOrEqualTo(0);
             }
         }
     }

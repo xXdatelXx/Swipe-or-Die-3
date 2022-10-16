@@ -2,6 +2,7 @@ using SwipeOrDie.GameLogic;
 using SwipeOrDie.View;
 using SwipeOrDie.Data;
 using FluentValidation;
+using SwipeOrDie.Factory;
 
 namespace Source
 {
@@ -13,47 +14,37 @@ namespace Source
         private ITimer _timer;
         private bool _pause;
 
-        public GameTimer(ILose lose, ITimerView timerView, ITimeBalance balance)
+        public GameTimer(ILose lose, ITimerView timerView, ITimeBalance balance, ITimerFactory timerFactory)
         {
             _lose = lose;
             _view = timerView;
             _balance = balance;
+            _timer = timerFactory.Create(_balance.All);
 
             new Validator().ValidateAndThrow(this);
         }
 
-        public void Play()
+        public async void Play()
         {
-            Play(_balance.All);
-        }
+            _view.OnSetTime(_balance.All);
+            await _timer.Play();
 
-        public void AddTime()
-        {
-            Logger.Log(_timer.AccumulatedTime);
-            Play(_timer.AccumulatedTime + _balance.OnAdd);
-        }
-
-        public void OnPause() => _pause = true;
-
-        public void OnPlay() => _pause = false;
-
-        private void Play(float time)
-        {
-            _timer = new Timer(time, Lose);
-
-            _view.OnSetTime(_timer.AccumulatedTime / _balance.All * 100, _timer.Time);
-            _timer.Play();
-        }
-
-        private void Lose()
-        {
-            Logger.Log();
             if (_pause)
                 return;
 
             _view.OnEndTime();
             _lose.Lose();
         }
+
+        public void AddTime()
+        {
+            _timer.Effect(-_balance.OnAdd);
+            _view.OnSetTime(_balance.All - _timer.AccumulatedTime, 100 - (_timer.AccumulatedTime / _balance.All * 100));
+        }
+
+        public void OnPause() => _pause = true;
+
+        public void OnPlay() => _pause = false;
 
         private class Validator : AbstractValidator<GameTimer>
         {
@@ -62,6 +53,7 @@ namespace Source
                 RuleFor(timer => timer._lose).NotNull();
                 RuleFor(timer => timer._view).NotNull();
                 RuleFor(timer => timer._balance).NotNull();
+                RuleFor(timer => timer._timer).NotNull();
             }
         }
     }

@@ -329,13 +329,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 185988019}
-  - component: {fileID: 185988018}
   - component: {fileID: 185988017}
   - component: {fileID: 185988021}
   - component: {fileID: 185988024}
   - component: {fileID: 185988022}
   - component: {fileID: 185988025}
   - component: {fileID: 185988026}
+  - component: {fileID: 185988027}
+  - component: {fileID: 185988028}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -356,14 +357,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &185988018
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185988014}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &185988019
 Transform:
   m_ObjectHideFlags: 0
@@ -419,13 +412,10 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _timer
       Entry: 7
-      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+      Data: 0|AsyncTimer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
       Data: 0.8
-    - Name: <A>k__BackingField
-      Entry: 4
-      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -491,6 +481,43 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+--- !u!114 &185988027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185988014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183b885b399b41e995f66a43ac62adc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 185988028}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _dieView
+      Entry: 10
+      Data: 0
+--- !u!114 &185988028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185988014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1075abb9f8e945ed9862571752d3c019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &416795587 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6510935109629490595, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
@@ -500,6 +527,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16f22b6e12be45c44b35126dd9830fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &648058931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648058932}
+  - component: {fileID: 648058933}
+  m_Layer: 0
+  m_Name: Updatebles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &648058932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648058931}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &648058933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648058931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5bd26c471d4c0d8dea689e66b82b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &705507993
@@ -638,13 +709,10 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _timer
       Entry: 7
-      Data: 0|SwipeOrDie.GameLogic.Timer, Assembly
+      Data: 0|AsyncTimer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
-      Data: 1
-    - Name: <A>k__BackingField
-      Entry: 4
-      Data: 0
+      Data: 0.1
     - Name: 
       Entry: 8
       Data: 
@@ -1710,6 +1778,7 @@ MonoBehaviour:
   _gameTimerView: {fileID: 1953383192}
   _balance: {fileID: 11400000, guid: 541f8967aba151b43a71c2c7b086ad1a, type: 2}
   _scoreView: {fileID: 1120017747}
+  _updatebles: {fileID: 648058933}
 --- !u!114 &1896720572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1992,20 +2061,14 @@ PrefabInstance:
       objectReference: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
     - target: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"_delayTimer","value":{"$id":0,"$type":"SwipeOrDie.GameLogic.Timer,
-        Assembly","<Time>k__BackingField":0.5,"<A>k__BackingField":1}'
+      value: '"path":"_delayTimer","value":{"$id":0,"$type":"AsyncTimer, Assembly","<Time>k__BackingField":0.5}'
       objectReference: {fileID: 0}
     - target: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[1]
-      value: '"path":"_delayTimer.<A>k__BackingField","value":{"$id":0,"$type":"System.Single,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 3042362463920138546, guid: 7fec46b1f290d164993b128ed5abed9c, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[2]
       value: '"path":"_delayTimer.<Time>k__BackingField","value":{"$id":0,"$type":"System.Single,
         mscorlib",0.5}'
       objectReference: {fileID: 0}

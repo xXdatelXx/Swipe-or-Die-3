@@ -7,7 +7,7 @@ namespace Source.Model.Timer
     {
         private readonly ILoseView _view;
         private readonly IPause _pause;
-        private readonly IMaxScore _maxScore; 
+        private readonly IMaxScore _maxScore;
         private bool _lost;
 
         public Losing(ILoseView view, IPause pause, IMaxScore maxScore)
@@ -15,22 +15,22 @@ namespace Source.Model.Timer
             _view = view;
             _pause = pause;
             _maxScore = maxScore;
-            
+
             new Validator().ValidateAndThrow(this);
         }
 
         public void Lose()
         {
-            if(_lost)
+            if (_lost)
                 return;
-            
+
             _lost = true;
-            
+
             _maxScore.TrySave();
             _pause.Pause();
             _view.OnLose();
         }
-        
+
         private class Validator : AbstractValidator<Losing>
         {
             public Validator()

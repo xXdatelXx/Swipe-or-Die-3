@@ -17,7 +17,7 @@ namespace Source.Model.Storage
         public void Save<T>(string path, T saveObject)
         {
             var file = File.Create(CreatePath(path));
-            _formatter.Serialize(file, saveObject);
+            //_formatter.Serialize(file, saveObject);
         }
 
         public bool Exists(string name)

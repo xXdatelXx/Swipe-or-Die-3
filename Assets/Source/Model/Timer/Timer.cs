@@ -1,40 +1,41 @@
 using System;
-using FluentValidation;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine;
+using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
     [Serializable]
-    public class Timer : ITimer
+    public class Timer : ITimer, IUpdateble
     {
-        private readonly Action _onEnd;
-        [field: SerializeField] public float Time { get; }
+        [field: SerializeField] public float Time { get; private set; }
         public float AccumulatedTime { get; private set; }
+        private bool _end => AccumulatedTime == Time;
+        private bool _enabled;
+        private bool _canUpdate => !_end && _enabled;
 
-        public Timer(float time, Action onEnd = null)
+        public Timer(float time)
         {
-            Time = time;
-            _onEnd = onEnd;
-
-            new Validator().ValidateAndThrow(this);
+            Time = time.TryThrowSubZeroException();
         }
 
         public async UniTask Play()
         {
-            await DOTween.To(() => AccumulatedTime, x => AccumulatedTime = x, Time, Time - AccumulatedTime).AsyncWaitForCompletion();
-            AccumulatedTime = 0;
-
-            _onEnd?.Invoke();
+            _enabled = true;
+            await UniTask.WaitUntil(() => _end);
         }
 
-        private class Validator : AbstractValidator<Timer>
+        public void Effect(float effect)
         {
-            public Validator()
-            {
-                RuleFor(timer => timer.Time).GreaterThanOrEqualTo(0);
-            }
+            AccumulatedTime = Math.Clamp(AccumulatedTime + effect, 0, Time);
+        }
+
+        public void Update(float deltaTime)
+        {
+            if (!_canUpdate)
+                return;
+
+            AccumulatedTime = Math.Min(AccumulatedTime + deltaTime, Time);
         }
     }
 }
