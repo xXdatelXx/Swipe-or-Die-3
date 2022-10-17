@@ -7,8 +7,8 @@ using Source.Model.Movement.Interface;
 
 public class InterpolationMovement : IMovement
 {
-    private readonly Transform _transform;
-    private readonly ISpeed _speed;
+    [SerializeField] private readonly Transform _transform;
+    [SerializeField] private readonly ISpeed _speed;
 
     public InterpolationMovement(Transform transform, ISpeed speed)
     {

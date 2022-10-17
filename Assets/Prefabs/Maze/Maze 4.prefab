@@ -4331,18 +4331,28 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 4674875974575342921}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: _movement
+      Entry: 7
+      Data: 0|InterpolationMovement, Assembly
+    - Name: _transform
+      Entry: 10
+      Data: 0
     - Name: _speed
       Entry: 7
-      Data: 0|Source.Model.Speed, Assembly
+      Data: 1|Source.Model.Speed, Assembly
     - Name: <Value>k__BackingField
       Entry: 4
       Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 

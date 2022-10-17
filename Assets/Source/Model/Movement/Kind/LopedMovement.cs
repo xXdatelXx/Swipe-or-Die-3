@@ -1,19 +1,18 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using FluentValidation;
 using Sirenix.OdinInspector;
-using SwipeOrDie.Extension;
 using UnityEngine;
+using Source.Model.Movement.Interface;
 
 namespace Source.Model.Enemy.Movement
 {
     public class LopedMovement : SerializedMonoBehaviour
     {
         [SerializeField] private List<Transform> _point = new();
-        [SerializeField] private ISpeed _speed;
         [SerializeField, Min(0)] private float _delay;
+        [SerializeField] private IMovement _movement;
 
         private void Awake()
         {
@@ -28,10 +27,8 @@ namespace Source.Model.Enemy.Movement
             {
                 foreach (var nextPoint in _point)
                 {
-                    var movingTime = transform.Time(nextPoint, _speed);
-
-                    transform.DOLocalMove(nextPoint.localPosition, movingTime);
-                    await UniTask.Delay(TimeSpan.FromSeconds(movingTime + _delay));
+                    await _movement.Move(nextPoint.localPosition);
+                    await UniTask.Delay(TimeSpan.FromSeconds(_delay));
                 }
             }
         }
@@ -40,9 +37,9 @@ namespace Source.Model.Enemy.Movement
         {
             public Validator()
             {
-                RuleFor(move => move._speed).NotNull();
                 RuleFor(move => move._point).NotNull();
                 RuleFor(move => move._delay).GreaterThanOrEqualTo(0);
+                RuleFor(move => move._movement).NotNull();
             }
         }
     }
