@@ -22,7 +22,9 @@ namespace Source.Model.Enemy.Movement
 
         private void Move()
         {
-            _movement.Move(_position.Next(Vector2.right));
+            // position / 2 бо да
+            var position = transform.InverseTransformPoint(_position.Next(Vector2.right)) / 2;
+            _movement.Move(position);
         }
     }
 }

@@ -39,5 +39,12 @@ namespace SwipeOrDie.Extension
         {
             return enumerable.ElementAt(UnityEngine.Random.Range(0, enumerable.Count()));
         }
+
+        public static IEnumerable<T> RepeatForever<T>(this IEnumerable<T> enumerable)
+        {
+            while (true)
+                foreach (var i in enumerable)
+                    yield return i;
+        }
     }
 }

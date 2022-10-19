@@ -1,8 +1,8 @@
-using System;
 using Sirenix.OdinInspector;
 using SwipeOrDie.GameLogic;
 using UnityEngine;
 using SwipeOrDie.Extension;
+using SwipeOrDie.GameLogic.Part;
 
 namespace Source.Model.Enemy
 {
@@ -17,8 +17,11 @@ namespace Source.Model.Enemy
 
         private void OnCollisionEnter(Collision collision)
         {
-            _destroyView.Destroy(0);
-            Destroy(gameObject);
+            if (collision.Is<IBorder>() || collision.Is<IDying>())
+            {
+                _destroyView.Destroy(0);
+                Destroy(gameObject);
+            }
         }
     }
 }

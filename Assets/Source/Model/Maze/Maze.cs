@@ -26,7 +26,7 @@ namespace SwipeOrDie.GameLogic
         public void Enable(Transform enablePosition)
         {
             _event.OnMazeEnabled();
-            _movement.Move(enablePosition.position);
+            _movement.Move(enablePosition.localPosition);
         }
 
         public void Destroy()

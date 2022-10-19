@@ -1,10 +1,10 @@
 using UnityEngine;
-using Task = System.Threading.Tasks.Task;
+using Cysharp.Threading.Tasks;
 
 namespace Source.Model.Movement.Interface
 {
     public interface IMovement
     {
-        Task Move(Vector3 nextPosition);
+        UniTask Move(Vector3 nextPosition);
     }
 }

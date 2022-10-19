@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using Source.Model;
 using SwipeOrDie.Extension;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Source.Model.Movement.Interface;
 
 public class InterpolationMovement : IMovement
@@ -16,9 +16,9 @@ public class InterpolationMovement : IMovement
         _speed = speed;
     }
 
-    public async Task Move(Vector3 nextPosition)
+    public async UniTask Move(Vector3 nextPosition)
     {
         var movingTime = _transform.Time(nextPosition, _speed);
-        await _transform.DOMove(nextPosition, movingTime).AsyncWaitForCompletion();
+        await _transform.DOLocalMove(nextPosition, movingTime).AsyncWaitForCompletion();
     }
 }
