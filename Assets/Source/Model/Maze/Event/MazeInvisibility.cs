@@ -23,10 +23,7 @@ namespace SwipeOrDie.GameLogic
             _endDelay.TryThrowSubZeroException();
         }
 
-        public void OnMazeEnabled()
-        {
-            ReColorize();
-        }
+        public void OnMazeEnabled() => ReColorize();
 
         private void ReColorize()
         {

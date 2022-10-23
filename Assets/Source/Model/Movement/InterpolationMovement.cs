@@ -18,7 +18,9 @@ public class InterpolationMovement : IMovement
 
     public async UniTask Move(Vector3 nextPosition)
     {
+        nextPosition = _transform.parent.LocalPosition(nextPosition);
         var movingTime = _transform.Time(nextPosition, _speed);
+
         await _transform.DOLocalMove(nextPosition, movingTime).AsyncWaitForCompletion();
     }
 }

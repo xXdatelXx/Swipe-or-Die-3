@@ -9,19 +9,13 @@ namespace SwipeOrDie.GameLogic
         private string _startAnimation => "TeleportStart";
         private string _endAnimation => "TeleportEnd";
 
-        private void Awake()
-        {
+        private void Awake() => 
             _animator = GetComponent<Animator>();
-        }
 
-        public void OnStart()
-        {
+        public void OnStart() => 
             _animator.SetTrigger(_startAnimation);
-        }
 
-        public void OnEnd()
-        {
+        public void OnEnd() => 
             _animator.SetTrigger(_endAnimation);
-        }
     }
 }

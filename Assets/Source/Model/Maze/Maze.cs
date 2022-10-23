@@ -26,13 +26,11 @@ namespace SwipeOrDie.GameLogic
         public void Enable(Transform enablePosition)
         {
             _event.OnMazeEnabled();
-            _movement.Move(enablePosition.localPosition);
+            _movement.Move(enablePosition.position);
         }
 
-        public void Destroy()
-        {
+        public void Destroy() => 
             _destroyStrategy.Destroy();
-        }
 
         private class Validator : AbstractValidator<Maze>
         {

@@ -8,11 +8,9 @@ namespace SwipeOrDie.Factory
     {
         private readonly IUpdatebles _updatebles;
 
-        public TimerFactory(IUpdatebles updatebles)
-        {
+        public TimerFactory(IUpdatebles updatebles) => 
             _updatebles = updatebles.TryThrowNullReferenceException();
-        }
-        
+
         public ITimer Create(float time)
         {
             var timer = new Timer(time);

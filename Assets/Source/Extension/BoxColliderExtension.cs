@@ -12,14 +12,10 @@ namespace SwipeOrDie.Extension
             return collider;
         }
 
-        public static float Diameter(this BoxCollider collider)
-        {
-            return collider.size.x;
-        }
+        public static float Diameter(this BoxCollider collider) =>
+             collider.size.x;
 
-        public static float Radius(this BoxCollider collider)
-        {
-            return Diameter(collider) / 2;
-        }
+        public static float Radius(this BoxCollider collider) =>
+             Diameter(collider) / 2;
     }
 }

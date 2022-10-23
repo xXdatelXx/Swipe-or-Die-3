@@ -10,22 +10,27 @@ namespace Source.Model.Storage
 
         public T Load<T>(string path)
         {
-            var file = File.Open(CreatePath(path), FileMode.Open);
-            return (T)_formatter.Deserialize(file);
-        }
-
-        public void Save<T>(string path, T saveObject)
-        {
-            var file = File.Create(CreatePath(path));
-            //_formatter.Serialize(file, saveObject);
+            /*using var file = Exists(GetPath(path)) 
+                    ? File.Open(GetPath(path), FileMode.Open) 
+                    : throw new InvalidDataException("dont have data from path");
+            
+            return (T)_formatter.Deserialize(file);*/
+            return default;
         }
 
         public bool Exists(string name)
         {
-            return File.Exists(CreatePath(name));
+            return true;
+            //return File.Exists(GetPath(name));
         }
 
-        private string CreatePath(string name)
+        public void Save<T>(string path, T saveObject)
+        {
+            //using var file = File.Create(GetPath(path));
+            //_formatter.Serialize(file, saveObject);
+        }
+
+        private string GetPath(string name)
         {
             return Path.Combine(Application.persistentDataPath, name);
         }

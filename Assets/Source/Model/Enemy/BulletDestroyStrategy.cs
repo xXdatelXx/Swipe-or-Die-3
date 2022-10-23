@@ -10,10 +10,8 @@ namespace Source.Model.Enemy
     {
         [SerializeField] private IDestroyView _destroyView;
 
-        private void Awake()
-        {
+        private void Awake() => 
             _destroyView.TryThrowNullReferenceException();
-        }
 
         private void OnCollisionEnter(Collision collision)
         {

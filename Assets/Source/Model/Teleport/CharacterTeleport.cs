@@ -25,6 +25,8 @@ namespace SwipeOrDie.GameLogic
             await Begin();
 
             transform.position = target.Position;
+            transform.eulerAngles = target.EulerAngles;
+            transform.parent = target.Parent;
 
             OnEnd();
         }

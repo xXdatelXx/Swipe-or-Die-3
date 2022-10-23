@@ -31,10 +31,7 @@ namespace SwipeOrDie.GameLogic
             _moving = false;
         }
 
-        private bool CanMove(Vector2 direction)
-        {
-            return !_moving && direction != Vector2.zero;
-        }
+        private bool CanMove(Vector2 direction) => direction != Vector2.zero && !_moving;
 
         private class Validator : AbstractValidator<CharacterMovement>
         {

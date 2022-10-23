@@ -15,22 +15,13 @@ namespace SwipeOrDie.GameLogic
             new Validator().ValidateAndThrow(this);
         }
 
-        public Vector3 Indent(Vector3 movementDirection)
-        {
-            if (!movementDirection.IsDirection())
-                return Vector3.zero;
-
-            var indent = Vector3.one.Multiply(-movementDirection) * _value;
-
-            return indent;
-        }
+        public Vector3 Indent(Vector3 movementDirection) =>
+            movementDirection.IsDirection() ? -movementDirection * _value : Vector3.zero;
 
         private class Validator : AbstractValidator<Radius>
         {
-            public Validator()
-            {
+            public Validator() =>
                 RuleFor(radius => radius._value).GreaterThanOrEqualTo(0);
-            }
         }
     }
 }

@@ -29,20 +29,19 @@ namespace SwipeOrDie.GameLogic
             Enable();
         }
 
-        private void Update()
-        {
+        private void Update() => 
             _movement.Move(_input.Direction);
-        }
 
-        public void Enable() => _input.Enable();
+        public void Enable() => 
+            _input.Enable();
 
-        public void Disable()
-        {
+        public void Disable() => 
             _input.Disable();
-        }
 
-        public void OnPause() => Disable();
+        public void OnPause() => 
+            Disable();
 
-        public void OnPlay() => Enable();
+        public void OnPlay() => 
+            Enable();
     }
 }

@@ -5,9 +5,7 @@ namespace Source.View
 {
     public class LosePanel : MonoBehaviour, ILosePanel
     {
-        public void Show()
-        {
+        public void Show() => 
             gameObject.SetActive(true);
-        }
     }
 }

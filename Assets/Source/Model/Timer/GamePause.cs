@@ -6,19 +6,13 @@ namespace Source.Model.Timer
     {
         private readonly List<IPauseHandler> _handlers = new();
 
-        public void Add(IPauseHandler handler)
-        {
+        public void Add(IPauseHandler handler) => 
             _handlers.Add(handler);
-        }
 
-        public void Pause()
-        {
+        public void Pause() => 
             _handlers.ForEach(i => i.OnPause());
-        }
 
-        public void Play()
-        {
+        public void Play() => 
             _handlers.ForEach(i => i.OnPlay());
-        }
     }
 }

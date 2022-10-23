@@ -12,10 +12,8 @@ namespace SwipeOrDie.View
         private Animator _animator;
         private string _onEnd => nameof(_onEnd);
 
-        private void Awake()
-        {
+        private void Awake() => 
             _animator = GetComponent<Animator>();
-        }
 
         public void OnSetTime(float time, float percent = 100)
         {
@@ -25,9 +23,7 @@ namespace SwipeOrDie.View
                 .Append(_slider.DOValue(0, time - _appendTime));
         }
 
-        public void OnEndTime()
-        {
+        public void OnEndTime() => 
             _animator.SetTrigger(_onEnd);
-        }
     }
 }

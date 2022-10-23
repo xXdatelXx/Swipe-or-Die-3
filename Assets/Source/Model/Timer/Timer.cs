@@ -14,10 +14,8 @@ namespace SwipeOrDie.GameLogic
         private bool _enabled;
         private bool _canUpdate => !_end && _enabled;
 
-        public Timer(float time)
-        {
+        public Timer(float time) => 
             Time = time.TryThrowSubZeroException();
-        }
 
         public async UniTask Play()
         {
@@ -25,10 +23,8 @@ namespace SwipeOrDie.GameLogic
             await UniTask.WaitUntil(() => _end);
         }
 
-        public void Effect(float effect)
-        {
+        public void Effect(float effect) => 
             AccumulatedTime = Math.Clamp(AccumulatedTime + effect, 0, Time);
-        }
 
         public void Update(float deltaTime)
         {

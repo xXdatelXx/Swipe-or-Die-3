@@ -25,20 +25,14 @@ namespace SwipeOrDie.Extension
             }
         }
 
-        public static bool Has<T>(this IEnumerable<T> list, T item)
-        {
-            return list.Any(i => i.Equals(item));
-        }
+        public static bool Has<T>(this IEnumerable<T> list, T item) => 
+            list.Any(i => i.Equals(item));
 
-        public static T Max<T>(this List<T> list)
-        {
-            return list[^1];
-        }
+        public static T Max<T>(this List<T> list) => 
+            list[^1];
 
-        public static T Random<T>(this IEnumerable<T> enumerable)
-        {
-            return enumerable.ElementAt(UnityEngine.Random.Range(0, enumerable.Count()));
-        }
+        public static T Random<T>(this IEnumerable<T> enumerable) => 
+            enumerable.ElementAt(UnityEngine.Random.Range(0, enumerable.Count()));
 
         public static IEnumerable<T> RepeatForever<T>(this IEnumerable<T> enumerable)
         {

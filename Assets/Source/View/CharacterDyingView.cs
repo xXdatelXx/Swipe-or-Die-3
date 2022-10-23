@@ -5,9 +5,7 @@ namespace Source.View
 {
     public class CharacterDyingView : MonoBehaviour, IDyingView
     {
-        public void OnDie()
-        {
+        public void OnDie() => 
             Time.timeScale = 0;
-        }
     }
 }

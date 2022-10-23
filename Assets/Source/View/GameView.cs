@@ -9,14 +9,10 @@ namespace SwipeOrDie.GameLogic
         private Animator _animator;
         private string _play => "Play";
 
-        private void Awake()
-        {
+        private void Awake() => 
             _animator = GetComponent<Animator>();
-        }
 
-        public void Play()
-        {
+        public void Play() => 
             _animator.SetTrigger(_play);
-        }
     }
 }

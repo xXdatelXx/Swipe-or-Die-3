@@ -8,10 +8,8 @@ namespace SwipeOrDie.GameLogic
         [CanBeNull] private readonly IScoreView _view;
         public int Value { get; private set; }
 
-        public Score(IScoreView view = null)
-        {
+        public Score(IScoreView view = null) => 
             _view = view;
-        }
 
         public void Append()
         {

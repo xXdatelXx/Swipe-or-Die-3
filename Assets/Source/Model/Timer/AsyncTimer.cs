@@ -9,13 +9,9 @@ public class AsyncTimer : IAsyncTimer
 {
     [field: SerializeField] public float Time { get; }
 
-    public AsyncTimer(float time)
-    {
+    public AsyncTimer(float time) => 
         Time = time.TryThrowSubZeroException();
-    }
 
-    public async UniTask Play()
-    {
+    public async UniTask Play() => 
         await UniTask.Delay(TimeSpan.FromSeconds(Time));
-    }
 }

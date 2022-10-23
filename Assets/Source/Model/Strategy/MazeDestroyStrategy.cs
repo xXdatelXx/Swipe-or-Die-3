@@ -10,10 +10,8 @@ namespace SwipeOrDie.Strategy
         [SerializeField] private IAsyncTimer _destroyTimer;
         [SerializeField] private IDestroyView _view;
 
-        private void Awake()
-        {
+        private void Awake() => 
             new Validator().ValidateAndThrow(this);
-        }
 
         public async void Destroy()
         {

@@ -3808,6 +3808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a742a1e4530584ab971db338bd1e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Parent>k__BackingField: {fileID: 7055715942251474944}
 --- !u!1 &7055715942875786714
 GameObject:
   m_ObjectHideFlags: 0
@@ -4334,6 +4335,10 @@ PrefabInstance:
     - target: {fileID: 314269711138311189, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
       propertyPath: m_Name
       value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 314269711138311189, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

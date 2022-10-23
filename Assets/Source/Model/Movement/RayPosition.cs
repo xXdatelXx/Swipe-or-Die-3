@@ -2,6 +2,7 @@ using UnityEngine;
 using FluentValidation;
 using SwipeOrDie.Extension;
 using SwipeOrDie.GameLogic.Part;
+using System.Linq;
 
 namespace SwipeOrDie.GameLogic
 {
@@ -25,12 +26,13 @@ namespace SwipeOrDie.GameLogic
             if (!_validator.ValidDirection(direction))
                 return _transform.position;
 
-            Physics.Raycast(_transform.position, direction, out var hit);
+            var hit = Physics
+                .RaycastAll(_transform.position, _transform.TransformDirection(direction))
+                .First(i => _validator.ValidHit(i)).point;
 
-            if (_validator.ValidHit(hit))
-                return hit.point + _radius.Indent(direction);
-
-            return _transform.localPosition;
+            return hit != Vector3.zero
+                ? hit + _transform.TransformDirection(_radius.Indent(direction))
+                : _transform.localPosition;
         }
 
         private class Validator : AbstractValidator<RayPosition>
@@ -41,15 +43,11 @@ namespace SwipeOrDie.GameLogic
                 RuleFor(Position => Position._radius).NotNull();
             }
 
-            public bool ValidDirection(Vector2 direction)
-            {
-                return direction.x is 0 or 1 or -1 && direction.y is 0 or 1 or -1 && direction != Vector2.zero;
-            }
+            public bool ValidDirection(Vector2 direction) =>
+                direction.x is 0 or 1 or -1 && direction.y is 0 or 1 or -1 && direction != Vector2.zero;
 
-            public bool ValidHit(RaycastHit hit)
-            {
-                return hit.Is<IBorder>() || hit.point == Vector3.zero;
-            }
+            public bool ValidHit(RaycastHit hit) =>
+                hit.Is<IBorder>() || hit.point == Vector3.zero;
         }
     }
 }

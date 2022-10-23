@@ -1,6 +1,5 @@
 using DG.Tweening;
 using Sirenix.OdinInspector;
-using Source.Model;
 using SwipeOrDie.Extension;
 using UnityEngine;
 
@@ -8,19 +7,18 @@ namespace SwipeOrDie.GameLogic
 {
     public class MazeRotate : SerializedMonoBehaviour, IMazeEvent
     {
-        [SerializeField] private ISpeed _duration;
-        private readonly Vector3 _rotateAngle = new Vector3().HalfCircle();
+        [SerializeField, Min(0)] private float _duration;
+        private Sequence _playSequence;
 
-        public void OnMazeEnabled()
-        {
-            Rotate();
-        }
+        private void Awake() => _duration.TryThrowSubZeroException();
+
+        public void OnMazeEnabled() => Rotate();
 
         private void Rotate()
         {
             transform
-                .DORotate(_rotateAngle, _duration.Value)
-                .SetLoops(-1, LoopType.Incremental)
+                .DOCircleRotateZ(_duration) 
+                .Looped()
                 .SetEase(Ease.Linear);
         }
     }

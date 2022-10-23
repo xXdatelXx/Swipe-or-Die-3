@@ -2690,6 +2690,8 @@ GameObject:
   - component: {fileID: -3897291214553184016}
   - component: {fileID: 7649635152311016701}
   - component: {fileID: 7245185411209130288}
+  - component: {fileID: 101029825783393251}
+  - component: {fileID: 2714906533204532590}
   m_Layer: 0
   m_Name: Maze 5
   m_TagString: Untagged
@@ -2732,6 +2734,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 101029825783393251}
     - {fileID: 4906726273352193719}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -2739,14 +2742,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: _event
-      Entry: 7
-      Data: 0|MazeEvent, Assembly
-    - Name: 
-      Entry: 8
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: _speed
       Entry: 7
-      Data: 1|Source.Model.Speed, Assembly
+      Data: 0|Source.Model.Speed, Assembly
     - Name: <Value>k__BackingField
       Entry: 4
       Data: 30
@@ -2755,7 +2755,7 @@ MonoBehaviour:
       Data: 
     - Name: StartPoint
       Entry: 10
-      Data: 0
+      Data: 1
 --- !u!114 &7649635152311016701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2823,6 +2823,41 @@ MonoBehaviour:
   _destroyPoint: {fileID: 8871607424460122089}
   _destroyRotate: {x: 0, y: 0, z: 35}
   _destroyColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &101029825783393251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055715942251474945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd1becde0674fda946aa3d9aedf5865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _duration: 8
+--- !u!114 &2714906533204532590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055715942251474945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 2
 --- !u!1 &7055715942317187801
 GameObject:
   m_ObjectHideFlags: 0
@@ -4187,6 +4222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a742a1e4530584ab971db338bd1e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Parent>k__BackingField: {fileID: 7055715942251474944}
 --- !u!1 &7055715942875786714
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,7 +4778,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7824181793170390387, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
+    - {fileID: 9159466040721184635, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
 --- !u!4 &153221121907868863 stripped

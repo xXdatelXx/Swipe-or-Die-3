@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using SwipeOrDie.GameLogic;
 using DG.Tweening;
@@ -9,6 +8,7 @@ namespace SwipeOrDie.View
 {
     public class MazeDestroyView : SerializedMonoBehaviour, IDestroyView
     {
+        //TODO заминит на шлях вектор3
         [SerializeField] private Transform _destroyPoint;
         [SerializeField] private IAsyncTimer _delayTimer;
         [SerializeField] private Vector3 _destroyRotate;
@@ -26,7 +26,7 @@ namespace SwipeOrDie.View
             await _delayTimer.Play();
 
             transform.DOMove(_destroyPoint.position, time);
-            transform.DORotate(_destroyRotate, time);
+            transform.DORotate(transform.eulerAngles + _destroyRotate, time);
             _material.DOColor(_destroyColor, time);
         }
     }

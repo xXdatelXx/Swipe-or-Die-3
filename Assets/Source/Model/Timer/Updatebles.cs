@@ -8,10 +8,8 @@ namespace Source.Model.Timer
     {
         private readonly List<IUpdateble> _updatebles = new();
 
-        private void Update()
-        {
+        private void Update() => 
             _updatebles.ForEach(i => i.Update(Time.deltaTime));
-        }
 
         public void Add(IUpdateble updateble)
         {

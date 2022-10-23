@@ -24,10 +24,8 @@ namespace Source.View
             _score = int.Parse(_text.text);
         }
 
-        private void Awake()
-        {
+        private void Awake() => 
             Set();
-        }
 
         private void Set()
         {

@@ -14,10 +14,8 @@ namespace SwipeOrDie.GameLogic
         private string DieAnimation => "Die";
 
         [Inject]
-        public void Construct(ILose lose)
-        {
+        public void Construct(ILose lose) => 
             _lose = lose;
-        }
 
         private void OnEnable()
         {

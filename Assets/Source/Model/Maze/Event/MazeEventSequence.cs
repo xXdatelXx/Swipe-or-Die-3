@@ -8,9 +8,7 @@ namespace SwipeOrDie.GameLogic
     {
         [SerializeField] private List<IMazeEvent> _events;
 
-        public void OnMazeEnabled()
-        {
+        public void OnMazeEnabled() => 
             _events.ForEach(e => e.OnMazeEnabled());
-        }
     }
 }
