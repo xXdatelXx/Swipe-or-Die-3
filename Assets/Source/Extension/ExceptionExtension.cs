@@ -20,7 +20,10 @@ namespace SwipeOrDie.Extension
             return value;
         }
 
-        public static T TryThrowNullReferenceException<T>(this T value) => 
-            value ?? throw new NullReferenceException($"{nameof(value)} == null");
+        public static T TryThrowNullReferenceException<T>(this T value, string name = "value") => 
+            value ?? throw new NullReferenceException($"{name} == null");
+        
+        public static T TryThrowArgumentNullException<T>(this T value, string name = "value") => 
+            value ?? throw new ArgumentNullException($"{name} == null");
     }
 }

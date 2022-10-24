@@ -30,12 +30,8 @@ namespace SwipeOrDie.GameLogic
         {
             while (true)
             {
-                foreach (var material in _materials)
-                {
-                    material
-                        .DOColor(_randomColor.Next(), _duration)
-                        .SetEase(Ease.Linear);
-                }
+                _materials.Select(i => 
+                    i.DOColor(_randomColor.Next(), _duration).SetEase(Ease.Linear));
 
                 yield return new WaitForSeconds(_duration);
             }

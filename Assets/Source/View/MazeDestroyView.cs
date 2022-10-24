@@ -1,33 +1,30 @@
+using System.Collections.Generic;
 using UnityEngine;
 using SwipeOrDie.GameLogic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
-using SwipeOrDie.Extension;
+using System.Linq;
 
 namespace SwipeOrDie.View
 {
     public class MazeDestroyView : SerializedMonoBehaviour, IDestroyView
     {
-        //TODO заминит на шлях вектор3
-        [SerializeField] private Transform _destroyPoint;
-        [SerializeField] private IAsyncTimer _delayTimer;
+        [SerializeField] private Vector3 _way;
+        [SerializeField] private IAsyncTimer _delay;
         [SerializeField] private Vector3 _destroyRotate;
         [SerializeField] private Color _destroyColor;
-        private Material _material;
+        private IReadOnlyList<Material> _materials;
 
-        private void Awake()
-        {
-            _destroyPoint.TryThrowNullReferenceException();
-            _material = GetComponent<Material>();
-        }
+        private void Awake() => 
+            _materials = GetComponentsInChildren<Renderer>().Select(r => r.material).ToList();
 
         public async void Destroy(float time)
         {
-            await _delayTimer.Play();
+            await _delay.Play();
 
-            transform.DOMove(_destroyPoint.position, time);
+            transform.DOMove(transform.localPosition + _way, time);
             transform.DORotate(transform.eulerAngles + _destroyRotate, time);
-            _material.DOColor(_destroyColor, time);
+            _materials.Select(i => i.DOColor(_destroyColor, time));
         }
     }
 }
