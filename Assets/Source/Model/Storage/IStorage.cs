@@ -1,11 +1,11 @@
 namespace Source.Model.Storage
 {
-    public interface IStorage
+    public interface IStorage<T>
     {
-        public T Load<T>(string key);
+        public T Load();
 
-        public void Save<T>(string key, T saveObject);
+        public void Save(T saveObject);
 
-        public bool Exists(string key);
+        public bool Exists();
     }
 }

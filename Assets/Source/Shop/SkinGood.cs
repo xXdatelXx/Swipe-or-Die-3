@@ -6,18 +6,17 @@ namespace Source.Shop
 {
     public class SkinGood : IGood
     {
-        private readonly IStorage _storage;
+        private readonly IStorage<MeshRenderer> _storage;
         private readonly MeshRenderer _skin;
         public int Price { get; }
 
-        public SkinGood(IStorage storage, MeshRenderer skin, int price)
+        public SkinGood(IStorage<MeshRenderer> storage, MeshRenderer skin, int price)
         {
             _storage = storage.TryThrowNullReferenceException();
             _skin = skin.TryThrowNullReferenceException();
             Price = price.TryThrowSubZeroException();
         }
 
-        public void Use() => 
-            _storage.Save(nameof(SkinGood), _skin);
+        public void Use() => _storage.Save(_skin);
     }
 }

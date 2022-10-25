@@ -6,15 +6,15 @@ using Source.View;
 public class Wallet : IWallet
 {
     private readonly IWalletView _view;
-    private readonly IStorage _storage;
+    private readonly IStorage<int> _storage;
     private int _money;
 
-    public Wallet(IStorage storage, IWalletView view = null)
+    public Wallet(IStorage<int> storage, IWalletView view = null)
     {
         _storage = storage.TryThrowNullReferenceException();
         _view = view;
 
-        _money = _storage.Load<int>(nameof(Wallet));
+        _money = _storage.Load();
     }
 
     public bool CanTake(int money)
@@ -26,7 +26,7 @@ public class Wallet : IWallet
         return operation;
     }
 
-    public void Put(int money)
+    public void Put(int money = 1)
     {   
         _money += money.TryThrowSubZeroException();
         CompleteOperation();
@@ -43,7 +43,7 @@ public class Wallet : IWallet
 
     private void CompleteOperation()
     {
-        _storage.Save(nameof(Wallet), _money);
+        _storage.Save(_money);
         _view.OnSetMoney(_money);
     }
 }

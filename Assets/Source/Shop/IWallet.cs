@@ -1,6 +1,6 @@
 public interface IWallet
 {
-    void Put(int money);
+    void Put(int money = 1);
     bool CanTake(int money);
     void Take(int money);
 }

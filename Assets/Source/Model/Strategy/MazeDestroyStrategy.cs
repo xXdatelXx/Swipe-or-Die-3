@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using FluentValidation;
 using SwipeOrDie.GameLogic;
@@ -13,7 +14,7 @@ namespace SwipeOrDie.Strategy
         private void Awake() => 
             new Validator().ValidateAndThrow(this);
 
-        public async void Destroy()
+        public async Task Destroy()
         {
             _view.Destroy(_destroyTimer.Time);
             await _destroyTimer.Play();

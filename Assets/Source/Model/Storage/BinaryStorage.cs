@@ -1,38 +1,31 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using SystemPath = System.IO.Path;
 
 namespace Source.Model.Storage
 {
-    public sealed class BinaryStorage : IStorage
+    public sealed class BinaryStorage<T> : IStorage<T>
     {
-        private readonly BinaryFormatter _formatter = new();
+        private readonly BinaryFormatter _formatter;
+        private readonly string _path;
 
-        public T Load<T>(string path)
+        public BinaryStorage(string path)
         {
-            /*using var file = Exists(GetPath(path)) 
-                    ? File.Open(GetPath(path), FileMode.Open) 
-                    : throw new InvalidDataException("dont have data from path");
-            
-            return (T)_formatter.Deserialize(file);*/
-            return default;
+            _formatter = new();
+            _path = SystemPath.Combine(Application.persistentDataPath, path);
         }
 
-        public bool Exists(string name)
+        public T Load()
         {
-            return true;
-            //return File.Exists(GetPath(name));
+            return Exists()
+                ? (T)_formatter.Deserialize(File.Open(_path, FileMode.Open))
+                : throw new InvalidDataException("dont have data from path");
         }
 
-        public void Save<T>(string path, T saveObject)
-        {
-            //using var file = File.Create(GetPath(path));
-            //_formatter.Serialize(file, saveObject);
-        }
+        public bool Exists() => File.Exists(_path);
 
-        private string GetPath(string name)
-        {
-            return Path.Combine(Application.persistentDataPath, name);
-        }
+        public void Save(T saveObject) =>
+            _formatter.Serialize(File.Create(_path), saveObject);
     }
 }
