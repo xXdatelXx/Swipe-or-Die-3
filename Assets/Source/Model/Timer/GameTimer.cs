@@ -42,9 +42,9 @@ namespace Source
             _view.OnSetTime(_balance.All - _timer.AccumulatedTime, 100 - (_timer.AccumulatedTime / _balance.All * 100));
         }
 
-        public void OnPause() => _pause = true;
+        public void Enable() => _pause = true;
 
-        public void OnPlay() => _pause = false;
+        public void Disable() => _pause = false;
 
         private class Validator : AbstractValidator<GameTimer>
         {

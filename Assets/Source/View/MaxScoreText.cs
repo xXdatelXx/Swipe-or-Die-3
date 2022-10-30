@@ -24,15 +24,11 @@ namespace Source.View
             _score = int.Parse(_text.text);
         }
 
-        private void Awake() => 
-            Set();
+        private void Awake() => Set();
 
         private void Set()
         {
-            if(!_maxScore.Exists())
-                return;
-
-            int maxScore = _maxScore.Load().Value;
+            var maxScore = _maxScore.Load();
 
             if (_score < maxScore)
             {

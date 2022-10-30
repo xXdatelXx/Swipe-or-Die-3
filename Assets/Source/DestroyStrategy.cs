@@ -10,7 +10,7 @@ namespace Source
     public class DestroyStrategy : SerializedMonoBehaviour, IDestroyStrategy
     {
         [SerializeField] private IAsyncTimer _timer;
-        private IDestroyView _view;
+        [SerializeField] private IDestroyView _view;
 
         private void Awake()
         {

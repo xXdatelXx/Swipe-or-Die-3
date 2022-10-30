@@ -1,5 +1,5 @@
 public interface IPauseHandler
 {
-    void OnPause();
-    void OnPlay();
+    void Enable();
+    void Disable();
 }

@@ -20,11 +20,7 @@ namespace Source.Model.Enemy.Movement
             Move();
         }
 
-        private void Move()
-        {
-            // position / 2 бо да
-            var position = transform.InverseTransformPoint(_position.Next(Vector2.right)) / 2;
-            _movement.Move(position);
-        }
+        private void Move() => 
+            _movement.Move(_position.Next(Vector2.right));
     }
 }

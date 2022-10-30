@@ -8,10 +8,11 @@ using Source.Model.Timer;
 
 namespace SwipeOrDie.GameLogic
 {
-    [RequireComponent(typeof(BoxCollider))]
+    [RequireComponent(typeof(BoxCollider)), SelectionBase]
     public class Character : SerializedMonoBehaviour, ICharacter, IPauseHandler
     {
         [SerializeField] private ISpeed _speed;
+        [SerializeField] private IMovementView _movementView;
         private ICharacterMovement _movement;
         private IInput _input;
 
@@ -24,7 +25,7 @@ namespace SwipeOrDie.GameLogic
             var radius = new Radius(GetComponent<BoxCollider>().ToCube().Radius());
             var position = new RayPosition(transform, radius);
 
-            _movement = new CharacterMovement(transform, _speed, position);
+            _movement = new CharacterMovement(transform, _speed, position, _movementView);
 
             Enable();
         }
@@ -37,11 +38,5 @@ namespace SwipeOrDie.GameLogic
 
         public void Disable() => 
             _input.Disable();
-
-        public void OnPause() => 
-            Disable();
-
-        public void OnPlay() => 
-            Enable();
     }
 }

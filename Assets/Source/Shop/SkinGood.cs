@@ -2,7 +2,7 @@ using Source.Model.Storage;
 using SwipeOrDie.Extension;
 using UnityEngine;
 
-namespace Source.Shop
+namespace Source.Shope
 {
     public class SkinGood : IGood
     {

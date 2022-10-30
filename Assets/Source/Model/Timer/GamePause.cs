@@ -10,9 +10,9 @@ namespace Source.Model.Timer
             _handlers.Add(handler);
 
         public void Pause() => 
-            _handlers.ForEach(i => i.OnPause());
+            _handlers.ForEach(i => i.Enable());
 
         public void Play() => 
-            _handlers.ForEach(i => i.OnPlay());
+            _handlers.ForEach(i => i.Disable());
     }
 }

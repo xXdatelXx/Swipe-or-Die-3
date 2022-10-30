@@ -11,7 +11,7 @@ public class Shop : IShop
 
     public void Buy(IGood good)
     {
-        int price = good.Price;
+        var price = good.Price;
 
         if (_wallet.CanTake(price))
         {

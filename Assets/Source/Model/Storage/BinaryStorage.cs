@@ -1,31 +1,29 @@
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using UnityEngine;
+using SwipeOrDie.Extension;
 using SystemPath = System.IO.Path;
 
 namespace Source.Model.Storage
 {
     public sealed class BinaryStorage<T> : IStorage<T>
     {
-        private readonly BinaryFormatter _formatter;
-        private readonly string _path;
+        private readonly FluentBinaryFormatter<T> _formatter;
+        private readonly IPath _path;
 
-        public BinaryStorage(string path)
+        public BinaryStorage(string path) : 
+            this(new Path(path)) { }
+
+        public BinaryStorage(IPath path)
         {
-            _formatter = new();
-            _path = SystemPath.Combine(Application.persistentDataPath, path);
+            _path = path.TryThrowNullReferenceException();
+            _formatter = new(path);
         }
 
-        public T Load()
-        {
-            return Exists()
-                ? (T)_formatter.Deserialize(File.Open(_path, FileMode.Open))
-                : throw new InvalidDataException("dont have data from path");
-        }
+        public bool Exists() => File.Exists(_path.Value);
 
-        public bool Exists() => File.Exists(_path);
+        public T Load() => 
+            _formatter.Deserialize();
 
         public void Save(T saveObject) =>
-            _formatter.Serialize(File.Create(_path), saveObject);
+            _formatter.Serialize(saveObject);
     }
 }

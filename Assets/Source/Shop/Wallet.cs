@@ -14,20 +14,21 @@ public class Wallet : IWallet
         _storage = storage.TryThrowNullReferenceException();
         _view = view;
 
-        _money = _storage.Load();
+        if (_storage.Exists())
+            _money = _storage.Load();
     }
 
     public bool CanTake(int money)
     {
         var operation = _money >= money && money >= 0;
-        if(operation == false)
+        if (operation == false)
             _view.OnError();
-        
+
         return operation;
     }
 
     public void Put(int money = 1)
-    {   
+    {
         _money += money.TryThrowSubZeroException();
         CompleteOperation();
     }

@@ -1,27 +1,26 @@
 using UnityEngine;
 using System.IO;
+using SwipeOrDie.Extension;
 using SystemPath = System.IO.Path;
 
 namespace Source.Model.Storage
 {
     public class JSonStorage<T> : IStorage<T>
     {
-        private readonly string _path;
+        private readonly IPath _path;
+        
+        public JSonStorage(string path) : 
+            this(new Path(path)) { }
 
-        public JSonStorage(string path) => 
-            _path = SystemPath.Combine(Application.persistentDataPath, path);
+        public JSonStorage(IPath path) => 
+            _path = path.TryThrowNullReferenceException();
 
-        public bool Exists() => 
-            File.Exists(_path);
+        public bool Exists() => File.Exists(_path.Value);
 
-        public T Load()
-        {
-            return Exists() 
-                ? JsonUtility.FromJson<T>(File.ReadAllText(_path))
-                : throw new InvalidDataException("dont have data from path");
-        }
+        public T Load() => 
+            JsonUtility.FromJson<T>(File.ReadAllText(_path.Value));
 
-        public void Save(T saveObject) => 
-            File.WriteAllText(_path, JsonUtility.ToJson(saveObject));
+        public void Save(T obj) => 
+            File.WriteAllText(_path.Value, JsonUtility.ToJson(obj));
     }
 }

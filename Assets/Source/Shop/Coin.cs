@@ -4,7 +4,7 @@ using SwipeOrDie.GameLogic;
 using UnityEngine;
 using Zenject;
 
-namespace Source.Shop
+namespace Source.Model
 {
     [RequireComponent(typeof(Collider))]
     public class Coin : SerializedMonoBehaviour

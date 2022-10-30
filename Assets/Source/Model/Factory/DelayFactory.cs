@@ -29,9 +29,9 @@ namespace SwipeOrDie.Factory
             }
         }
 
-        public void OnPause() => _pause = true;
+        public void Enable() => _pause = true;
 
-        public void OnPlay() => _pause = false;
+        public void Disable() => _pause = false;
 
         private class Validator : AbstractValidator<DelayFactory>
         {
