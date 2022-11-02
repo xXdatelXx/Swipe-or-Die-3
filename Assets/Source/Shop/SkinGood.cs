@@ -2,21 +2,15 @@ using Source.Model.Storage;
 using SwipeOrDie.Extension;
 using UnityEngine;
 
-namespace Source.Shope
+namespace Source.ShopSystem
 {
-    public class SkinGood : IGood
+    [CreateAssetMenu(fileName = nameof(SkinGood))]
+    public class SkinGood : ScriptableObject, IGood
     {
-        private readonly IStorage<MeshRenderer> _storage;
-        private readonly MeshRenderer _skin;
-        public int Price { get; }
+        [field: SerializeField] public Mesh Skin { get; private set; }
+        [field: SerializeField, Min(0)] public int Price { get; private set; }
+        private readonly IStorage<Mesh> _storage = new JSonStorage<Mesh>(nameof(Skin));
 
-        public SkinGood(IStorage<MeshRenderer> storage, MeshRenderer skin, int price)
-        {
-            _storage = storage.TryThrowNullReferenceException();
-            _skin = skin.TryThrowNullReferenceException();
-            Price = price.TryThrowSubZeroException();
-        }
-
-        public void Use() => _storage.Save(_skin);
+        public void Use() => _storage.Save(Skin);
     }
 }

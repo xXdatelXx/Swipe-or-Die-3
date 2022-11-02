@@ -1,3 +1,4 @@
+using Source.UI.Components;
 using Source.View.Interfaces;
 using SwipeOrDie.Extension;
 using UnityEngine;
@@ -5,16 +6,16 @@ using UnityEngine.UI;
 
 namespace Source.View
 {
-    [RequireComponent(typeof(Text), typeof(Animator))]
+    [RequireComponent(typeof(IText), typeof(Animator))]
     public class ScoreView : MonoBehaviour, IScoreView
     {
-        private Text _text;
+        private IText _text;
         private Animator _animator;
         private string _animation => "Set"; 
 
         private void Awake()
         {
-            _text = GetComponent<Text>();
+            _text = GetComponent<IText>();
             _animator = GetComponent<Animator>();
         }
 

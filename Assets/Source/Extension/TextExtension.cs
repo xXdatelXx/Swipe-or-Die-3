@@ -1,13 +1,10 @@
-using UnityEngine.UI;
+using Source.UI.Components;
 
 namespace SwipeOrDie.Extension
 {
     public static class TextExtension
     {
-        public static void Set(this Text text, int value) => 
-            Set(text, value.ToString());
-
-        public static void Set(this Text text, string value) => 
-            text.text = value;
+        public static void Set(this IText text, int value)
+            => text.Set(value.ToString());
     }
 }

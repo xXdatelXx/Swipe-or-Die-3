@@ -37,8 +37,19 @@ namespace SwipeOrDie.Extension
         public static IEnumerable<T> RepeatForever<T>(this IEnumerable<T> enumerable)
         {
             while (true)
+            {
                 foreach (var i in enumerable)
                     yield return i;
+            }
         }
+
+        public static int ClampId<T>(this IList<T> enumerable, int id)
+        {
+            var count = enumerable.Count;
+            return id > count ? 0 : id < count ? count : id;
+        }
+
+        public static IEnumerable<T> TryThrowNullReferenceForeach<T>(this IEnumerable<T> enumerable) => 
+            enumerable.Select(i => i.TryThrowNullReferenceException("element is null"));
     }
 }

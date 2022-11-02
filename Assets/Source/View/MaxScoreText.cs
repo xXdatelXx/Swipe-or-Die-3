@@ -1,4 +1,5 @@
 using Source.Model;
+using Source.UI.Components;
 using Source.View.Interfaces;
 using SwipeOrDie.Extension;
 using UnityEngine;
@@ -7,11 +8,11 @@ using Zenject;
 
 namespace Source.View
 {
-    [RequireComponent(typeof(Text), typeof(IScoreView))]
+    [RequireComponent(typeof(IText), typeof(IScoreView))]
     public class MaxScoreText : MonoBehaviour
     {
         private IMaxScore _maxScore;
-        private Text _text;
+        private IText _text;
         private IScoreView _view;
         private int _score;
 
@@ -19,9 +20,8 @@ namespace Source.View
         public void Construct(IMaxScore maxScore)
         {
             _maxScore = maxScore;
-            _text = GetComponent<Text>();
+            _text = GetComponent<IText>();
             _view = GetComponent<IScoreView>();
-            _score = int.Parse(_text.text);
         }
 
         private void Awake() => Set();

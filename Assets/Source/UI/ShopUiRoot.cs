@@ -1,24 +1,29 @@
-using System;
-using System.Collections.Generic;
-using Sirenix.Utilities;
-using Source.Shope;
-using SwipeOrDie.Extension;
+using System.Linq;
+using Sirenix.OdinInspector;
+using Source.Model.Storage;
+using Source.ShopSystem;
 using UnityEngine;
 using Zenject;
 
 namespace Source.UI
 {
-    public class ShopUiRoot : MonoBehaviour
+    public class ShopUiRoot : SerializedMonoBehaviour
     {
-        [SerializeField] private Dictionary<SkinGood, BuyButton> _items;
+        [SerializeField] private SkinGood[] _goods;
+        [SerializeField] private BuyButton _buyButton;
+        [SerializeField] private GoodSwitchButton _leftSwitchButton;
+        [SerializeField] private GoodSwitchButton _rightSwitchButton;
+        [SerializeField] private IBuyButtonView _view;
 
         [Inject]
         public void Compose(IWallet wallet)
         {
-            var shop = new Shop(wallet.TryThrowArgumentNullException("wallet == null"));
+            var shop = new Shop(wallet, new CollectionStorage<IGood>(nameof(_goods)));
+            var buyButtonActions = _goods.Select(i => new BuyButtonAction(i, shop)).ToList();
 
-            foreach (var i in _items) 
-                i.Value.Subscribe(new BuyButtonAction(i.Key, shop));
+            _leftSwitchButton.Subscribe(new SwitchButtonAction(buyButtonActions, _view, _buyButton, -1));
+            _rightSwitchButton.Subscribe(new SwitchButtonAction(buyButtonActions, _view, _buyButton, 1));
+            _buyButton.Subscribe(buyButtonActions[0]);
         }
     }
 }
