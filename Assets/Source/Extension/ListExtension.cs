@@ -25,13 +25,13 @@ namespace SwipeOrDie.Extension
             }
         }
 
-        public static bool Has<T>(this IEnumerable<T> list, T item) => 
+        public static bool Has<T>(this IEnumerable<T> list, T item) =>
             list.Any(i => i.Equals(item));
 
-        public static T Max<T>(this List<T> list) => 
+        public static T Max<T>(this List<T> list) =>
             list[^1];
 
-        public static T Random<T>(this IEnumerable<T> enumerable) => 
+        public static T Random<T>(this IEnumerable<T> enumerable) =>
             enumerable.ElementAt(UnityEngine.Random.Range(0, enumerable.Count()));
 
         public static IEnumerable<T> RepeatForever<T>(this IEnumerable<T> enumerable)
@@ -46,10 +46,10 @@ namespace SwipeOrDie.Extension
         public static int ClampId<T>(this IList<T> enumerable, int id)
         {
             var count = enumerable.Count;
-            return id > count ? 0 : id < count ? count : id;
+            return id < 0 ? count - 1 : id > count - 1 ? 0 : id;
         }
 
-        public static IEnumerable<T> TryThrowNullReferenceForeach<T>(this IEnumerable<T> enumerable) => 
+        public static IEnumerable<T> TryThrowNullReferenceForeach<T>(this IEnumerable<T> enumerable) =>
             enumerable.Select(i => i.TryThrowNullReferenceException("element is null"));
     }
 }

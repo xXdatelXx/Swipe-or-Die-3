@@ -5,19 +5,12 @@ using SwipeOrDie.Extension;
 
 namespace Source.View
 {
-    [RequireComponent(typeof(IText), typeof(Animator))]
     public class WalletView : SerializedMonoBehaviour, IWalletView
     {
-        private IText _text;
-        private Animator _animator;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private IText _text;
         private string _buyAnimation => "Buy";
         private string _errorAnimation => "Error";
-
-        private void Awake()
-        {
-            _text = GetComponent<IText>();
-            _animator = GetComponent<Animator>();
-        }
 
         public void OnSetMoney(int value)
         {

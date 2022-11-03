@@ -21,10 +21,10 @@ namespace Source.UI
 
         public void OnClick()
         {
+            _id = _actions.ClampId(_id + _direction);
+            
             _buyButton.Subscribe(_actions[_id]);
             _view.OnSetGood(_actions[_id].Good);
-            
-            _id = _actions.ClampId(_id + _direction);
         }
     }
 }

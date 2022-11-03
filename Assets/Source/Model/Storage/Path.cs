@@ -14,9 +14,9 @@ namespace Source.Model.Storage
             value.TryThrowNullReferenceException();
             
 #if UNITY_ANDROID && !UNITY_EDITOR
-            _value = SystemPath.Combine(Application.persistentDataPath, value);
-#else
             Value =  SystemPath.Combine(Application.dataPath, value);
+#else
+            Value = SystemPath.Combine(Application.persistentDataPath, value);
 #endif
         }
 

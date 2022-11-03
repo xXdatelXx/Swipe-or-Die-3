@@ -22,5 +22,5 @@ public class Shop : IShop
     }
 
     private bool CanUse(IGood good) => 
-        !(_wallet.CanTake(good.Price) && _boughtGoods.Load().Has(good));
+        !_boughtGoods.Exists() || !(_wallet.CanTake(good.Price) && _boughtGoods.Load().Has(good));
 }

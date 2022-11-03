@@ -15,7 +15,10 @@ public class Wallet : IWallet
         _view = view;
 
         if (_storage.Exists())
+        {
             _money = _storage.Load();
+            _view.OnSetMoney(_money);
+        }
     }
 
     public bool CanTake(int money)
@@ -44,7 +47,7 @@ public class Wallet : IWallet
 
     private void CompleteOperation()
     {
-        _storage.Save(_money);
+        _storage.Save(_storage.Exists() ? _storage.Load() + _money : _money);
         _view.OnSetMoney(_money);
     }
 }
