@@ -1,5 +1,6 @@
 using System.Runtime.Serialization.Formatters.Binary;
 using SwipeOrDie.Extension;
+using System.IO;
 
 namespace Source.Model.Storage
 {
@@ -14,10 +15,10 @@ namespace Source.Model.Storage
             _formatter = new();
         }
 
-        public T Deserialize() => 
+        public T Deserialize() =>
             (T)_formatter.Deserialize(_path.OpenFile());
 
-        public void Serialize(T obj) => 
-            _formatter.Serialize(_path.OpenFile(), obj);
+        public void Serialize(T obj) =>
+            _formatter.Serialize(File.Create(_path.Value), obj);
     }
 }

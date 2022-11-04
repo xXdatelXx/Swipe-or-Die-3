@@ -12,15 +12,15 @@ namespace Source.Model.Storage
         public Path(string value)
         {
             value.TryThrowNullReferenceException();
-            
+
 #if UNITY_ANDROID && !UNITY_EDITOR
-            Value =  SystemPath.Combine(Application.dataPath, value);
-#else
             Value = SystemPath.Combine(Application.persistentDataPath, value);
+#else
+            Value = SystemPath.Combine(Application.dataPath, value);
 #endif
         }
 
-        public FileStream OpenFile() => 
+        public Stream OpenFile() =>
             File.Open(Value, FileMode.Open);
     }
 }

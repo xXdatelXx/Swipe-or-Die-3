@@ -4,6 +4,6 @@ namespace Source.Model.Storage
     {
         bool Exists();
         T Load();
-        void Save(T saveObject);
+        void Save(T value);
     }
 }

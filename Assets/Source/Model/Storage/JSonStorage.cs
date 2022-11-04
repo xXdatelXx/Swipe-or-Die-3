@@ -20,7 +20,7 @@ namespace Source.Model.Storage
         public T Load() => 
             JsonUtility.FromJson<T>(File.ReadAllText(_path.Value));
 
-        public void Save(T obj) => 
-            File.WriteAllText(_path.Value, JsonUtility.ToJson(obj));
+        public void Save(T value) => 
+            File.WriteAllText(_path.Value, JsonUtility.ToJson(value));
     }
 }

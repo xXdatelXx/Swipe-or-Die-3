@@ -27,7 +27,7 @@ public class GameInstaller : MonoInstaller
     {
         var pause = new GamePause();
         var score = new Score(_scoreView);
-        var maxScore = new MaxScoreStorage(new PlayerPrefsStorage<int>(nameof(MaxScoreStorage)), score);
+        var maxScore = new MaxScoreStorage(new BinaryStorage<int>(nameof(MaxScoreStorage)), score);
         var lose = new Losing(_loseView, pause, maxScore);
         var gameTimer = new GameTimer(lose, _gameTimerView, _balance, new TimerFactory(_updatebles));
 
@@ -38,6 +38,6 @@ public class GameInstaller : MonoInstaller
         Container.BindInstance((IGameTimer)gameTimer);
         Container.BindInstance((IPause)pause);
         Container.BindInstance((IMaxScore)maxScore);
-        Container.BindInstance((IWallet)new Wallet(new JSonStorage<int>(nameof(Wallet)), _walletView));
+        Container.BindInstance((IWallet)new Wallet(new BinaryStorage<int>(nameof(WalletView)), _walletView));
     }
 }

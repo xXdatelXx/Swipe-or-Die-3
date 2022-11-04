@@ -47,7 +47,7 @@ public class Wallet : IWallet
 
     private void CompleteOperation()
     {
-        _storage.Save(_storage.Exists() ? _storage.Load() + _money : _money);
+        _storage.Save(_money);
         _view.OnSetMoney(_money);
     }
 }

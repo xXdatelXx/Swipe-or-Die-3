@@ -10,9 +10,11 @@ namespace Source.Model.Storage
         public PlayerPrefsStorage(string key) =>
             _key = key.TryThrowNullReferenceException();
 
-        public bool Exists() => PlayerPrefs.HasKey(_key);
+        public bool Exists() => 
+            PlayerPrefs.HasKey(_key);
 
-        public T Load() => JsonUtility.FromJson<T>(PlayerPrefs.GetString(_key));
+        public T Load() => 
+            JsonUtility.FromJson<T>(PlayerPrefs.GetString(_key));
 
         public void Save(T obj)
         {
