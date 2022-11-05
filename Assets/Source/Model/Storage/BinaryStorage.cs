@@ -1,6 +1,5 @@
 using System.IO;
 using SwipeOrDie.Extension;
-using SystemPath = System.IO.Path;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -23,28 +22,10 @@ namespace Source.Model.Storage
 
         public bool Exists() => File.Exists(_path.Value);
 
-        public T Load()
-        {
-            var allPath = _path.Value;
+        public T Load() => 
+            _formatter.Deserialize();
 
-            if (Exists() == false)
-                throw new InvalidOperationException(nameof(Load));
-
-            var bf = new BinaryFormatter();
-            using var file = File.Open(allPath, FileMode.Open);
-            return (T)bf.Deserialize(file);
-
-            //return _formatter.Deserialize();
-        }
-
-        public void Save(T value)
-        {
-            var allPath = _path.Value;
-            var bf = new BinaryFormatter();
-            using var file = File.Create(allPath);
-            bf.Serialize(file, value);
-
-            //_formatter.Serialize(value);
-        }
+        public void Save(T value) => 
+            _formatter.Serialize(value);
     }
 }

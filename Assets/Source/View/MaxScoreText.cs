@@ -29,7 +29,6 @@ namespace Source.View
         private void Set()
         {
             var maxScore = _maxScore.Load();
-
             if (_score < maxScore)
             {
                 _text.Set(maxScore);

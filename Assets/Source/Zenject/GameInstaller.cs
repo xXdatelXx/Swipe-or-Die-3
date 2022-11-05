@@ -38,6 +38,6 @@ public class GameInstaller : MonoInstaller
         Container.BindInstance((IGameTimer)gameTimer);
         Container.BindInstance((IPause)pause);
         Container.BindInstance((IMaxScore)maxScore);
-        Container.BindInstance((IWallet)new Wallet(new BinaryStorage<int>(nameof(WalletView)), _walletView));
+        Container.BindInstance((IWallet)new Wallet(new BinaryStorage<int>(nameof(Wallet)), _walletView));
     }
 }

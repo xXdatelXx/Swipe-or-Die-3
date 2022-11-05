@@ -15,7 +15,8 @@ namespace Source.Model
             _score = score.TryThrowNullReferenceException();
         }
 
-        public int Load() => _storage.Exists() ? _storage.Load() : 0;
+        public int Load() =>
+            _storage.Exists() ? _storage.Load() : 0;
 
         public void TrySave()
         {

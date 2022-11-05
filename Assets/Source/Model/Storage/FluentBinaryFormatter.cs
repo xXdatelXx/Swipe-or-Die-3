@@ -15,10 +15,16 @@ namespace Source.Model.Storage
             _formatter = new();
         }
 
-        public T Deserialize() =>
-            (T)_formatter.Deserialize(_path.OpenFile());
+        public T Deserialize()
+        {
+            using var file = _path.OpenFile();
+            return (T)_formatter.Deserialize(file);
+        }
 
-        public void Serialize(T obj) =>
-            _formatter.Serialize(File.Create(_path.Value), obj);
+        public void Serialize(T obj)
+        {
+            using var file = File.Create(_path.Value);
+            _formatter.Serialize(file, obj);
+        }
     }
 }

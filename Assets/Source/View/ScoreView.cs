@@ -2,7 +2,6 @@ using Source.UI.Components;
 using Source.View.Interfaces;
 using SwipeOrDie.Extension;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Source.View
 {

@@ -811,7 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f6beceb070f47409cb870dfa4d74ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walletView: {fileID: 0}
+  _walletView: {fileID: 1824587161}
 --- !u!114 &1700749422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,12 +1042,17 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1824587163}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _text
+      Entry: 10
+      Data: 0
+  _animator: {fileID: 1824587162}
 --- !u!95 &1824587162
 Animator:
   serializedVersion: 4

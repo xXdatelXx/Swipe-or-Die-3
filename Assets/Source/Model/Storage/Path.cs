@@ -20,7 +20,7 @@ namespace Source.Model.Storage
 #endif
         }
 
-        public Stream OpenFile() =>
+        public Stream OpenFile() => 
             File.Open(Value, FileMode.Open);
     }
 }
