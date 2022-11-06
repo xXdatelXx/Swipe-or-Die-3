@@ -9,8 +9,8 @@ namespace Source.ShopSystem
     {
         [field: SerializeField] public Mesh Skin { get; private set; }
         [field: SerializeField, Min(0)] public int Price { get; private set; }
-        private readonly IStorage<Mesh> _storage = new JSonStorage<Mesh>(nameof(Skin));
+        private readonly IStorage<byte[]> _storage = new BinaryStorage<byte[]>(nameof(Skin));
 
-        public void Use() => _storage.Save(Skin);
+        public void Use() => _storage.Save(Skin.Serialize());
     }
 }

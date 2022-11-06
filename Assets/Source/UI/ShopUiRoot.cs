@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Source.Model.Storage;
@@ -18,7 +19,7 @@ namespace Source.UI
         [Inject]
         public void Compose(IWallet wallet)
         {
-            var shop = new Shop(wallet, new CollectionStorage<IGood>(nameof(_goods)));
+            var shop = new Shop(wallet, new CollectionStorage<IGood>(new BinaryStorage<IEnumerable<IGood>>(nameof(MonoKernel))));
             var buyButtonActions = _goods.Select(i => new BuyButtonAction(i, shop)).ToList();
 
             _leftSwitchButton.Subscribe(new SwitchButtonAction(buyButtonActions, _view, _buyButton, -1));
