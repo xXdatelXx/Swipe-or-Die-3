@@ -11,8 +11,8 @@ namespace Source.Model
 
         public MaxScoreStorage(IStorage<int> storage, IScore score)
         {
-            _storage = storage.TryThrowNullReferenceException();
-            _score = score.TryThrowNullReferenceException();
+            _storage = storage.ThrowIfNull();
+            _score = score.ThrowIfNull();
         }
 
         public int Load() =>

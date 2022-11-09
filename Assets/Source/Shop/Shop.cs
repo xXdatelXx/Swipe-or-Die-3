@@ -1,46 +1,26 @@
-using System.Collections.Generic;
-using System.Linq;
 using Source.Model.Storage;
 using SwipeOrDie.Extension;
 
-public class Shop : IShop
+namespace Source.ShopSystem
 {
-    private readonly IWallet _wallet;
-    private readonly ICollectionStorage<IGood> _boughtGoodsStorage;
-
-    public Shop(IWallet wallet, ICollectionStorage<IGood> boughtGoods)
+    public sealed class Shop : IShop
     {
-        _wallet = wallet.TryThrowArgumentNullException();
-        _boughtGoodsStorage = boughtGoods.TryThrowNullReferenceException();
-    }
+        private readonly IWallet _wallet;
+        private readonly ICollectionStorage<IGood> _boughtGoods;
 
-    public void Buy(IGood good)
-    {
-        good.TryThrowArgumentNullException();
-        
-        var boughtGoods = 
-            _boughtGoodsStorage.Exists() ? _boughtGoodsStorage.Load().ToList() : new List<IGood>();
-        
-        if (!boughtGoods.Has(good) && _wallet.CanTake(good.Price))
+        public Shop(IWallet wallet, ICollectionStorage<IGood> boughtGoods)
         {
-            _wallet.Take(good.Price);
-            _boughtGoodsStorage.Add(good);
+            _wallet = wallet.ThrowIfArgumentNull(nameof(wallet));
+            _boughtGoods = boughtGoods.ThrowIfArgumentNull(nameof(boughtGoods));
         }
-        
-        if (boughtGoods.Has(good))
-            good.Use();
 
-
-        //var boughtGoods = _boughtGoodsStorage.Exists() ? _boughtGoodsStorage.Load().ToList() : new List<IGood>();
-        if (!boughtGoods.Has(good) && _wallet.CanTake(good.Price))
+        public void Buy(IGood good)
         {
-            _wallet.Take(good.Price);
-            boughtGoods.Add(good);
+            if (_wallet.CanTake(good.Price))
+            {
+                _wallet.Take(good.Price);
+                _boughtGoods.Add(good);
+            }
         }
-        else if (boughtGoods.Has(good))
-            good.Use();
     }
-
-    private bool CanUse(IGood good) =>
-        !_boughtGoodsStorage.Exists() || !(_wallet.CanTake(good.Price) && _boughtGoodsStorage.Load().Has(good));
 }

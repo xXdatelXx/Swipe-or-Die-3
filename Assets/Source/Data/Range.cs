@@ -26,9 +26,10 @@ namespace SwipeOrDie.Data
             Values = list;
         }
 
-        public bool InRange(int value)
-        {
-            return Min <= value && Max >= value;
-        }
+        public bool InRange(int value) =>
+            Min <= value && Max >= value;
+
+        public int Clamp(int value) =>
+            value < Min ? Max : value > Max ? Min : value;
     }
 }

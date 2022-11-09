@@ -2,15 +2,15 @@ using SwipeOrDie.Extension;
 
 namespace Source.UI
 {
-    public class BuyButtonAction : IButtonAction
+    public class BuyButtonAction : IShopButtonAction
     {
+        public IGood Good { get; }
         private readonly IShop _shop;
-        public readonly IGood Good;
 
         public BuyButtonAction(IGood good, IShop shop)
         {
-            Good = good.TryThrowArgumentNullException(nameof(good));
-            _shop = shop.TryThrowArgumentNullException(nameof(good));
+            Good = good.ThrowIfArgumentNull(nameof(good));
+            _shop = shop.ThrowIfArgumentNull(nameof(good));
         }
 
         public void OnClick() => 

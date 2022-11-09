@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Source.Model.Storage;
@@ -14,17 +13,20 @@ namespace Source.UI
         [SerializeField] private BuyButton _buyButton;
         [SerializeField] private GoodSwitchButton _leftSwitchButton;
         [SerializeField] private GoodSwitchButton _rightSwitchButton;
-        [SerializeField] private IBuyButtonView _view;
+        [SerializeField] private IShopButtonView _view;
 
         [Inject]
         public void Compose(IWallet wallet)
         {
-            var shop = new Shop(wallet, new CollectionStorage<IGood>(new BinaryStorage<IEnumerable<IGood>>(nameof(MonoKernel))));
-            var buyButtonActions = _goods.Select(i => new BuyButtonAction(i, shop)).ToList();
-
-            _leftSwitchButton.Subscribe(new SwitchButtonAction(buyButtonActions, _view, _buyButton, -1));
-            _rightSwitchButton.Subscribe(new SwitchButtonAction(buyButtonActions, _view, _buyButton, 1));
-            _buyButton.Subscribe(buyButtonActions[0]);
+            var storage = new CollectionStorage<IGood>(nameof(_goods));
+            var shop = new Shop(wallet, storage);
+            var action = new ShopAction(storage,
+                _goods.Select(i => new BuyButtonAction(i, shop)).ToList(),
+                _goods.Select(i => new UseButtonAction(i)).ToList());
+            
+            _leftSwitchButton.Subscribe(new SwitchButtonAction(action, _view, _buyButton, -1));
+            _rightSwitchButton.Subscribe(new SwitchButtonAction(action, _view, _buyButton, 1));
+            _buyButton.Subscribe(action[0]);
         }
     }
 }

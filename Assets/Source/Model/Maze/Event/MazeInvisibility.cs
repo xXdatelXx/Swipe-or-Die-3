@@ -18,9 +18,9 @@ namespace SwipeOrDie.GameLogic
         {
             _materials = GetComponentsInChildren<Renderer>().Select(r => r.material);
 
-            _duration.TryThrowSubZeroException();
-            _startDelay.TryThrowSubZeroException();
-            _endDelay.TryThrowSubZeroException();
+            _duration.ThrowIfValueSubZero();
+            _startDelay.ThrowIfValueSubZero();
+            _endDelay.ThrowIfValueSubZero();
         }
 
         public void OnMazeEnabled() => ReColorize();

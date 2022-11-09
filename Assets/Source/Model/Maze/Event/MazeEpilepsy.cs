@@ -20,7 +20,7 @@ namespace SwipeOrDie.GameLogic
         {
             _materials = GetComponentsInChildren<Renderer>().Select(r => r.material).ToList();
             _randomColor = new(_colorForce);
-            _duration.TryThrowSubZeroException();
+            _duration.ThrowIfValueSubZero();
         }
 
         public void OnMazeEnabled() => 

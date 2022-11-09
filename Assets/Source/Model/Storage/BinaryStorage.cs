@@ -16,7 +16,7 @@ namespace Source.Model.Storage
 
         public BinaryStorage(IPath path)
         {
-            _path = path.TryThrowNullReferenceException();
+            _path = path.ThrowIfNull();
             _formatter = new(path);
         }
 

@@ -14,7 +14,6 @@ namespace Source.View
 
         public void OnSetMoney(int value)
         {
-            Logger.Log();
             _text.Set(value);
             _animator.SetTrigger(_buyAnimation);
         }

@@ -15,7 +15,7 @@ namespace Source.Model.Storage
 
         public CollectionStorage(IStorage<IEnumerable<T>> storage)
         {
-            _storage = storage.TryThrowArgumentNullException();
+            _storage = storage.ThrowIfArgumentNull();
             if (_storage.Exists())
             {
                 Logger.Log();

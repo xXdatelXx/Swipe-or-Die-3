@@ -11,7 +11,7 @@ public class Wallet : IWallet
 
     public Wallet(IStorage<int> storage, IWalletView view = null)
     {
-        _storage = storage.TryThrowNullReferenceException();
+        _storage = storage.ThrowIfNull();
         _view = view;
 
         if (_storage.Exists())
@@ -32,7 +32,7 @@ public class Wallet : IWallet
 
     public void Put(int money = 1)
     {
-        _money += money.TryThrowSubZeroException();
+        _money += money.ThrowIfValueSubZero();
         CompleteOperation();
     }
 
@@ -41,7 +41,7 @@ public class Wallet : IWallet
         if (!CanTake(money))
             throw new InvalidOperationException(nameof(Take));
 
-        _money -= money.TryThrowSubZeroException();
+        _money -= money.ThrowIfValueSubZero();
         CompleteOperation();
     }
 

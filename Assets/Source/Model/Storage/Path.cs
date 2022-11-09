@@ -11,7 +11,7 @@ namespace Source.Model.Storage
 
         public Path(string value)
         {
-            value.TryThrowNullReferenceException();
+            value.ThrowIfNull();
 
 #if UNITY_ANDROID && !UNITY_EDITOR
             Value = SystemPath.Combine(Application.persistentDataPath, value);

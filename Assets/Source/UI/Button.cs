@@ -3,8 +3,9 @@ using UnityEngine;
 
 namespace Source.UI
 {
+    //TODO refactor this
     [RequireComponent(typeof(UnityEngine.UI.Button))]
-    public abstract class Button : MonoBehaviour, IButton
+    public abstract class Button : MonoBehaviour
     {
         private UnityEngine.UI.Button _button;
         private IButtonAction _action;
@@ -12,13 +13,14 @@ namespace Source.UI
         public void Subscribe(IButtonAction action)
         {
             _button = GetComponent<UnityEngine.UI.Button>();
+            _action = action.ThrowIfNull();
+            _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(action.OnClick);
-            _action = action.TryThrowNullReferenceException();
         }
 
         public void Enable() => 
             _button.interactable = true;
-
+        
         private void OnDestroy() => 
             _button.onClick.RemoveListener(_action.OnClick);
     }
