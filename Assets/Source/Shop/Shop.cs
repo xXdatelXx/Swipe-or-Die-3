@@ -6,12 +6,12 @@ namespace Source.ShopSystem
     public sealed class Shop : IShop
     {
         private readonly IWallet _wallet;
-        private readonly ICollectionStorage<IGood> _boughtGoods;
+        private readonly ICollectionStorage<IGood> _inventory;
 
-        public Shop(IWallet wallet, ICollectionStorage<IGood> boughtGoods)
+        public Shop(IWallet wallet, ICollectionStorage<IGood> inventory)
         {
-            _wallet = wallet.ThrowIfArgumentNull(nameof(wallet));
-            _boughtGoods = boughtGoods.ThrowIfArgumentNull(nameof(boughtGoods));
+            _wallet = wallet.ThrowExceptionIfArgumentNull(nameof(wallet));
+            _inventory = inventory.ThrowExceptionIfArgumentNull(nameof(inventory));
         }
 
         public void Buy(IGood good)
@@ -19,7 +19,7 @@ namespace Source.ShopSystem
             if (_wallet.CanTake(good.Price))
             {
                 _wallet.Take(good.Price);
-                _boughtGoods.Add(good);
+                _inventory.Add(good);
             }
         }
     }

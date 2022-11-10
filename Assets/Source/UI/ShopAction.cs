@@ -7,14 +7,15 @@ namespace Source.UI
 {
     public sealed class ShopAction : IShopAction
     {
-        private readonly ICollectionStorage<IGood> _boughtGoods;
+        private readonly ICollectionStorage<IGood> _inventory;
         private readonly List<BuyButtonAction> _buyActions;
         private readonly List<UseButtonAction> _useActions;
         public int Count { get; }
+        public int Last { get; private set; }
 
-        public ShopAction(ICollectionStorage<IGood> boughtGoods, List<BuyButtonAction> buyActions, List<UseButtonAction> useActions)
+        public ShopAction(ICollectionStorage<IGood> inventory, List<BuyButtonAction> buyActions, List<UseButtonAction> useActions)
         {
-            _boughtGoods = boughtGoods;
+            _inventory = inventory;
             _buyActions = buyActions;
             _useActions = useActions;
             new Validator().ValidateAndThrow(this);
@@ -22,14 +23,22 @@ namespace Source.UI
             Count = _buyActions.Count;
         }
 
-        public IShopButtonAction this[int id] =>
-            _boughtGoods.Load().Has(_buyActions[id].Good) ? _buyActions[id] : _useActions[id];
-        
+        public IShopButtonAction this[int id]
+        {
+            get
+            {
+                Last = id;
+                return _inventory.Exists()
+                    ? _inventory.Load().Has(_buyActions[id].Good) ? _buyActions[id] : _useActions[id]
+                    : _buyActions[id];
+            }
+        }
+
         private class Validator : AbstractValidator<ShopAction>
         {
             public Validator()
             {
-                RuleFor(action => action._boughtGoods).NotNull();
+                RuleFor(action => action._inventory).NotNull();
                 RuleForEach(action => action._buyActions).NotNull();
                 RuleForEach(action => action._useActions).NotNull();
                 RuleFor(action => action._buyActions.Count).Equal(action => action._useActions.Count);

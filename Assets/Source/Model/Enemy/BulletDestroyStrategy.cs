@@ -11,7 +11,7 @@ namespace Source.Model.Enemy
         [SerializeField] private IDestroyView _destroyView;
 
         private void Awake() => 
-            _destroyView.ThrowIfNull();
+            _destroyView.ThrowExceptionIfNull();
 
         private void OnCollisionEnter(Collision collision)
         {

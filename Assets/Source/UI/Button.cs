@@ -13,7 +13,7 @@ namespace Source.UI
         public void Subscribe(IButtonAction action)
         {
             _button = GetComponent<UnityEngine.UI.Button>();
-            _action = action.ThrowIfNull();
+            _action = action.ThrowExceptionIfNull();
             _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(action.OnClick);
         }

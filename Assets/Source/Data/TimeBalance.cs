@@ -11,8 +11,8 @@ namespace SwipeOrDie.Data
 
         private void OnValidate()
         {
-            All.ThrowIfValueSubZero();
-            OnAdd.ThrowIfValueSubZero();
+            All.ThrowExceptionIfValueSubZero();
+            OnAdd.ThrowExceptionIfValueSubZero();
         }
     }
 }

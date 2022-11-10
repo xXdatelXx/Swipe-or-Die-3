@@ -1,7 +1,5 @@
 using System.IO;
 using SwipeOrDie.Extension;
-using System;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Source.Model.Storage
 {
@@ -16,7 +14,7 @@ namespace Source.Model.Storage
 
         public BinaryStorage(IPath path)
         {
-            _path = path.ThrowIfNull();
+            _path = path.ThrowExceptionIfNull();
             _formatter = new(path);
         }
 

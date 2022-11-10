@@ -8,7 +8,7 @@ namespace Source.Model.Storage
         private readonly string _key;
 
         public PlayerPrefsStorage(string key) =>
-            _key = key.ThrowIfNull();
+            _key = key.ThrowExceptionIfNull();
 
         public bool Exists() => 
             PlayerPrefs.HasKey(_key);

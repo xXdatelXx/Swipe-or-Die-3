@@ -15,7 +15,7 @@ namespace SwipeOrDie.Factory
 
         public MonoBehaviourFactory(Transform spawnPoint, Transform parent)
         {
-            _spawnPoint = spawnPoint.ThrowIfNull();
+            _spawnPoint = spawnPoint.ThrowExceptionIfNull();
             _parent = parent;
         }
 

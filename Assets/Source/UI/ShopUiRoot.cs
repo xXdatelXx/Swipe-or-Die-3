@@ -18,7 +18,7 @@ namespace Source.UI
         [Inject]
         public void Compose(IWallet wallet)
         {
-            var storage = new CollectionStorage<IGood>(nameof(_goods));
+            var storage = new CollectionStorage<IGood>(nameof(Shop));
             var shop = new Shop(wallet, storage);
             var action = new ShopAction(storage,
                 _goods.Select(i => new BuyButtonAction(i, shop)).ToList(),

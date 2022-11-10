@@ -19,8 +19,8 @@ namespace SwipeOrDie.GameLogic
 
         private void OnEnable()
         {
-            _dieView.ThrowIfNull();
-            _lose.ThrowIfNull();
+            _dieView.ThrowExceptionIfNull();
+            _lose.ThrowExceptionIfNull();
 
             _animator = GetComponent<Animator>();
         }

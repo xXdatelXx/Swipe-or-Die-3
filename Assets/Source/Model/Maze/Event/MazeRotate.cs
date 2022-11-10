@@ -10,7 +10,7 @@ namespace SwipeOrDie.GameLogic
         [SerializeField, Min(0)] private float _duration;
         private Sequence _playSequence;
 
-        private void Awake() => _duration.ThrowIfValueSubZero();
+        private void Awake() => _duration.ThrowExceptionIfValueSubZero();
 
         public void OnMazeEnabled() => Rotate();
 

@@ -9,8 +9,8 @@ namespace Source.UI
 
         public BuyButtonAction(IGood good, IShop shop)
         {
-            Good = good.ThrowIfArgumentNull(nameof(good));
-            _shop = shop.ThrowIfArgumentNull(nameof(good));
+            Good = good.ThrowExceptionIfArgumentNull(nameof(good));
+            _shop = shop.ThrowExceptionIfArgumentNull(nameof(good));
         }
 
         public void OnClick() => 

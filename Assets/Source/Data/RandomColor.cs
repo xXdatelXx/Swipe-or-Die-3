@@ -8,7 +8,7 @@ namespace SwipeOrDie.Data
         private readonly float _force;
 
         public RandomColor(float force) => 
-            _force = force.ThrowIfValueSubZero();
+            _force = force.ThrowExceptionIfValueSubZero();
 
         public Color Next()
         {

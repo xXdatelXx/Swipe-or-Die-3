@@ -11,7 +11,7 @@ namespace Source.Model.Storage
 
         public FluentBinaryFormatter(IPath path)
         {
-            _path = path.ThrowIfNull();
+            _path = path.ThrowExceptionIfNull();
             _formatter = new();
         }
 

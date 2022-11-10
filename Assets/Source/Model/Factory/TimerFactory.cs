@@ -9,7 +9,7 @@ namespace SwipeOrDie.Factory
         private readonly IUpdatebles _updatebles;
 
         public TimerFactory(IUpdatebles updatebles) => 
-            _updatebles = updatebles.ThrowIfNull();
+            _updatebles = updatebles.ThrowExceptionIfNull();
 
         public ITimer Create(float time)
         {

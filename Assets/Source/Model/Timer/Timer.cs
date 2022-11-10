@@ -15,7 +15,7 @@ namespace SwipeOrDie.GameLogic
         private bool _canUpdate => !_end && _enabled;
 
         public Timer(float time) => 
-            Time = time.ThrowIfValueSubZero();
+            Time = time.ThrowExceptionIfValueSubZero();
 
         public async UniTask Play()
         {

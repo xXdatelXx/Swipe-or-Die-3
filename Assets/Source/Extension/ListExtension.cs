@@ -50,6 +50,6 @@ namespace SwipeOrDie.Extension
         }
 
         public static IEnumerable<T> TryThrowNullReferenceForeach<T>(this IEnumerable<T> enumerable) =>
-            enumerable.Select(i => i.ThrowIfNull("element is null"));
+            enumerable.Select(i => i.ThrowExceptionIfNull("element is null"));
     }
 }

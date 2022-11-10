@@ -15,7 +15,7 @@ namespace SwipeOrDie.GameLogic
         [Inject]
         public void Init(ILevelCreator levelCreator)
         {
-            _levelCreator = levelCreator.ThrowIfNull();
+            _levelCreator = levelCreator.ThrowExceptionIfNull();
 
             if (_collisionAngles.Count == 0)
                 throw new NullReferenceException($"{nameof(_collisionAngles)}.Count == 0");

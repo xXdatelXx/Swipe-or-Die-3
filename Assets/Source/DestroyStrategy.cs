@@ -14,8 +14,8 @@ namespace Source
 
         private void Awake()
         {
-            _timer.ThrowIfNull(nameof(_timer));
-            _view.ThrowIfNull(nameof(_view));
+            _timer.ThrowExceptionIfNull(nameof(_timer));
+            _view.ThrowExceptionIfNull(nameof(_view));
         }
 
         public async Task Destroy()

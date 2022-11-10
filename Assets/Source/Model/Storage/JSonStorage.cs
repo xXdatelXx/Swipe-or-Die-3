@@ -13,7 +13,7 @@ namespace Source.Model.Storage
             this(new Path(path)) { }
 
         public JSonStorage(IPath path) => 
-            _path = path.ThrowIfNull();
+            _path = path.ThrowExceptionIfNull();
 
         public bool Exists() => File.Exists(_path.Value);
 

@@ -9,20 +9,18 @@ namespace Source.UI
         private readonly IShopButtonView _view;
         private readonly BuyButton _buyButton;
         private readonly int _direction;
-        private int _id;
 
         public SwitchButtonAction(IShopAction actions, IShopButtonView view, BuyButton buyButton, int direction)
         {
-            _action = actions.ThrowIfArgumentNull();
-            _view = view.ThrowIfArgumentNull();
-            _buyButton = buyButton.ThrowIfArgumentNull();
-            _direction = direction.ThrowIfArgumentNull();
+            _action = actions.ThrowExceptionIfArgumentNull();
+            _view = view.ThrowExceptionIfArgumentNull();
+            _buyButton = buyButton.ThrowExceptionIfArgumentNull();
+            _direction = direction.ThrowExceptionIfArgumentNull();
         }
 
         public void OnClick()
         {
-            _id = new Range(0, _action.Count).Clamp(_id + _direction);
-            var action = _action[_id];
+            var action = _action[new Range(0, _action.Count - 1).Clamp(_action.Last + _direction)];
             
             _buyButton.Subscribe(action);
             _view.OnSetGood(action);

@@ -17,8 +17,8 @@ namespace SwipeOrDie.GameLogic
         [Inject]
         public void Construct(IMazeFactory factory, IGameTimer timer)
         {
-            _factory = factory.ThrowIfNull();
-            _gameTimer = timer.ThrowIfNull();
+            _factory = factory.ThrowExceptionIfNull();
+            _gameTimer = timer.ThrowExceptionIfNull();
             _character.Disable();
         }
 

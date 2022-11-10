@@ -14,7 +14,7 @@ namespace Source.UI
         private void OnEnable()
         {
             _text = GetComponent<IText>();
-            _meshFilter.ThrowIfNull();
+            _meshFilter.ThrowExceptionIfNull();
         }
 
         public void OnSetGood(IShopButtonAction action)

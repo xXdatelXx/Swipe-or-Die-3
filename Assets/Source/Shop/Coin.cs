@@ -15,7 +15,7 @@ namespace Source.Model
 
         [Inject]
         public void Construct(IWallet wallet) => 
-            _wallet = wallet.ThrowIfArgumentNull(nameof(wallet));
+            _wallet = wallet.ThrowExceptionIfArgumentNull(nameof(wallet));
 
         private void OnCollisionEnter(Collision collision)
         {
