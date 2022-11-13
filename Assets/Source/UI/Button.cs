@@ -8,18 +8,17 @@ namespace Source.UI
     public abstract class Button : SerializedMonoBehaviour
     {
         private UnityEngine.UI.Button _button;
-        private IButtonAction _action;
+
+        private void OnEnable() => 
+            _button = GetComponent<UnityEngine.UI.Button>();
 
         public void Subscribe(IButtonAction action)
         {
-            _button = GetComponent<UnityEngine.UI.Button>();
-            _action = action.ThrowExceptionIfNull(nameof(action));
-            
-            _button.onClick.RemoveAllListeners();
+            action.ThrowExceptionIfArgumentNull(nameof(action));
             _button.onClick.AddListener(action.OnClick);
         }
 
-        private void OnDestroy() => 
-            _button.onClick.RemoveListener(_action.OnClick);
+        public void Unsubscribe() => 
+            _button.onClick.RemoveAllListeners();
     }
 }

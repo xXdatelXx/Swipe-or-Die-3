@@ -665,24 +665,22 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1976778737}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _view
-      Entry: 10
-      Data: 0
+    SerializationNodes: []
   _goods:
   - {fileID: 11400000, guid: 3ac7d9b5738e0a5458a809a448eb20b4, type: 2}
   - {fileID: 11400000, guid: e762eee1cac9e4c419c41855f62138f9, type: 2}
   - {fileID: 11400000, guid: ccef7857f542d21499fdc716131ff86e, type: 2}
+  - {fileID: 11400000, guid: 424654f1f4f77c24bb1796262cbaed75, type: 2}
+  - {fileID: 11400000, guid: cdf13e27a1bc07a4492a0db0390e1ca3, type: 2}
   _buyButton: {fileID: 2012118160}
   _leftSwitchButton: {fileID: 1727056671}
   _rightSwitchButton: {fileID: 1829379520}
-  _gameScene: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
+  _exitScene: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
 --- !u!1 &1577448585
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,6 +811,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _walletView: {fileID: 1824587161}
+  _skinGoods:
+  - {fileID: 11400000, guid: 3ac7d9b5738e0a5458a809a448eb20b4, type: 2}
+  - {fileID: 11400000, guid: e762eee1cac9e4c419c41855f62138f9, type: 2}
+  - {fileID: 11400000, guid: ccef7857f542d21499fdc716131ff86e, type: 2}
+  - {fileID: 11400000, guid: 424654f1f4f77c24bb1796262cbaed75, type: 2}
+  - {fileID: 11400000, guid: cdf13e27a1bc07a4492a0db0390e1ca3, type: 2}
 --- !u!114 &1700749422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,8 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers:
-  - {fileID: 11400000, guid: f57178126a919684ab5f33a0436394c3, type: 2}
+  _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1700749421}
   _installerPrefabs: []

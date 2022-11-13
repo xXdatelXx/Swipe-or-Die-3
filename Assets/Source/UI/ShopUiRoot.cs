@@ -15,8 +15,7 @@ namespace Source.UI
         [SerializeField] private BuyButton _buyButton;
         [SerializeField] private GoodSwitchButton _leftSwitchButton;
         [SerializeField] private GoodSwitchButton _rightSwitchButton;
-        [SerializeField] private IShopButtonView _view;
-        [SerializeField] private SceneAsset _gameScene;
+        [SerializeField] private SceneAsset _exitScene;
         private IWallet _wallet;
 
         [Inject]
@@ -32,13 +31,12 @@ namespace Source.UI
             var shop = new Shop(_wallet, storage);
             var action = new ShopAction(storage,
                 _goods.Select(i => new BuyButtonAction(i, shop)).ToList(),
-                _goods.Select(i => new UseButtonAction(i, _gameScene)).ToList());
+                _goods.Select(i => new UseButtonAction(i, _exitScene)).ToList());
             
             _leftSwitchButton.Subscribe(new SwitchButtonAction(action, _buyButton, -1));
             _rightSwitchButton.Subscribe(new SwitchButtonAction(action, _buyButton, 1));
             
             _buyButton.Subscribe(action[0]);
-            _view.OnSetAction(action[0]);
         }
     }
 }

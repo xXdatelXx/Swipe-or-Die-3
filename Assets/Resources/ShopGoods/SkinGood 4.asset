@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a830e0a33aecffb48a20b776b194e66e, type: 3}
-  m_Name: SkinGoodsInstaller
+  m_Script: {fileID: 11500000, guid: a924de5a3d6d498ba8d910b9ae2d055d, type: 3}
+  m_Name: SkinGood 4
   m_EditorClassIdentifier: 
+  <Id>k__BackingField: SkinGood 4
+  <Skin>k__BackingField: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  <Price>k__BackingField: 5

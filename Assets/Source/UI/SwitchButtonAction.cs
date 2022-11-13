@@ -19,7 +19,9 @@ namespace Source.UI
         public void OnClick()
         {
             var action = _action[new Range(0, _action.Count - 1).Clamp(_action.Last + _direction)];
+            _buyButton.Unsubscribe();
             _buyButton.Subscribe(action);
+            _buyButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => _buyButton.Subscribe(_action[_action.Last]));
         }
     }
 }
