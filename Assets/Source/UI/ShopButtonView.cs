@@ -10,14 +10,14 @@ namespace Source.UI
         [SerializeField] private MeshFilter _meshFilter;
         private const string SelectText = "Select";
         private IText _text;
-
+        
         private void OnEnable()
         {
             _text = GetComponent<IText>();
             _meshFilter.ThrowExceptionIfNull();
         }
 
-        public void OnSetGood(IShopButtonAction action)
+        public void OnSetAction(IShopButtonAction action)
         {
             UpdateText((dynamic)action);
             _meshFilter.mesh = action.Good.Skin;

@@ -8,8 +8,7 @@ namespace Source.Model.Storage
         private readonly FluentBinaryFormatter<T> _formatter;
         private readonly IPath _path;
 
-        public BinaryStorage(string path) :
-            this(new Path(path))
+        public BinaryStorage(string path) : this(new Path(path))
         { }
 
         public BinaryStorage(IPath path)

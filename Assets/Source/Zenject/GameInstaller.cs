@@ -39,5 +39,6 @@ public class GameInstaller : MonoInstaller
         Container.BindInstance((IPause)pause);
         Container.BindInstance((IMaxScore)maxScore);
         Container.BindInstance((IWallet)new Wallet(new BinaryStorage<int>(nameof(Wallet)), _walletView));
+        Container.BindInstance((IStorage<Mesh>)new MeshStorage(nameof(CharacterSkin)));
     }
 }

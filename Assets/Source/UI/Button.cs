@@ -1,11 +1,11 @@
+using Sirenix.OdinInspector;
 using SwipeOrDie.Extension;
 using UnityEngine;
 
 namespace Source.UI
 {
-    //TODO refactor this
     [RequireComponent(typeof(UnityEngine.UI.Button))]
-    public abstract class Button : MonoBehaviour
+    public abstract class Button : SerializedMonoBehaviour
     {
         private UnityEngine.UI.Button _button;
         private IButtonAction _action;
@@ -13,14 +13,12 @@ namespace Source.UI
         public void Subscribe(IButtonAction action)
         {
             _button = GetComponent<UnityEngine.UI.Button>();
-            _action = action.ThrowExceptionIfNull();
+            _action = action.ThrowExceptionIfNull(nameof(action));
+            
             _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(action.OnClick);
         }
 
-        public void Enable() => 
-            _button.interactable = true;
-        
         private void OnDestroy() => 
             _button.onClick.RemoveListener(_action.OnClick);
     }

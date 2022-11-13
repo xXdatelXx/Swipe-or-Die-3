@@ -7,6 +7,6 @@ public class ShopInstaller : MonoInstaller
 {
     [SerializeField] private WalletView _walletView;
 
-    public override void InstallBindings() =>
+    public override void InstallBindings() => 
         Container.BindInstance((IWallet)new Wallet(new BinaryStorage<int>(nameof(Wallet)), _walletView));
 }

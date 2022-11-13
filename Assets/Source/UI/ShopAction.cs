@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using FluentValidation;
+using ModestTree;
 using Source.Model.Storage;
 using SwipeOrDie.Extension;
 
@@ -7,13 +8,13 @@ namespace Source.UI
 {
     public sealed class ShopAction : IShopAction
     {
-        private readonly ICollectionStorage<IGood> _inventory;
+        private readonly ICollectionStorage<string> _inventory;
         private readonly List<BuyButtonAction> _buyActions;
         private readonly List<UseButtonAction> _useActions;
         public int Count { get; }
         public int Last { get; private set; }
 
-        public ShopAction(ICollectionStorage<IGood> inventory, List<BuyButtonAction> buyActions, List<UseButtonAction> useActions)
+        public ShopAction(ICollectionStorage<string> inventory, List<BuyButtonAction> buyActions, List<UseButtonAction> useActions)
         {
             _inventory = inventory;
             _buyActions = buyActions;
@@ -29,7 +30,7 @@ namespace Source.UI
             {
                 Last = id;
                 return _inventory.Exists()
-                    ? _inventory.Load().Has(_buyActions[id].Good) ? _buyActions[id] : _useActions[id]
+                    ? _inventory.Load().Has(_buyActions[id].Good.Id) ? _useActions[id] : _buyActions[id]
                     : _buyActions[id];
             }
         }
