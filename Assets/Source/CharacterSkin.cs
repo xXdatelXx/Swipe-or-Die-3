@@ -5,7 +5,7 @@ using Zenject;
 namespace Source
 {
     [RequireComponent(typeof(MeshFilter))]
-    public class CharacterSkin : MonoBehaviour
+    public sealed class CharacterSkin : MonoBehaviour
     {
         [Inject]
         public void Construct(IStorage<Mesh> storage) => 

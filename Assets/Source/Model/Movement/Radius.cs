@@ -4,7 +4,7 @@ using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class Radius : IRadius
+    public sealed class Radius : IRadius
     {
         private readonly float _value;
 

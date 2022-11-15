@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using SwipeOrDie.Extension;
 using SwipeOrDie.GameLogic;
 using UnityEngine;
@@ -7,14 +6,12 @@ using UnityEngine;
 namespace SwipeOrDie.Data
 {
     [CreateAssetMenu(fileName = nameof(Complexity))]
-    public class Complexity : ScriptableObject, IComplexity
+    public sealed class Complexity : ScriptableObject, IComplexity
     {
         [SerializeField] private List<int> _level = new();
 
-        private void OnValidate()
-        {
+        private void OnValidate() => 
             _level.SortHerringbone();
-        }
 
         public int Get(IScore score)
         {

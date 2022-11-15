@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 
 namespace SwipeOrDie.Strategy
 {
-    public class MazeDestroyStrategy : SerializedMonoBehaviour, IDestroyStrategy
+    public sealed class MazeDestroyStrategy : SerializedMonoBehaviour, IDestroyStrategy
     {
         [SerializeField] private IAsyncTimer _destroyTimer;
         [SerializeField] private IDestroyView _view;

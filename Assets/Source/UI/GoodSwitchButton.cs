@@ -1,6 +1,6 @@
 namespace Source.UI
 {
-    public class GoodSwitchButton : Button
+    public sealed class GoodSwitchButton : Button
     {
     }
 }

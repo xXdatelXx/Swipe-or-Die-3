@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Source
 {
     [RequireComponent(typeof(Animator))]
-    public class DestroyView : MonoBehaviour, IDestroyView
+    public sealed class DestroyView : MonoBehaviour, IDestroyView
     {
         private Animator _animator;
         private string _destroyAnimation => nameof(Destroy);

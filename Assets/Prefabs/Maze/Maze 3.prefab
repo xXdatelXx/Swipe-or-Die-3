@@ -2686,7 +2686,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _delayTimer
+    - Name: _delay
       Entry: 7
       Data: 0|AsyncTimer, Assembly
     - Name: <Time>k__BackingField
@@ -2695,7 +2695,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _destroyPoint: {fileID: 8871607424460122089}
+  _way: {x: 0, y: 0, z: 0}
   _destroyRotate: {x: 0, y: 0, z: 35}
   _destroyColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &7055715942317187801

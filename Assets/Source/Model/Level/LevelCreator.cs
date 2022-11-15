@@ -3,7 +3,7 @@ using SwipeOrDie.Factory;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class LevelCreator : ILevelCreator
+    public sealed class LevelCreator : ILevelCreator
     {
         private readonly IMazeFactory _factory;
         private readonly Score _score;

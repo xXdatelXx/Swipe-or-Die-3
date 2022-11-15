@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using SwipeOrDie.Extension;
 
 namespace Source.Model.Storage
 {
-    public class CollectionStorage<T> : ICollectionStorage<T>
+    public sealed class CollectionStorage<T> : ICollectionStorage<T>
     {
         private readonly IStorage<IEnumerable<T>> _storage;
         private readonly List<T> _allSavedObject;

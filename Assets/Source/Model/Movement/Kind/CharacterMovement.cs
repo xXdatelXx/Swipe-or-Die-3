@@ -6,7 +6,7 @@ using Source.Model.Movement.Interface;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class CharacterMovement : ICharacterMovement
+    public sealed class CharacterMovement : ICharacterMovement
     {
         private readonly IPosition _position;
         private readonly IMovement _movement;

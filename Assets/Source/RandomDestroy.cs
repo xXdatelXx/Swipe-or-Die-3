@@ -3,7 +3,7 @@ using Random = UnityEngine.Random;
 
 namespace Source
 {
-    public class RandomDestroy : MonoBehaviour
+    public sealed class RandomDestroy : MonoBehaviour
     {
         [SerializeField, Range(0, 100)] private int _chance;
 

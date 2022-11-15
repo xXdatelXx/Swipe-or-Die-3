@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Source.View
 {
     [RequireComponent(typeof(IText), typeof(Animator))]
-    public class ScoreView : MonoBehaviour, IScoreView
+    public sealed class ScoreView : MonoBehaviour, IScoreView
     {
         private IText _text;
         private Animator _animator;

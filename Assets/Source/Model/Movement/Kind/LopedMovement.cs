@@ -9,7 +9,7 @@ using SwipeOrDie.Extension;
 
 namespace Source.Model.Enemy.Movement
 {
-    public class LopedMovement : SerializedMonoBehaviour
+    public sealed class LopedMovement : SerializedMonoBehaviour
     {
         [SerializeField] private List<Transform> _points = new();
         [SerializeField, Min(0)] private float _delay;

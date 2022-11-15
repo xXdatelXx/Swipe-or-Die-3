@@ -6,7 +6,7 @@ using SwipeOrDie.GameLogic;
 namespace SwipeOrDie.Data
 {
     [Serializable]
-    public class MazeItem : IMazeItem
+    public sealed class MazeItem : IMazeItem
     {
         [field: SerializeField] public int Complexity { get; private set; }
         [field: SerializeField] public Maze Maze { get; private set; }

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Source.UI
 {
     [RequireComponent(typeof(IText))]
-    public class ShopButtonView : MonoBehaviour, IShopButtonView
+    public sealed class ShopButtonView : MonoBehaviour, IShopButtonView
     {
         [SerializeField] private MeshFilter _meshFilter;
         private const string SelectText = "Select";

@@ -9,7 +9,7 @@ using Zenject;
 
 namespace Source.UI
 {
-    public class ShopUiRoot : SerializedMonoBehaviour
+    public sealed class ShopUiRoot : SerializedMonoBehaviour
     {
         [SerializeField] private SkinGood[] _goods;
         [SerializeField] private BuyButton _buyButton;

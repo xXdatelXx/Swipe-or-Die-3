@@ -7,7 +7,7 @@ using Zenject;
 namespace Source.Model
 {
     [RequireComponent(typeof(Collider))]
-    public class Coin : SerializedMonoBehaviour
+    public sealed class Coin : SerializedMonoBehaviour
     {
         [SerializeField] private IDestroyStrategy _destroyStrategy;
         [SerializeField, Min(1)] private int _value;

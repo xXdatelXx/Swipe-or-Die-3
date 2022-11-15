@@ -5,7 +5,7 @@ using SystemPath = System.IO.Path;
 
 namespace Source.Model.Storage
 {
-    public class JSonStorage<T> : IStorage<T>
+    public sealed class JSonStorage<T> : IStorage<T>
     {
         private readonly IPath _path;
         

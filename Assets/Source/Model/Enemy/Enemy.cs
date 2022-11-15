@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Source.Model.Enemy
 {
-    public class Enemy : MonoBehaviour, IEnemy
+    public sealed class Enemy : MonoBehaviour, IEnemy
     {
         private void OnCollisionEnter(Collision collision)
         {

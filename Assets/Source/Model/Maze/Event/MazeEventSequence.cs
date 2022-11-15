@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class MazeEventSequence : SerializedMonoBehaviour, IMazeEvent
+    public sealed class MazeEventSequence : SerializedMonoBehaviour, IMazeEvent
     {
         [SerializeField] private List<IMazeEvent> _events;
 

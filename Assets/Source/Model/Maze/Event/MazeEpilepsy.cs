@@ -9,7 +9,7 @@ using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class MazeEpilepsy : SerializedMonoBehaviour, IMazeEvent
+    public sealed class MazeEpilepsy : SerializedMonoBehaviour, IMazeEvent
     {
         [SerializeField, Min(0)] private float _duration;
         [SerializeField, Min(0)] private float _colorForce;

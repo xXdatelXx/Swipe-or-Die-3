@@ -3,9 +3,16 @@ using UnityEngine;
 
 namespace Source.View
 {
-    public class CharacterDyingView : MonoBehaviour, IDyingView
+    [RequireComponent(typeof(Animator))]
+    public sealed class CharacterDyingView : MonoBehaviour, IDyingView
     {
-        public void OnDie() => 
-            Time.timeScale = 0;
+        private Animator _animator;
+        private string _dieAnimation => nameof(OnDie);
+
+        private void Awake() => 
+            _animator = GetComponent<Animator>();
+
+        public void OnDie() =>
+            _animator.SetTrigger(_dieAnimation);
     }
 }

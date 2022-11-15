@@ -3,10 +3,11 @@ using FluentValidation;
 using SwipeOrDie.Extension;
 using SwipeOrDie.GameLogic.Part;
 using System.Linq;
+using Sirenix.Utilities;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class RayPosition : IPosition
+    public sealed class RayPosition : IPosition
     {
         private readonly Transform _transform;
         private readonly IRadius _radius;
@@ -29,7 +30,7 @@ namespace SwipeOrDie.GameLogic
             var hit = Physics
                 .RaycastAll(_transform.position, _transform.TransformDirection(direction))
                 .First(i => _validator.ValidHit(i)).point;
-
+            
             return hit != Vector3.zero
                 ? hit + _transform.TransformDirection(_radius.Indent(direction))
                 : _transform.localPosition;

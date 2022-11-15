@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Source.Model.Storage
 {
-    public class FluentBinaryFormatter<T>
+    public sealed class FluentBinaryFormatter<T>
     {
         private readonly IPath _path;
         private readonly BinaryFormatter _formatter;

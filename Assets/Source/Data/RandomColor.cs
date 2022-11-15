@@ -3,7 +3,7 @@ using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.Data
 {
-    public class RandomColor
+    public sealed class RandomColor
     {
         private readonly float _force;
 

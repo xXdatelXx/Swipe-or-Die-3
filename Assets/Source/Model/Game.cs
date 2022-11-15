@@ -7,7 +7,7 @@ using Zenject;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class Game : SerializedMonoBehaviour
+    public sealed class Game : SerializedMonoBehaviour
     {
         [SerializeField, CanBeNull] private IGameView _view;
         [SerializeField] private ICharacter _character;

@@ -5,7 +5,7 @@ using SwipeOrDie.Extension;
 using SwipeOrDie.GameLogic;
 
 [Serializable]
-public class AsyncTimer : IAsyncTimer
+public sealed class AsyncTimer : IAsyncTimer
 {
     [field: SerializeField] public float Time { get; }
 

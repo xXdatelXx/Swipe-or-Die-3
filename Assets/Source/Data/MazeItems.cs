@@ -9,7 +9,7 @@ using Sirenix.OdinInspector;
 namespace SwipeOrDie.Data
 {
     [CreateAssetMenu(fileName = nameof(MazeItems))]
-    public class MazeItems : SerializedScriptableObject, IMazeItems
+    public sealed class MazeItems : SerializedScriptableObject, IMazeItems
     {
         [SerializeField] private IReadOnlyList<IMazeItem> _items;
         [SerializeField] private IComplexity _complexity;

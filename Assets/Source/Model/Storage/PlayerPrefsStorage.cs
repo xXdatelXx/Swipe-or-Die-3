@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Source.Model.Storage
 {
-    public class PlayerPrefsStorage<T> : IStorage<T>
+    public sealed class PlayerPrefsStorage<T> : IStorage<T>
     {
         private readonly string _key;
 

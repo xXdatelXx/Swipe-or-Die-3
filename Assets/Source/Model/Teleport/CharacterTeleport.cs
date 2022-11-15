@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 namespace SwipeOrDie.GameLogic
 {
     [RequireComponent(typeof(ICharacterTeleportView), typeof(ICharacter))]
-    public class CharacterTeleport : SerializedMonoBehaviour, ICharacterTeleport
+    public sealed class CharacterTeleport : SerializedMonoBehaviour, ICharacterTeleport
     {
         [SerializeField] private IAsyncTimer _timer;
         private ICharacter _character;

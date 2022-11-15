@@ -5,7 +5,7 @@ using SystemPath = System.IO.Path;
 
 namespace Source.Model.Storage
 {
-    public class Path : IPath
+    public sealed class Path : IPath
     {
         public string Value { get; }
 

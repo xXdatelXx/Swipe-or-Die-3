@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Source.UI
 {
-    public class BuyButton : Button
+    public sealed class BuyButton : Button
     {
         [SerializeField] private IShopButtonView _view;
 

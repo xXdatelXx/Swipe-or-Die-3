@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace SwipeOrDie.View
 {
-    public class MazeDestroyView : SerializedMonoBehaviour, IDestroyView
+    public sealed class MazeDestroyView : SerializedMonoBehaviour, IDestroyView
     {
         [SerializeField] private Vector3 _way;
         [SerializeField] private IAsyncTimer _delay;

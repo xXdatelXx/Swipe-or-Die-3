@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Source
 {
     [RequireComponent(typeof(IDestroyView))]
-    public class DestroyStrategy : SerializedMonoBehaviour, IDestroyStrategy
+    public sealed class DestroyStrategy : SerializedMonoBehaviour, IDestroyStrategy
     {
         [SerializeField] private IAsyncTimer _timer;
         [SerializeField] private IDestroyView _view;

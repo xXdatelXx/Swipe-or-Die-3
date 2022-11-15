@@ -3,7 +3,7 @@ using Source.View.Interfaces;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class Score : IScore
+    public sealed class Score : IScore
     {
         [CanBeNull] private readonly IScoreView _view;
         public int Value { get; private set; }

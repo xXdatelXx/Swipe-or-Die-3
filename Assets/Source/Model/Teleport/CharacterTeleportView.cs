@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SwipeOrDie.GameLogic
 {
     [RequireComponent(typeof(Animator))]
-    public class CharacterTeleportView : MonoBehaviour, ICharacterTeleportView
+    public sealed class CharacterTeleportView : MonoBehaviour, ICharacterTeleportView
     {
         private Animator _animator;
         private string _startAnimation => "TeleportStart";

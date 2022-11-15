@@ -2,7 +2,7 @@ using SwipeOrDie.Extension;
 
 namespace Source.UI
 {
-    public class BuyButtonAction : IShopButtonAction
+    public sealed class BuyButtonAction : IShopButtonAction
     {
         public IGood Good { get; }
         private readonly IShop _shop;

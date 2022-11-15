@@ -4,7 +4,7 @@ using SwipeOrDie.Extension;
 
 namespace Source.Model
 {
-    public class MaxScoreStorage : IMaxScore
+    public sealed class MaxScoreStorage : IMaxScore
     {
         private readonly IStorage<int> _storage;
         private readonly IScore _score;
@@ -20,7 +20,7 @@ namespace Source.Model
 
         public void TrySave()
         {
-            if (_score.Value > _storage.Load())
+            if(_score.Value > Load())
                 _storage.Save(_score.Value);
         }
     }

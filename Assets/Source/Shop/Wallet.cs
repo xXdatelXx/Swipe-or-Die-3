@@ -3,7 +3,7 @@ using System;
 using Source.Model.Storage;
 using Source.View;
 
-public class Wallet : IWallet
+public sealed class Wallet : IWallet
 {
     private readonly IWalletView _view;
     private readonly IStorage<int> _storage;

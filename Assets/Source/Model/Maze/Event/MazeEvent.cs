@@ -1,4 +1,4 @@
-public class MazeEvent : IMazeEvent
+public sealed class MazeEvent : IMazeEvent
 {
     public void OnMazeEnabled()
     {

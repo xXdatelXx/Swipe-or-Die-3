@@ -6,7 +6,7 @@ using SwipeOrDie.Extension;
 namespace SwipeOrDie.GameLogic
 {
     [RequireComponent(typeof(Animator))]
-    public class CharacterDying : SerializedMonoBehaviour, IDying
+    public sealed class CharacterDying : SerializedMonoBehaviour, IDying
     {
         [SerializeField] private readonly IDyingView _dieView;
         private ILose _lose;

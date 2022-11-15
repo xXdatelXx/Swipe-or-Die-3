@@ -3,7 +3,7 @@ using SwipeOrDie.Extension;
 
 namespace Source.UI
 {
-    public class SwitchButtonAction : IButtonAction
+    public sealed class SwitchButtonAction : IButtonAction
     {
         private readonly IShopAction _action;
         private readonly BuyButton _buyButton;

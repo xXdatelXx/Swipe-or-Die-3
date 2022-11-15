@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SwipeOrDie.Factory
 {
-    public class DelayFactory : SerializedMonoBehaviour, IPauseHandler
+    public sealed class DelayFactory : SerializedMonoBehaviour, IPauseHandler
     {
         [SerializeField] private MonoBehaviour _prefab;
         [SerializeField] private IAsyncTimer _timer;
@@ -22,16 +22,20 @@ namespace SwipeOrDie.Factory
 
         private async void Spawn()
         {
-            while (!_pause)
+            while (true)
             {
                 await _timer.Play();
+                
+                if(_pause)
+                    continue;
+                
                 _factory.Create(_prefab);
             }
         }
 
-        public void Enable() => _pause = true;
-
-        public void Disable() => _pause = false;
+        public void Enable() => _pause = false;
+        public void Disable() => _pause = true;
+        private void OnDestroy() => Disable();
 
         private class Validator : AbstractValidator<DelayFactory>
         {

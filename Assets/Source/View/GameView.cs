@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SwipeOrDie.GameLogic
 {
     [RequireComponent(typeof(Animator))]
-    public class GameView : MonoBehaviour, IGameView
+    public sealed class GameView : MonoBehaviour, IGameView
     {
         private Animator _animator;
         private string _play => "Play";

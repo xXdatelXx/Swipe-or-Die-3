@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class MazeRotate : SerializedMonoBehaviour, IMazeEvent
+    public sealed class MazeRotate : SerializedMonoBehaviour, IMazeEvent
     {
         [SerializeField, Min(0)] private float _duration;
         private Sequence _playSequence;

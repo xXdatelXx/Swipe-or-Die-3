@@ -6,7 +6,7 @@ using SwipeOrDie.Extension;
 namespace SwipeOrDie.GameLogic
 {
     [Serializable]
-    public class Timer : ITimer, IUpdateble
+    public sealed class Timer : ITimer, IUpdateble
     {
         [field: SerializeField] public float Time { get; private set; }
         public float AccumulatedTime { get; private set; }

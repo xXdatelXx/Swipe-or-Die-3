@@ -4,7 +4,7 @@ using Object = UnityEngine.Object;
 
 namespace SwipeOrDie.Factory
 {
-    public class MonoBehaviourFactory<T> : IFactory<T> where T : MonoBehaviour
+    public sealed class MonoBehaviourFactory<T> : IFactory<T> where T : MonoBehaviour
     {
         private readonly Transform _parent;
         private readonly Transform _spawnPoint;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace SwipeOrDie.View
 {
     [RequireComponent(typeof(Animator))]
-    public class TimerView : MonoBehaviour, ITimerView
+    public sealed class TimerView : MonoBehaviour, ITimerView
     {
         [SerializeField] private Slider _slider;
         [SerializeField, Range(0, 10)] private float _appendTime;

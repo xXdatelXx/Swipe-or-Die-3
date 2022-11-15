@@ -4,7 +4,7 @@ using SwipeOrDie.GameLogic;
 
 namespace SwipeOrDie.Factory
 {
-    public class TimerFactory : ITimerFactory
+    public sealed class TimerFactory : ITimerFactory
     {
         private readonly IUpdatebles _updatebles;
 

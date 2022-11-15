@@ -2811,7 +2811,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _delayTimer
+    - Name: _delay
       Entry: 7
       Data: 0|AsyncTimer, Assembly
     - Name: <Time>k__BackingField
@@ -2820,7 +2820,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _destroyPoint: {fileID: 8871607424460122089}
+  _way: {x: 0, y: 0, z: 0}
   _destroyRotate: {x: 0, y: 0, z: 35}
   _destroyColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &101029825783393251
@@ -3420,7 +3420,6 @@ GameObject:
   - component: {fileID: 7055715942537661124}
   - component: {fileID: 7055715942537661125}
   - component: {fileID: 7055715942537661126}
-  - component: {fileID: 487688933110119530}
   m_Layer: 0
   m_Name: Border (5)
   m_TagString: Untagged
@@ -3506,18 +3505,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &487688933110119530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055715942537661112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7fcf0c292944af2a60c2f98213f4807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7055715942605484657
 GameObject:
   m_ObjectHideFlags: 0

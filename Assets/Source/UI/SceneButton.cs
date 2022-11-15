@@ -2,7 +2,7 @@ using SwipeOrDie.Extension;
 using UnityEditor;
 using UnityEngine;
 
-public class SceneButton : MonoBehaviour
+public sealed class SceneButton : MonoBehaviour
 {
     [SerializeField] private SceneAsset _scene;
     

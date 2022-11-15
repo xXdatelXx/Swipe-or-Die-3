@@ -3,7 +3,7 @@ using SwipeOrDie.Extension;
 using UnityEngine;
 
 [RequireComponent((typeof(Mesh)))]
-public class CharacterMovementView : MonoBehaviour, IMovementView
+public sealed class CharacterMovementView : MonoBehaviour, IMovementView
 {
     [SerializeField, Min(0)] private float _force;
     [SerializeField] private float _moveDuration;
@@ -19,6 +19,7 @@ public class CharacterMovementView : MonoBehaviour, IMovementView
 
     public void OnMove(Vector3 direction)
     {
+        Logger.Log(_standardScale + direction.Module() * _force);
         //transform.DOScale(_standardScale + direction.Module() * _force, _moveDuration);
         //transform.DOLocalMove(_standardPosition + direction * _force / 2, _moveDuration);
     }

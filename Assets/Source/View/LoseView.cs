@@ -3,15 +3,16 @@ using UnityEngine;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class LoseView : SerializedMonoBehaviour, ILoseView
+    [RequireComponent(typeof(Animator))]
+    public sealed class LoseView : SerializedMonoBehaviour, ILoseView
     {
-        [SerializeField] private IAsyncTimer _timer;
-        [SerializeField] private ILosePanel _losePanel;
+        private Animator _animator;
+        private string _loseAnimation => nameof(OnLose);
 
-        public async void OnLose()
-        {
-            await _timer.Play();
-            _losePanel.Show();
-        }
+        private void Awake() => 
+            _animator = GetComponent<Animator>();
+
+        public void OnLose() => 
+            _animator.SetTrigger(_loseAnimation);
     }
 }

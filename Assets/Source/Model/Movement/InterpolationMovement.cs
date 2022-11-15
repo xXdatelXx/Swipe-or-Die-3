@@ -5,7 +5,7 @@ using SwipeOrDie.Extension;
 using Cysharp.Threading.Tasks;
 using Source.Model.Movement.Interface;
 
-public class InterpolationMovement : IMovement
+public sealed class InterpolationMovement : IMovement
 {
     [SerializeField] private readonly Transform _transform;
     [SerializeField] private readonly ISpeed _speed;

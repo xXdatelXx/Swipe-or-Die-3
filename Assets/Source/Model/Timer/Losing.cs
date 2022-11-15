@@ -3,7 +3,7 @@ using SwipeOrDie.GameLogic;
 
 namespace Source.Model.Timer
 {
-    public class Losing : ILose
+    public sealed class Losing : ILose
     {
         private readonly ILoseView _view;
         private readonly IPause _pause;

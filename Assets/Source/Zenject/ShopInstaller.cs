@@ -6,7 +6,7 @@ using Source.View;
 using UnityEngine;
 using Zenject;
 
-public class ShopInstaller : MonoInstaller
+public sealed class ShopInstaller : MonoInstaller
 {
     [SerializeField] private WalletView _walletView;
     [SerializeField] private SkinGood[] _skinGoods;

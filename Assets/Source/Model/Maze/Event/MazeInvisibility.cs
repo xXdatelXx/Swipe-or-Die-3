@@ -7,7 +7,7 @@ using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class MazeInvisibility : SerializedMonoBehaviour, IMazeEvent
+    public sealed class MazeInvisibility : SerializedMonoBehaviour, IMazeEvent
     {
         [SerializeField, Min(0)] private float _duration;
         [SerializeField, Min(0)] private float _startDelay;

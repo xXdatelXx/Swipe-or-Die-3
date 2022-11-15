@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Source
 {
-    public class MeshStorage : IStorage<Mesh>
+    public sealed class MeshStorage : IStorage<Mesh>
     {
         private readonly IStorage<byte[]> _storage;
         

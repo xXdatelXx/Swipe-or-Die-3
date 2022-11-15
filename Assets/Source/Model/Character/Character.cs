@@ -9,7 +9,7 @@ using Source.Model.Timer;
 namespace SwipeOrDie.GameLogic
 {
     [RequireComponent(typeof(BoxCollider)), SelectionBase]
-    public class Character : SerializedMonoBehaviour, ICharacter, IPauseHandler
+    public sealed class Character : SerializedMonoBehaviour, ICharacter, IPauseHandler
     {
         [SerializeField] private ISpeed _speed;
         [SerializeField] private IMovementView _movementView;
@@ -33,10 +33,7 @@ namespace SwipeOrDie.GameLogic
         private void Update() => 
             _movement.Move(_input.Direction);
 
-        public void Enable() => 
-            _input.Enable();
-
-        public void Disable() => 
-            _input.Disable();
+        public void Enable() => _input.Enable();
+        public void Disable() => _input.Disable();
     }
 }

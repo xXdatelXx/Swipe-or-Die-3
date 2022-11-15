@@ -6,7 +6,7 @@ using Source.Model.Movement.Interface;
 namespace Source.Model.Enemy.Movement
 {
     [RequireComponent(typeof(SphereCollider))]
-    public class BulletMovement : SerializedMonoBehaviour
+    public sealed class BulletMovement : SerializedMonoBehaviour
     {
         [SerializeField] private ISpeed _speed;
         private IPosition _position;

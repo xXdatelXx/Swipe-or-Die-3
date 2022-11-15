@@ -3,13 +3,12 @@ using Source.UI.Components;
 using Source.View.Interfaces;
 using SwipeOrDie.Extension;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace Source.View
 {
     [RequireComponent(typeof(IText), typeof(IScoreView))]
-    public class MaxScoreText : MonoBehaviour
+    public sealed class MaxScoreText : MonoBehaviour
     {
         private IMaxScore _maxScore;
         private IText _text;

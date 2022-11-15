@@ -7,7 +7,7 @@ using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
-    public class Finish : MonoBehaviour, IFinishPoint
+    public sealed class Finish : MonoBehaviour, IFinishPoint
     {
         [SerializeField] private List<int> _collisionAngles = new() { 0, 90, -90, 180 };
         private ILevelCreator _levelCreator;

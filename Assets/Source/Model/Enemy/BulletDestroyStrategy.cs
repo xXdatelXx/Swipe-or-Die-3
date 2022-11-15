@@ -6,7 +6,7 @@ using SwipeOrDie.GameLogic.Part;
 
 namespace Source.Model.Enemy
 {
-    public class BulletDestroyStrategy : SerializedMonoBehaviour
+    public sealed class BulletDestroyStrategy : SerializedMonoBehaviour
     {
         [SerializeField] private IDestroyView _destroyView;
 

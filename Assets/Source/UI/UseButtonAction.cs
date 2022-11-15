@@ -3,7 +3,7 @@ using UnityEditor;
 
 namespace Source.UI
 {
-    public class UseButtonAction: IShopButtonAction
+    public sealed class UseButtonAction: IShopButtonAction
     {
         private readonly SceneAsset _exitScene;
         public IGood Good { get; }

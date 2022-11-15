@@ -6,7 +6,7 @@ using SwipeOrDie.Factory;
 
 namespace Source
 {
-    public class GameTimer : IGameTimer, IPauseHandler
+    public sealed class GameTimer : IGameTimer, IPauseHandler
     {
         private readonly ILose _lose;
         private readonly ITimerView _view;

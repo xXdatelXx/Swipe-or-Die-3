@@ -4,7 +4,7 @@ using SwipeOrDie.Extension;
 namespace SwipeOrDie.Data
 {
     [CreateAssetMenu(fileName = nameof(TimeBalance))]
-    public class TimeBalance : ScriptableObject, ITimeBalance
+    public sealed class TimeBalance : ScriptableObject, ITimeBalance
     {
         [field: SerializeField, Range(0, 100)] public int All { get; private set; }
         [field: SerializeField, Range(0, 100)] public int OnAdd { get; private set; }

@@ -5,7 +5,7 @@ using SwipeOrDie.Extension;
 
 namespace Source.View
 {
-    public class WalletView : SerializedMonoBehaviour, IWalletView
+    public sealed class WalletView : SerializedMonoBehaviour, IWalletView
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private IText _text;
