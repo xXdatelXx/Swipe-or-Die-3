@@ -1,32 +1,22 @@
-using DG.Tweening;
-using SwipeOrDie.Extension;
+using Sirenix.OdinInspector;
+using Source;
+using Source.View;
 using UnityEngine;
 
-[RequireComponent((typeof(Mesh)))]
-public sealed class CharacterMovementView : MonoBehaviour, IMovementView
+public sealed class CharacterMovementView : SerializedMonoBehaviour, IMovementView
 {
     [SerializeField, Min(0)] private float _force;
-    [SerializeField] private float _moveDuration;
-    [SerializeField] private float _stopDuration;
-    private Vector3 _standardScale;
-    private Vector3 _standardPosition;
+    [SerializeField, Min(0)] private float _moveDuration;
+    [SerializeField] private ISnaking _cameraSnaking;
+    private ISideScale _scale;
 
-    private void Awake()
-    {
-        _standardScale = transform.localScale;
-        _standardPosition = transform.localPosition;
-    }
+    private void Awake() => _scale = new SideScale(_force, _moveDuration, transform);
 
     public void OnMove(Vector3 direction)
     {
-        Logger.Log(_standardScale + direction.Module() * _force);
-        //transform.DOScale(_standardScale + direction.Module() * _force, _moveDuration);
-        //transform.DOLocalMove(_standardPosition + direction * _force / 2, _moveDuration);
+        _scale.Scale(direction);
+        _cameraSnaking.Snake(direction);
     }
 
-    public void OnStop()
-    {
-        //transform.DOScale(_standardScale, _stopDuration);
-        //transform.DOLocalMove(_standardPosition, _stopDuration);
-    }
+    public void OnStop() => _scale.Reset();
 }

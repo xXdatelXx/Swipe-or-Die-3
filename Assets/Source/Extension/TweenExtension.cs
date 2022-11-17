@@ -27,5 +27,12 @@ namespace SwipeOrDie.Extension
 
         public static T Looped<T>(this T t) where T : Tween => 
             t.SetLoops(-1);
+        
+        public static Sequence DOYOYOMove(this Transform t, Vector3 addedValue, float duration)
+        {
+            return DOTween.Sequence()
+                .Append(t.DOLocalMove(t.localPosition + addedValue, duration))
+                .Append(t.DOLocalMove(t.localPosition - addedValue, duration));
+        }
     }
 }

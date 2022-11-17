@@ -11,11 +11,11 @@ namespace SwipeOrDie.Extension
                 vector == Vector3.right || vector == Vector3.left;
         }
 
-        public static Vector3 Multiply(this Vector3 a, Vector3 b) => 
-            new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
-
-        public static Vector3 Module(this Vector3 vector) => 
-            vector.Multiply(vector);
+        public static Vector3 Module(this Vector3 vector)
+        {
+             vector.Scale(vector);
+             return vector;
+        }
 
         public static Vector3 Circle(this Vector3 vector) => 
             new Vector3(0, 0, 360);
