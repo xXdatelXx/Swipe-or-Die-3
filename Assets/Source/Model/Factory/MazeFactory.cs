@@ -11,7 +11,7 @@ namespace SwipeOrDie.Factory
         [SerializeField] private IMazeItems _items;
         [SerializeField] private Transform _enablePoint;
         [SerializeField] private Maze _activeMaze;
-        private IFactory<Maze> _factory;
+        private IGenericFactory<Maze> _factory;
         private Maze _nextMaze;
 
         private void Awake()

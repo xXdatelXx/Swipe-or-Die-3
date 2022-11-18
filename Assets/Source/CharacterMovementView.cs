@@ -10,7 +10,8 @@ public sealed class CharacterMovementView : SerializedMonoBehaviour, IMovementVi
     [SerializeField] private ISnaking _cameraSnaking;
     private ISideScale _scale;
 
-    private void Awake() => _scale = new SideScale(_force, _moveDuration, transform);
+    private void Awake() =>
+        _scale = new SideScale(_force, _moveDuration, transform);
 
     public void OnMove(Vector3 direction)
     {

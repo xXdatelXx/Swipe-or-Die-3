@@ -30,7 +30,7 @@ namespace SwipeOrDie.GameLogic
             Enable();
         }
 
-        private void Update() => 
+        private void Update() =>
             _movement.Move(_input.Direction);
 
         public void Enable() => _input.Enable();

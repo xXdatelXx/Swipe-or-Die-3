@@ -9,7 +9,7 @@ namespace SwipeOrDie.Factory
     {
         [SerializeField] private MonoBehaviour _prefab;
         [SerializeField] private IAsyncTimer _timer;
-        private IFactory<MonoBehaviour> _factory;
+        private IGenericFactory<MonoBehaviour> _factory;
         private bool _pause;
 
         private void Awake()
