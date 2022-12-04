@@ -1,4 +1,7 @@
+using JetBrains.Annotations;
 using Source.Model.Storage;
+using Source.View;
+using Source.View.Interfaces;
 using SwipeOrDie.GameLogic;
 using SwipeOrDie.Extension;
 
@@ -8,11 +11,14 @@ namespace Source.Model
     {
         private readonly IStorage<int> _storage;
         private readonly IScore _score;
+        [CanBeNull] private readonly IScoreView _view;
 
-        public MaxScoreStorage(IStorage<int> storage, IScore score)
+        public MaxScoreStorage(IStorage<int> storage, IScore score, IScoreView view = null)
         {
             _storage = storage.ThrowExceptionIfNull();
             _score = score.ThrowExceptionIfNull();
+            _view = view;
+            _view?.View(Load());
         }
 
         public int Load() =>
@@ -20,8 +26,12 @@ namespace Source.Model
 
         public void TrySave()
         {
-            if(_score.Value > Load())
-                _storage.Save(_score.Value);
+            var score = _score.Value;
+            if (score > Load())
+            {
+                _storage.Save(score);
+                _view?.View(score);
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ public sealed class CharacterMovementView : SerializedMonoBehaviour, IMovementVi
 {
     [SerializeField, Min(0)] private float _force;
     [SerializeField, Min(0)] private float _moveDuration;
-    [SerializeField] private ISnaking _cameraSnaking;
+    [SerializeField] private ICameraSnaking _cameraSnaking;
     private ISideScale _scale;
 
     private void Awake() =>

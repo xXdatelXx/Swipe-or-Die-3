@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.Utilities;
 
 namespace SwipeOrDie.Extension
 {
@@ -25,7 +26,7 @@ namespace SwipeOrDie.Extension
             }
         }
 
-        public static bool Has<T>(this IEnumerable<T> list, T item) =>
+        public static bool Has<T>(this IEnumerable<T> list, T item) => 
             list.Any(i => i.Equals(item));
 
         public static T Max<T>(this List<T> list) =>

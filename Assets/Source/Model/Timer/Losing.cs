@@ -1,20 +1,23 @@
 using FluentValidation;
+using JetBrains.Annotations;
 using SwipeOrDie.GameLogic;
 
 namespace Source.Model.Timer
 {
     public sealed class Losing : ILose
     {
-        private readonly ILoseView _view;
         private readonly IPause _pause;
         private readonly IMaxScore _maxScore;
+        private readonly IPlayedGames _playedGames;
+        [CanBeNull] private readonly IView _view;
         private bool _lost;
 
-        public Losing(ILoseView view, IPause pause, IMaxScore maxScore)
+        public Losing(IPause pause, IMaxScore maxScore, IPlayedGames playedGames, IView view = null)
         {
-            _view = view;
             _pause = pause;
             _maxScore = maxScore;
+            _view = view;
+            _playedGames = playedGames;
 
             new Validator().ValidateAndThrow(this);
         }
@@ -26,18 +29,19 @@ namespace Source.Model.Timer
 
             _lost = true;
 
+            _playedGames.Add();
             _maxScore.TrySave();
             _pause.Pause();
-            _view.OnLose();
+            _view?.View();
         }
 
         private class Validator : AbstractValidator<Losing>
         {
             public Validator()
             {
-                RuleFor(lose => lose._view).NotNull();
                 RuleFor(lose => lose._pause).NotNull();
                 RuleFor(lose => lose._maxScore).NotNull();
+                RuleFor(lose => lose._playedGames).NotNull();
             }
         }
     }

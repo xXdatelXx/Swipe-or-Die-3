@@ -11,7 +11,7 @@ namespace Source
         private readonly ILose _lose;
         private readonly ITimerView _view;
         private readonly ITimeBalance _balance;
-        private ITimer _timer;
+        private readonly ITimer _timer;
         private bool _pause;
 
         public GameTimer(ILose lose, ITimerView timerView, ITimeBalance balance, ITimerFactory timerFactory)
@@ -31,7 +31,7 @@ namespace Source
 
             if (_pause)
                 return;
-
+            
             _view.OnEndTime();
             _lose.Lose();
         }
@@ -42,9 +42,13 @@ namespace Source
             _view.OnSetTime(_balance.All - _timer.AccumulatedTime, 100 - (_timer.AccumulatedTime / _balance.All * 100));
         }
 
-        public void Enable() => _pause = true;
+        public void Enable() => _pause = false;
 
-        public void Disable() => _pause = false;
+        public void Disable()
+        {
+            _pause = true;
+            _view.Stop();
+        }
 
         private class Validator : AbstractValidator<GameTimer>
         {

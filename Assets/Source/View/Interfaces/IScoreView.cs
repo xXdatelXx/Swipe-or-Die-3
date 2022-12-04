@@ -1,7 +1,6 @@
 namespace Source.View.Interfaces
 {
-    public interface IScoreView
+    public interface IScoreView : IView<int>
     {
-        void OnSetScore(int score);
     }
 }

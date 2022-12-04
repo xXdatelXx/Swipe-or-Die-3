@@ -1,36 +1,23 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
-using SwipeOrDie.Extension;
-using SwipeOrDie.Factory.Pool;
-using SwipeOrDie.GameLogic;
-using SwipeOrDie.GameLogic.Part;
 
-public sealed class CollisionEffect : SerializedMonoBehaviour
+namespace Source
 {
-    [SerializeField] private IAsyncTimer _timer;
-    private IPool<CollisionEffectObject> _pool;
-
-    private async void OnCollisionEnter(Collision collision)
+    public abstract class CollisionEffect : MonoBehaviour, IPoolObject
     {
-        if (collision.IsNot<IBorder>()) 
-            return;
-                
-        var effect = _pool.Get();
-        effect.Position = collision.CollisionPoint(transform);
-        effect.Enable();
-        
-        
-        await _timer.Play();
-        _pool.Return(effect);
-    }
+        [field: SerializeField] public Types Type { get; private set; }
 
-    private sealed class CollisionEffectObject
-    {
-        public Vector3 Position;
-
-        public void Enable()
+        public enum Types
         {
-            
+            Null,
+            Movement,
+            BulletDestroy,
+            CharacterDestroy
         }
+        
+        public void SetPosition(Vector3 position) => 
+            transform.position = position;
+
+        public abstract void Enable();
+        public abstract void Disable();
     }
 }

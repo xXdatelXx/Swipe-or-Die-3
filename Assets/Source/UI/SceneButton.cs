@@ -1,11 +1,5 @@
-using SwipeOrDie.Extension;
-using UnityEditor;
-using UnityEngine;
+using Source.UI;
 
-public sealed class SceneButton : MonoBehaviour
+public sealed class SceneButton : Button
 {
-    [SerializeField] private SceneAsset _scene;
-    
-    public void Switch() => 
-        _scene.Load();
 }

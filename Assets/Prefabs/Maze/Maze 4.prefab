@@ -2690,6 +2690,7 @@ GameObject:
   - component: {fileID: -3897291214553184016}
   - component: {fileID: 7649635152311016701}
   - component: {fileID: 7245185411209130288}
+  - component: {fileID: 5281881080149518516}
   m_Layer: 0
   m_Name: Maze 4
   m_TagString: Untagged
@@ -2711,7 +2712,7 @@ Transform:
   m_Children:
   - {fileID: 7055715941241934965}
   - {fileID: 7055715941578341852}
-  - {fileID: 4674875974575342921}
+  - {fileID: 2740132116747206174}
   - {fileID: 8326121579824021624}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2823,6 +2824,18 @@ MonoBehaviour:
   _way: {x: 0, y: 0, z: 0}
   _destroyRotate: {x: 0, y: 0, z: 35}
   _destroyColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &5281881080149518516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055715942251474945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2e916a4c504de7b5e03834ae0b628e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7055715942317187801
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,7 +4760,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 314269711138311188, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
   m_PrefabInstance: {fileID: 467489732460775595}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2092324236737380240
+--- !u!1001 &8930625436495545543
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4757,7 +4770,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6766960947223968469, guid: 65dbeda8ff136ea4886d4d017fb2e0b4, type: 3}
       propertyPath: m_Name
-      value: BoxEnemy
+      value: BoxEnemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6766960947223968473, guid: 65dbeda8ff136ea4886d4d017fb2e0b4, type: 3}
       propertyPath: m_RootOrder
@@ -4806,59 +4819,44 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 65dbeda8ff136ea4886d4d017fb2e0b4, type: 3}
---- !u!1 &4674875974575342917 stripped
+--- !u!1 &2740132116747206162 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6766960947223968469, guid: 65dbeda8ff136ea4886d4d017fb2e0b4, type: 3}
-  m_PrefabInstance: {fileID: 2092324236737380240}
+  m_PrefabInstance: {fileID: 8930625436495545543}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5846776890264570341
+--- !u!114 &8783780724755995383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4674875974575342917}
+  m_GameObject: {fileID: 2740132116747206162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22abbf44aa4c4601abebb235d627c036, type: 3}
+  m_Script: {fileID: 11500000, guid: 1400d400043c461290e3d3d6d018e9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 4674875974575342921}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _movement
+    - Name: _timer
       Entry: 7
-      Data: 0|InterpolationMovement, Assembly
-    - Name: _transform
-      Entry: 10
-      Data: 0
-    - Name: _speed
-      Entry: 7
-      Data: 1|Source.Model.Speed, Assembly
-    - Name: <Value>k__BackingField
+      Data: 0|AsyncTimer, Assembly
+    - Name: <Time>k__BackingField
       Entry: 4
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  _points:
-  - {fileID: 2318632646891811703}
-  - {fileID: 3438565373260259141}
-  - {fileID: 6669874359742508016}
-  - {fileID: 5410385780448320844}
-  _delay: 0
---- !u!4 &4674875974575342921 stripped
+  _prefab: {fileID: 6766960947223968479, guid: dabc7169bde945c438756788a546a69a, type: 3}
+--- !u!4 &2740132116747206174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6766960947223968473, guid: 65dbeda8ff136ea4886d4d017fb2e0b4, type: 3}
-  m_PrefabInstance: {fileID: 2092324236737380240}
+  m_PrefabInstance: {fileID: 8930625436495545543}
   m_PrefabAsset: {fileID: 0}

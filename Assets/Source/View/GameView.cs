@@ -1,17 +1,25 @@
+using Sirenix.OdinInspector;
+using SwipeOrDie.GameLogic;
 using UnityEngine;
 
-namespace SwipeOrDie.GameLogic
+namespace Source.View
 {
-    [RequireComponent(typeof(Animator))]
-    public sealed class GameView : MonoBehaviour, IGameView
+    public sealed class GameView : SerializedMonoBehaviour, IGameView
     {
-        private Animator _animator;
-        private string _play => "Play";
+        [SerializeField] private Animator _player;
+        [SerializeField] private Animator _menu;
+        [SerializeField] private Animator _gameUi;
+        [SerializeField] private IMazeInstantiateAnimation _maze;
+        [SerializeField] private IBackgroundMask _background;
+        private readonly string Play = nameof(Play);
 
-        private void Awake() => 
-            _animator = GetComponent<Animator>();
-
-        public void Play() => 
-            _animator.SetTrigger(_play);
+        public void View()
+        {
+            _player.SetTrigger(Play);
+            _menu.SetTrigger(Play);
+            _gameUi.SetTrigger(Play);
+            _maze.Animate();
+            _background.Play();
+        }
     }
 }

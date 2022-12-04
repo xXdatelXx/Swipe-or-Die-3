@@ -1,11 +1,12 @@
 using SwipeOrDie.Extension;
 using System;
+using JetBrains.Annotations;
 using Source.Model.Storage;
 using Source.View;
 
 public sealed class Wallet : IWallet
 {
-    private readonly IWalletView _view;
+    [CanBeNull] private readonly IWalletView _view;
     private readonly IStorage<int> _storage;
     private int _money;
 
@@ -17,7 +18,7 @@ public sealed class Wallet : IWallet
         if (_storage.Exists())
         {
             _money = _storage.Load();
-            _view.OnSetMoney(_money);
+            _view?.OnSetMoney(_money);
         }
     }
 
@@ -25,7 +26,7 @@ public sealed class Wallet : IWallet
     {
         var operation = _money >= money && money >= 0;
         if (operation == false)
-            _view.OnError();
+            _view?.OnError();
 
         return operation;
     }
@@ -48,6 +49,6 @@ public sealed class Wallet : IWallet
     private void CompleteOperation()
     {
         _storage.Save(_money);
-        _view.OnSetMoney(_money);
+        _view?.OnSetMoney(_money);
     }
 }

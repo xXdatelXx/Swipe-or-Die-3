@@ -1,15 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
+using Source;
 using UnityEngine;
 using Zenject;
 using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {
-    public sealed class Finish : MonoBehaviour, IFinishPoint
+    public sealed class Finish : SerializedMonoBehaviour, IFinishPoint
     {
         [SerializeField] private List<int> _collisionAngles = new() { 0, 90, -90, 180 };
+        [SerializeField] private IView _view;
         private ILevelCreator _levelCreator;
 
         [Inject]
@@ -26,11 +29,20 @@ namespace SwipeOrDie.GameLogic
             if (collision.IsNot<ICharacter>())
                 return;
 
-            var collisionAngle = Vector3.Angle(collision.Position() - transform.position, transform.forward);
-            var trueAngle = _collisionAngles.Any(angle => angle == collisionAngle);
+            if (TrueAngle(collision))
+                OnFinish();
+        }
 
-            if (trueAngle)
-                _levelCreator.Create();
+        private bool TrueAngle(Collision collision)
+        {
+            var collisionAngle = collision.Angle(transform);
+            return _collisionAngles.Any(angle => angle == collisionAngle);
+        }
+
+        private void OnFinish()
+        {
+            _levelCreator.Create();
+            _view.View();
         }
     }
 }

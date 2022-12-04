@@ -1,4 +1,4 @@
-using SwipeOrDie.GameLogic;
+using Source.View.Interfaces;
 using UnityEngine;
 
 namespace Source
@@ -12,7 +12,7 @@ namespace Source
         private void Awake() => 
             _animator = GetComponent<Animator>();
 
-        public void Destroy(float time) => 
+        public void View(float time) => 
             _animator.Play(_destroyAnimation);
     }
 }

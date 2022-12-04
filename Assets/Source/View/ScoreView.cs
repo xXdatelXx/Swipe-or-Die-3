@@ -1,27 +1,24 @@
+using JetBrains.Annotations;
+using Sirenix.OdinInspector;
 using Source.UI.Components;
 using Source.View.Interfaces;
-using SwipeOrDie.Extension;
 using UnityEngine;
 
 namespace Source.View
 {
-    [RequireComponent(typeof(IText), typeof(Animator))]
-    public sealed class ScoreView : MonoBehaviour, IScoreView
+    public sealed class ScoreView : SerializedMonoBehaviour, IScoreView
     {
-        private IText _text;
-        private Animator _animator;
-        private string _animation => "Set"; 
+        [SerializeField] private string _prefix;
+        [SerializeField] private IText _text;
+        [SerializeField, HideIf("_animator", null)] private bool _animate = true;
+        [SerializeField, CanBeNull, ShowIf("_animate")] private Animator _animator;
+        private string _animation => "Set";
 
-        private void Awake()
+        public void View(int score)
         {
-            _text = GetComponent<IText>();
-            _animator = GetComponent<Animator>();
-        }
-
-        public void OnSetScore(int score)
-        {
-            _text.Set(score);
-            _animator.SetTrigger(_animation);
+            _text.Set(_prefix + score);
+            if(_animator != null)
+                _animator.SetTrigger(_animation);
         }
     }
 }

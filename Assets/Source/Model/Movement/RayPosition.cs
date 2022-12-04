@@ -3,7 +3,6 @@ using FluentValidation;
 using SwipeOrDie.Extension;
 using SwipeOrDie.GameLogic.Part;
 using System.Linq;
-using Sirenix.Utilities;
 
 namespace SwipeOrDie.GameLogic
 {

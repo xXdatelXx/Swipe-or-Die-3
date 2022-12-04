@@ -27,7 +27,7 @@ namespace Source.Model.Enemy.Movement
 
             foreach (var point in _points.RepeatForever())
             {
-                yield return StartCoroutine(_movement.Move(point.localPosition).ToCoroutine());
+                yield return StartCoroutine(_movement.Move(point.position).ToCoroutine());
                 yield return delay;
             }
         }

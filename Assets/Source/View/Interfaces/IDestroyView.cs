@@ -1,7 +1,6 @@
-namespace SwipeOrDie.GameLogic
+namespace Source.View.Interfaces
 {
-    public interface IDestroyView
+    public interface IDestroyView : IView<float>
     {
-        void Destroy(float time);
     }
 }

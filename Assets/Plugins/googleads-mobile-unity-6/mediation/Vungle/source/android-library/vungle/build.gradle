@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        consumerProguardFiles 'proguard-rules.pgcfg'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pgcfg'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    api project(':app')
+    api 'com.google.ads.mediation:vungle:6.5.3.0'
+}
+
+task clearAar(type: Delete) {
+    delete 'build/libs/vungle-unity-android-library.aar'
+}
+
+task makeAar(type: Copy) {
+    from('build/outputs/aar/')
+    into('build/libs/')
+    include('vungle-release.aar')
+    rename('vungle-release.aar', 'vungle-unity-android-library.aar')
+}
+
+makeAar.dependsOn(clearAar, build)

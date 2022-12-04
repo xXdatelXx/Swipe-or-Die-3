@@ -1,5 +1,7 @@
 using FluentValidation;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
+using Source;
 using SwipeOrDie.GameLogic;
 using UnityEngine;
 
@@ -9,6 +11,7 @@ namespace SwipeOrDie.Factory
     {
         [SerializeField] private MonoBehaviour _prefab;
         [SerializeField] private IAsyncTimer _timer;
+        [SerializeField, CanBeNull] private IView _view;
         private IGenericFactory<MonoBehaviour> _factory;
         private bool _pause;
 
@@ -25,11 +28,12 @@ namespace SwipeOrDie.Factory
             while (true)
             {
                 await _timer.Play();
-                
-                if(_pause)
-                    continue;
-                
-                _factory.Create(_prefab);
+
+                if (!_pause)
+                {
+                    _factory.Create(_prefab);
+                    _view?.View();
+                }
             }
         }
 

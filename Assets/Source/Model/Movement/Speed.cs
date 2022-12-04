@@ -1,4 +1,5 @@
 using System;
+using SwipeOrDie.Extension;
 using UnityEngine;
 
 namespace Source.Model
@@ -9,12 +10,7 @@ namespace Source.Model
         // Если делать через Min(0) будет ошыбка
         [field: SerializeField, Range(0, 1000)] public float Value { get; private set; }
 
-        public Speed(float value)
-        {
-            if (value < 0)
-                throw new ArgumentOutOfRangeException($"{nameof(value)} < 0");
-
-            Value = value;
-        }
+        public Speed(float value) => 
+            Value = value.ThrowExceptionIfValueSubZero();
     }
 }

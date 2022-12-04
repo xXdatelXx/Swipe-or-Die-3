@@ -1,18 +1,27 @@
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
+using Source.View.Interfaces;
+using SwipeOrDie.Extension;
+using SwipeOrDie.GameLogic;
 using UnityEngine;
+using Zenject;
 
-namespace SwipeOrDie.GameLogic
+namespace Source.View
 {
-    [RequireComponent(typeof(Animator))]
-    public sealed class LoseView : SerializedMonoBehaviour, ILoseView
+    public sealed class LoseView : SerializedMonoBehaviour, IView
     {
-        private Animator _animator;
-        private string _loseAnimation => nameof(OnLose);
+        [SerializeField] private IScoreView _scoreView;
+        [SerializeField, CanBeNull] private IView _chain;
+        private IScore _score;
 
-        private void Awake() => 
-            _animator = GetComponent<Animator>();
+        [Inject]
+        public void Construct(IScore score) => 
+            _score = score.ThrowExceptionIfArgumentNull(nameof(score));
 
-        public void OnLose() => 
-            _animator.SetTrigger(_loseAnimation);
+        public void View()
+        {
+            _scoreView.View(_score.Value);
+            _chain?.View();
+        }
     }
 }

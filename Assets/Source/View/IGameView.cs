@@ -1,7 +1,6 @@
-namespace SwipeOrDie.GameLogic
+namespace Source.View
 {
-    public interface IGameView
+    public interface IGameView : IView
     {
-        void Play();
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 using FluentValidation;
 using SwipeOrDie.GameLogic;
 using Sirenix.OdinInspector;
+using Source.View.Interfaces;
 
 namespace SwipeOrDie.Strategy
 {
@@ -16,7 +17,7 @@ namespace SwipeOrDie.Strategy
 
         public async Task Destroy()
         {
-            _view.Destroy(_destroyTimer.Time);
+            _view.View(_destroyTimer.Time);
             await _destroyTimer.Play();
 
             Destroy(gameObject);

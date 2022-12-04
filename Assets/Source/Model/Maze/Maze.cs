@@ -3,7 +3,6 @@ using FluentValidation;
 using Sirenix.OdinInspector;
 using Source.Model;
 using Source.Model.Movement.Interface;
-using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.GameLogic
 {

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Sirenix.OdinInspector;
+using Source.View.Interfaces;
 using SwipeOrDie.Extension;
 using SwipeOrDie.GameLogic;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace Source
 
         public async Task Destroy()
         {
-            _view.Destroy(_timer.Time);
+            _view.View(_timer.Time);
             await _timer.Play();
             Destroy(gameObject);
         }

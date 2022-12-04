@@ -14,7 +14,7 @@ namespace SwipeOrDie.GameLogic
         public void Append()
         {
             Value++;
-            _view?.OnSetScore(Value);
+            _view?.View(Value);
         }
     }
 }

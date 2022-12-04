@@ -14,16 +14,17 @@ namespace Source.Model
         private IWallet _wallet;
 
         [Inject]
-        public void Construct(IWallet wallet) => 
+        public void Construct(IWallet wallet) =>
             _wallet = wallet.ThrowExceptionIfArgumentNull(nameof(wallet));
 
         private void OnCollisionEnter(Collision collision)
         {
-            if(collision.IsNot<ICharacter>())
+            if (collision.IsNot<ICharacter>())
                 return;
-            
+
             _wallet.Put(_value);
             _destroyStrategy.Destroy();
+
             Destroy(this);
         }
     }

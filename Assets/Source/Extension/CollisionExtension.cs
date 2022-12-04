@@ -24,5 +24,8 @@ namespace SwipeOrDie.Extension
         
         public static Vector3 CollisionPoint(this Collision collision, Transform transform) => 
             (transform.position + collision.Position()) / 2;
+
+        public static float Angle(this Collision collision, Transform transform) => 
+            Vector3.Angle(collision.Position() - transform.position, transform.forward);
     }
 }
