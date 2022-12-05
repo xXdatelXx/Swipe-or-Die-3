@@ -1,4 +1,4 @@
-using Source.UI.Components;
+using SwipeOrDie.Ui;
 
 namespace SwipeOrDie.Extension
 {

@@ -7,7 +7,7 @@ using System.Linq;
 using SwipeOrDie.Data;
 using SwipeOrDie.Extension;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class MazeEpilepsy : SerializedMonoBehaviour, IMazeEvent
     {

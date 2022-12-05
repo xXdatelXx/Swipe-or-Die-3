@@ -1,10 +1,10 @@
 using UnityEngine;
 using FluentValidation;
 using SwipeOrDie.Extension;
-using SwipeOrDie.GameLogic.Part;
 using System.Linq;
+using SwipeOrDie.Model.Part;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class RayPosition : IPosition
     {
@@ -28,7 +28,8 @@ namespace SwipeOrDie.GameLogic
 
             var hit = Physics
                 .RaycastAll(_transform.position, _transform.TransformDirection(direction))
-                .First(i => _validator.ValidHit(i)).point;
+                .OrderBy(i => _transform.Distance(i.point))
+                .First(j => _validator.ValidHit(j)).point;
             
             return hit != Vector3.zero
                 ? hit + _transform.TransformDirection(_radius.Indent(direction))

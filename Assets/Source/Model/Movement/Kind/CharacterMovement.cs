@@ -1,10 +1,9 @@
 using UnityEngine;
 using FluentValidation;
 using JetBrains.Annotations;
-using Source.Model;
-using Source.Model.Movement.Interface;
+using SwipeOrDie.View;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class CharacterMovement : ICharacterMovement
     {

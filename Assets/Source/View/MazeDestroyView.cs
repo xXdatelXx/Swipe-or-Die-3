@@ -1,12 +1,10 @@
 using System.Collections.Generic;
-using UnityEngine;
-using SwipeOrDie.GameLogic;
-using Source.View.Interfaces;
-using DG.Tweening;
-using Sirenix.OdinInspector;
 using System.Linq;
+using DG.Tweening;
 using JetBrains.Annotations;
-using Source;
+using Sirenix.OdinInspector;
+using SwipeOrDie.Tools;
+using UnityEngine;
 
 namespace SwipeOrDie.View
 {

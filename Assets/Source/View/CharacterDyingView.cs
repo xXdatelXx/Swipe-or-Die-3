@@ -1,8 +1,8 @@
 using Sirenix.OdinInspector;
-using SwipeOrDie.GameLogic;
+using SwipeOrDie.Model;
 using UnityEngine;
 
-namespace Source.View
+namespace SwipeOrDie.View
 {
     [RequireComponent(typeof(Animator))]
     public sealed class CharacterDyingView : SerializedMonoBehaviour, IDyingView

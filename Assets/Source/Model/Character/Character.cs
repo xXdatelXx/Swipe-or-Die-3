@@ -1,11 +1,12 @@
 using Sirenix.OdinInspector;
-using Source.Model;
 using SwipeOrDie.Extension;
 using SwipeOrDie.Input;
+using SwipeOrDie.Tools;
+using SwipeOrDie.View;
 using UnityEngine;
 using Zenject;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     [RequireComponent(typeof(BoxCollider)), SelectionBase]
     public sealed class Character : SerializedMonoBehaviour, ICharacter, IPauseHandler

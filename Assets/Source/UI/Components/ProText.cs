@@ -1,6 +1,6 @@
 using TMPro;
 
-namespace Source.UI.Components
+namespace SwipeOrDie.Ui
 {
     public sealed class ProText : TextMeshProUGUI, IText
     {

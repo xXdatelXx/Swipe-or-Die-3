@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class MazeEventSequence : SerializedMonoBehaviour, IMazeEvent
     {

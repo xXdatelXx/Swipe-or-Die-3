@@ -1,9 +1,7 @@
 using SwipeOrDie.Extension;
-using SwipeOrDie.Factory;
-using SwipeOrDie.GameLogic;
 using UnityEngine;
 
-namespace Source.Model.Enemy
+namespace SwipeOrDie.Model
 {
     public sealed class Enemy : MonoBehaviour, IEnemy
     {

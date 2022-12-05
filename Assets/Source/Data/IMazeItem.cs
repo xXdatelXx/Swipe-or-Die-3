@@ -1,4 +1,4 @@
-using SwipeOrDie.GameLogic;
+using SwipeOrDie.Model;
 
 namespace SwipeOrDie.Data
 {

@@ -1,4 +1,4 @@
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public interface IFinishPoint
     {

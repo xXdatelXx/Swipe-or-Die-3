@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class Start : MonoBehaviour, IStartPoint
     {

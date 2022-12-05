@@ -1,8 +1,9 @@
 using Sirenix.OdinInspector;
-using SwipeOrDie.GameLogic;
+using SwipeOrDie.Model;
+using SwipeOrDie.Ui;
 using UnityEngine;
 
-namespace Source.View
+namespace SwipeOrDie.View
 {
     public sealed class GameView : SerializedMonoBehaviour, IGameView
     {

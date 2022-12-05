@@ -2,7 +2,7 @@ using UnityEngine;
 using FluentValidation;
 using SwipeOrDie.Extension;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class Radius : IRadius
     {

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public interface IDestroyStrategy
     {

@@ -1,4 +1,4 @@
-namespace Source.UI.Components
+namespace SwipeOrDie.Ui
 {
     public interface IText
     {

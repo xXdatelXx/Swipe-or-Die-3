@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using FluentValidation;
-using SwipeOrDie.GameLogic;
+using SwipeOrDie.Model;
 using SwipeOrDie.Extension;
 using Sirenix.OdinInspector;
 

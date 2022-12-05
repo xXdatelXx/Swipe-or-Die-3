@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using FluentValidation;
-using SwipeOrDie.GameLogic;
 using Sirenix.OdinInspector;
-using Source.View.Interfaces;
+using SwipeOrDie.Tools;
+using SwipeOrDie.View;
 
-namespace SwipeOrDie.Strategy
+namespace SwipeOrDie.Model
 {
     public sealed class MazeDestroyStrategy : SerializedMonoBehaviour, IDestroyStrategy
     {

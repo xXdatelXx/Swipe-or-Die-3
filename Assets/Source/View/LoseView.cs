@@ -1,12 +1,11 @@
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
-using Source.View.Interfaces;
 using SwipeOrDie.Extension;
-using SwipeOrDie.GameLogic;
+using SwipeOrDie.Model;
 using UnityEngine;
 using Zenject;
 
-namespace Source.View
+namespace SwipeOrDie.View
 {
     public sealed class LoseView : SerializedMonoBehaviour, IView
     {

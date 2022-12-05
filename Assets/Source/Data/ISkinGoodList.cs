@@ -1,13 +1,12 @@
 using System.Collections.Generic;
-using Source.Model.Storage;
-using Source.ShopSystem;
-using UnityEngine;
+using SwipeOrDie.Model;
+using SwipeOrDie.Storage;
 
 namespace SwipeOrDie.Data
 {
     public interface ISkinGoodList
     {
         List<ISkinGood> Goods { get; }
-        void Init(IStorage<Mesh> skinStorage);
+        void Init(MeshStorage skinStorage);
     }
 }

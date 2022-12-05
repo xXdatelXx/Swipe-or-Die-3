@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using Sirenix.Utilities;
 using SwipeOrDie.Extension;
 using UnityEngine;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class MazeInstantiateAnimation : MonoBehaviour, IMazeInstantiateAnimation
     {

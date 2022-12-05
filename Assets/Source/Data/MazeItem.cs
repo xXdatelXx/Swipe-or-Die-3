@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using FluentValidation;
-using SwipeOrDie.GameLogic;
+using SwipeOrDie.Model;
 
 namespace SwipeOrDie.Data
 {

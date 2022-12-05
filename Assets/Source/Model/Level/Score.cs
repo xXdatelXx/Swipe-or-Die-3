@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
-using Source.View.Interfaces;
+using SwipeOrDie.View;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class Score : IScore
     {

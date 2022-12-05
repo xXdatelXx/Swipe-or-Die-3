@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using System.Linq;
 using SwipeOrDie.Extension;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class MazeInvisibility : SerializedMonoBehaviour, IMazeEvent
     {

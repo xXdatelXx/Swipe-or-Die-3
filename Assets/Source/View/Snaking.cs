@@ -2,7 +2,7 @@ using DG.Tweening;
 using SwipeOrDie.Extension;
 using UnityEngine;
 
-namespace Source.View
+namespace SwipeOrDie.View
 {
     [RequireComponent(typeof(Camera))]
     public sealed class Snaking : MonoBehaviour, ICameraSnaking

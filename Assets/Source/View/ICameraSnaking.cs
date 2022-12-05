@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Source.View
+namespace SwipeOrDie.View
 {
     public interface ICameraSnaking
     {

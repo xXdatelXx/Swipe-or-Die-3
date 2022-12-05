@@ -1,3 +1,4 @@
+using SwipeOrDie.Tools;
 using UnityEngine;
 
 namespace SwipeOrDie.Extension

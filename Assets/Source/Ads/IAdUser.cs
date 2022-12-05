@@ -1,6 +1,6 @@
 using GoogleMobileAds.Api;
 
-namespace Source.Ads
+namespace SwipeOrDie.Ads
 {
     public interface IAdUser
     {

@@ -1,4 +1,7 @@
-public interface IMazeEvent
+namespace SwipeOrDie.Model
 {
-    void OnMazeEnabled();
+    public interface IMazeEvent
+    {
+        void OnMazeEnabled();
+    }
 }

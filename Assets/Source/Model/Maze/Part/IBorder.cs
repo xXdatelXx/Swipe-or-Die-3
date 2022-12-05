@@ -1,4 +1,4 @@
-namespace SwipeOrDie.GameLogic.Part
+namespace SwipeOrDie.Model.Part
 {
     public interface IBorder
     {

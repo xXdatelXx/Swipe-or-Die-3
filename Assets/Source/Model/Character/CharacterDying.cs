@@ -3,7 +3,7 @@ using UnityEngine;
 using Zenject;
 using SwipeOrDie.Extension;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     [RequireComponent(typeof(Animator))]
     public sealed class CharacterDying : SerializedMonoBehaviour, IDying

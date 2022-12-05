@@ -135,13 +135,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _movement
       Entry: 7
-      Data: 0|InterpolationMovement, Assembly
+      Data: 0|SwipeOrDie.Model.InterpolationMovement, Assembly
     - Name: _transform
       Entry: 10
       Data: 0
     - Name: _speed
       Entry: 7
-      Data: 1|Source.Model.Speed, Assembly
+      Data: 1|SwipeOrDie.Model.Speed, Assembly
     - Name: <Value>k__BackingField
       Entry: 4
       Data: 3

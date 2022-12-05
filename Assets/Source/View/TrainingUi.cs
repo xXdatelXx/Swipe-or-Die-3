@@ -1,9 +1,8 @@
 using Sirenix.OdinInspector;
-using Source.Model.Storage;
-using SwipeOrDie.Roots;
+using SwipeOrDie.Storage;
 using UnityEngine;
 
-namespace Source.View
+namespace SwipeOrDie.View
 {
     public sealed class TrainingUi : SerializedMonoBehaviour, INegateStorage
     {

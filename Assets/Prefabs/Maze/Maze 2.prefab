@@ -2731,13 +2731,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: _speed
-      Entry: 7
-      Data: 1|Source.Model.Speed, Assembly
-    - Name: <Value>k__BackingField
-      Entry: 4
-      Data: 30
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: StartPoint
       Entry: 10
@@ -2766,7 +2760,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _destroyTimer
       Entry: 7
-      Data: 0|AsyncTimer, Assembly
+      Data: 0|SwipeOrDie.Tools.AsyncTimer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
       Data: 1
@@ -2799,12 +2793,15 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _delay
       Entry: 7
-      Data: 0|AsyncTimer, Assembly
+      Data: 0|SwipeOrDie.Tools.AsyncTimer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
       Data: 0.5
     - Name: 
       Entry: 8
+      Data: 
+    - Name: _chain
+      Entry: 6
       Data: 
   _way: {x: 0, y: 0, z: 0}
   _destroyRotate: {x: 0, y: 0, z: 35}
@@ -4635,6 +4632,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7055715941578341852}
     m_Modifications:
     - target: {fileID: 314269711138311187, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 314269711138311187, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
+    - target: {fileID: 314269711138311187, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
       propertyPath: _collisionAngles.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -4702,6 +4703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish
       objectReference: {fileID: 0}
+    - target: {fileID: 3855861672844716825, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 3855861672844716825, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 90ace2ceeb7a9964fab307cf5fc10c76, type: 3}

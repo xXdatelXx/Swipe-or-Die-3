@@ -4,10 +4,9 @@ using Cysharp.Threading.Tasks;
 using FluentValidation;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Source.Model.Movement.Interface;
 using SwipeOrDie.Extension;
 
-namespace Source.Model.Enemy.Movement
+namespace SwipeOrDie.Model
 {
     public sealed class LopedMovement : SerializedMonoBehaviour
     {

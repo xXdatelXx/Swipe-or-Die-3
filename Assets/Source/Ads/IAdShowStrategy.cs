@@ -1,4 +1,4 @@
-namespace Source.Ads
+namespace SwipeOrDie.Ads
 {
     public interface IAdShowStrategy
     {

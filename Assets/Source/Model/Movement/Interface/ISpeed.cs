@@ -1,4 +1,4 @@
-namespace Source.Model
+namespace SwipeOrDie.Model
 {
     public interface ISpeed
     {

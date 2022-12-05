@@ -1,10 +1,9 @@
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
-using Source.UI.Components;
-using Source.View.Interfaces;
+using SwipeOrDie.Ui;
 using UnityEngine;
 
-namespace Source.View
+namespace SwipeOrDie.View
 {
     public sealed class ScoreView : SerializedMonoBehaviour, IScoreView
     {

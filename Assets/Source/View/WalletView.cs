@@ -1,9 +1,9 @@
 using Sirenix.OdinInspector;
-using Source.UI.Components;
-using UnityEngine;
 using SwipeOrDie.Extension;
+using SwipeOrDie.Ui;
+using UnityEngine;
 
-namespace Source.View
+namespace SwipeOrDie.View
 {
     public sealed class WalletView : SerializedMonoBehaviour, IWalletView
     {

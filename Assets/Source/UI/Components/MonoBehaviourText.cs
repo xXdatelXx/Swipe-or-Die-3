@@ -1,6 +1,6 @@
 using UnityEngine.UI;
 
-namespace Source.UI.Components
+namespace SwipeOrDie.Ui
 {
     public sealed class MonoBehaviourText : Text, IText
     {

@@ -2,7 +2,7 @@ using GoogleMobileAds.Api;
 using SwipeOrDie.Extension;
 using UnityEngine;
 
-namespace Source.Ads
+namespace SwipeOrDie.Ads
 {
     public sealed class SceneAd : MonoBehaviour, IAdUser
     {

@@ -1,6 +1,6 @@
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
-    internal interface IDyingView
+    public interface IDyingView
     {
         void OnDie();
     }

@@ -1,9 +1,7 @@
 using UnityEngine;
-using SwipeOrDie.GameLogic;
 using Sirenix.OdinInspector;
-using Source.Model.Movement.Interface;
 
-namespace Source.Model.Enemy.Movement
+namespace SwipeOrDie.Model
 {
     [RequireComponent(typeof(SphereCollider))]
     public sealed class BulletMovement : SerializedMonoBehaviour

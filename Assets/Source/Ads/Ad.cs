@@ -1,8 +1,7 @@
-using System;
 using GoogleMobileAds.Api;
 using SwipeOrDie.Extension;
 
-namespace Source.Ads
+namespace SwipeOrDie.Ads
 {
     public sealed class Ad : IAd
     {

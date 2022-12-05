@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using SwipeOrDie.Extension;
-using SwipeOrDie.GameLogic;
+using SwipeOrDie.Model;
 using UnityEngine;
 
 namespace SwipeOrDie.Data

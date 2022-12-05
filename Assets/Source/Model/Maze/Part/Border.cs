@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SwipeOrDie.GameLogic.Part
+namespace SwipeOrDie.Model.Part
 {
     public sealed class Border : MonoBehaviour, IBorder
     {

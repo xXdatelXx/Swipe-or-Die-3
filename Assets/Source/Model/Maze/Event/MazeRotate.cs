@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using SwipeOrDie.Extension;
 using UnityEngine;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class MazeRotate : SerializedMonoBehaviour, IMazeEvent
     {

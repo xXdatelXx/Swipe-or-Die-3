@@ -1,4 +1,4 @@
-namespace SwipeOrDie.Factory
+namespace SwipeOrDie.Model
 {
     public interface IEnemy
     {

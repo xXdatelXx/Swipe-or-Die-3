@@ -1,11 +1,10 @@
 using UnityEngine;
 using FluentValidation;
 using Sirenix.OdinInspector;
-using Source.Model;
-using Source.Model.Movement.Interface;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
+    //TODO: Extract interface
     [RequireComponent(typeof(IDestroyStrategy)), SelectionBase]
     public sealed class Maze : SerializedMonoBehaviour
     {
@@ -29,7 +28,7 @@ namespace SwipeOrDie.GameLogic
             _movement.Move(enablePosition.position);
         }
 
-        public void Destroy() => 
+        public void Destroy() =>
             _destroyStrategy.Destroy();
 
         private class Validator : AbstractValidator<Maze>

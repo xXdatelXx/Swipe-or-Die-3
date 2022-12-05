@@ -38,7 +38,7 @@ Transform:
   - {fileID: 8247166580047502589}
   - {fileID: 8500943635278902235}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3430266751571325063
 MeshFilter:
@@ -159,7 +159,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _timer
       Entry: 7
-      Data: 0|AsyncTimer, Assembly
+      Data: 0|SwipeOrDie.Tools.AsyncTimer, Assembly
     - Name: <Time>k__BackingField
       Entry: 4
       Data: 2

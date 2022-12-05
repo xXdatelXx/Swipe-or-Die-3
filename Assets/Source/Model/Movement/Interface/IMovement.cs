@@ -1,7 +1,7 @@
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-namespace Source.Model.Movement.Interface
+namespace SwipeOrDie.Model
 {
     public interface IMovement
     {

@@ -1,7 +1,7 @@
 using FluentValidation;
 using SwipeOrDie.Factory;
 
-namespace SwipeOrDie.GameLogic
+namespace SwipeOrDie.Model
 {
     public sealed class LevelCreator : ILevelCreator
     {

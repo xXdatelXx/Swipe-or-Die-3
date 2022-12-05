@@ -3,7 +3,7 @@ using SwipeOrDie.Extension;
 using UnityEngine;
 using Random = System.Random;
 
-namespace Source.Ads
+namespace SwipeOrDie.Ads
 {
     [Serializable]
     public sealed class AdRandomShowStrategy : IAdShowStrategy

@@ -1,5 +1,5 @@
 using System;
-using Source.Model;
+using SwipeOrDie.Model;
 using UnityEngine;
 
 namespace SwipeOrDie.Extension
