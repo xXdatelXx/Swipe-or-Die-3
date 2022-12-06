@@ -9,7 +9,7 @@ namespace SwipeOrDie.Model
     public sealed class Maze : SerializedMonoBehaviour
     {
         [SerializeField] private IMazeEvent _event;
-        [SerializeField, ReadOnly] private readonly ISpeed _speed = new Speed(30);
+        [ShowInInspector, ReadOnly] private readonly ISpeed _speed = new Speed(30);
         private IDestroyStrategy _destroyStrategy;
         private IMovement _movement;
         public readonly IStartPoint StartPoint;

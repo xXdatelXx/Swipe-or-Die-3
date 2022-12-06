@@ -2372,6 +2372,7 @@ MonoBehaviour:
     - Name: StartPoint
       Entry: 10
       Data: 0
+  a: 12
 --- !u!114 &316762439534206109
 MonoBehaviour:
   m_ObjectHideFlags: 0
