@@ -16,7 +16,11 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: -8846392257109777747, guid: 53435f177786dce49ab37a3646de17c1, type: 3}
+    - {fileID: -3897291214553184016, guid: cd90d27fc1f8f1648bb2558c10e064c2, type: 3}
+    - {fileID: -3897291214553184016, guid: 33e0ab1fc85218e46b06c5c5c4b1def3, type: 3}
     - {fileID: -3897291214553184016, guid: 54307faee22957d47a854cfe9da69faf, type: 3}
+    - {fileID: -3897291214553184016, guid: 77009b72eb22cf7478ac8893e16e1ecc, type: 3}
     - {fileID: 11400000, guid: e507c949917fe87409ddf940aeefa0b0, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -29,7 +33,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 5
     - Name: 
       Entry: 7
       Data: 1|SwipeOrDie.Data.MazeItem, Assembly
@@ -50,7 +54,43 @@ MonoBehaviour:
       Data: 1
     - Name: <Maze>k__BackingField
       Entry: 10
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|SwipeOrDie.Data.MazeItem, Assembly
+    - Name: <Complexity>k__BackingField
+      Entry: 3
+      Data: 2
+    - Name: <Maze>k__BackingField
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|SwipeOrDie.Data.MazeItem, Assembly
+    - Name: <Complexity>k__BackingField
+      Entry: 3
+      Data: 2
+    - Name: <Maze>k__BackingField
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|SwipeOrDie.Data.MazeItem, Assembly
+    - Name: <Complexity>k__BackingField
+      Entry: 3
+      Data: 2
+    - Name: <Maze>k__BackingField
+      Entry: 10
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -62,5 +102,5 @@ MonoBehaviour:
       Data: 
     - Name: _complexity
       Entry: 10
-      Data: 1
+      Data: 5
   _minComplexitySubtractor: 1

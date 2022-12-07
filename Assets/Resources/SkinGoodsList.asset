@@ -13,28 +13,146 @@ MonoBehaviour:
   m_Name: SkinGoodsList
   m_EditorClassIdentifier: 
   <Goods>k__BackingField:
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
-  - rid: -2
+  - rid: 5189569704813133824
+  - rid: 5189569704813133825
+  - rid: 5189569704813133826
+  - rid: 5189569704813133827
+  - rid: 5189569704813133828
+  - rid: 5189569704813133829
+  - rid: 5189569704813133830
+  - rid: 5189569704813133831
+  - rid: 5189569704813133832
+  - rid: 5189569704813133833
+  - rid: 5189569704813133834
+  - rid: 5189569704813133835
+  - rid: 5189569704813133836
+  - rid: 5189569704813133837
+  - rid: 5189569704813133838
+  - rid: 5189569704813133839
+  - rid: 5189569704813133840
+  - rid: 5189569704813133841
+  - rid: 5189569704813133842
+  - rid: 5189569704813133843
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 5189569704813133824
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 0
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 7fbbb32e9398fda4aabe87548998128e, type: 3}
+        <Price>k__BackingField: 0
+    - rid: 5189569704813133825
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 1
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 7a9f7f97c3197d54c880afdcfa6c6118, type: 3}
+        <Price>k__BackingField: 5
+    - rid: 5189569704813133826
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 2
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 18c7a6c0911c96348a4482646486825f, type: 3}
+        <Price>k__BackingField: 5
+    - rid: 5189569704813133827
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 3
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 7a9854312eaf8bf4789de4d33f25b6ab, type: 3}
+        <Price>k__BackingField: 5
+    - rid: 5189569704813133828
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 4
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 87d0b69e6d204184a9dc3de8ff3a3688, type: 3}
+        <Price>k__BackingField: 10
+    - rid: 5189569704813133829
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 5
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: b33df6ffcd468324b96a1dedf99c343c, type: 3}
+        <Price>k__BackingField: 10
+    - rid: 5189569704813133830
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 6
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 69e65d2c814305e4cb323cf39dab8850, type: 3}
+        <Price>k__BackingField: 10
+    - rid: 5189569704813133831
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 7
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 9a17cef73fd3997408fd819135345959, type: 3}
+        <Price>k__BackingField: 15
+    - rid: 5189569704813133832
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 8
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 1fa95b02d271f7249ba1da96a2bcb2d7, type: 3}
+        <Price>k__BackingField: 15
+    - rid: 5189569704813133833
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 9
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 8daa7f6a772d70c488b9128bd519e8d0, type: 3}
+        <Price>k__BackingField: 15
+    - rid: 5189569704813133834
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 10
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: eec0a3ccac16bf946913ffaa75cccf4e, type: 3}
+        <Price>k__BackingField: 20
+    - rid: 5189569704813133835
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 11
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 570c0969ffafa3043b6d1e7479219f30, type: 3}
+        <Price>k__BackingField: 20
+    - rid: 5189569704813133836
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 12
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 0bc04212f944acc488af0e6944cf1694, type: 3}
+        <Price>k__BackingField: 20
+    - rid: 5189569704813133837
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 13
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: beead43efa3155945ab1277912cc2964, type: 3}
+        <Price>k__BackingField: 25
+    - rid: 5189569704813133838
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 14
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: d1bd071f5e7065742aa724c7ca497e88, type: 3}
+        <Price>k__BackingField: 25
+    - rid: 5189569704813133839
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 15
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: b0027f6cf02bdd046ad0846ac2a533ec, type: 3}
+        <Price>k__BackingField: 25
+    - rid: 5189569704813133840
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 16
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 3b800553f75530f43afd8d42d4b15177, type: 3}
+        <Price>k__BackingField: 30
+    - rid: 5189569704813133841
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 17
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: ed25ceec752e5b84eae67fe72a787668, type: 3}
+        <Price>k__BackingField: 30
+    - rid: 5189569704813133842
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 18
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: 842759d8c13fd9d4fbf4f79736a40b05, type: 3}
+        <Price>k__BackingField: 30
+    - rid: 5189569704813133843
+      type: {class: SkinGood, ns: SwipeOrDie.Model, asm: Assembly}
+      data:
+        <Id>k__BackingField: 19
+        <Skin>k__BackingField: {fileID: -2432090755550338912, guid: de9d4a17c9518ba40aafb3b14c91b74d, type: 3}
+        <Price>k__BackingField: 35

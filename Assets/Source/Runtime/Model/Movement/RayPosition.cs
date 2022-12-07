@@ -24,7 +24,7 @@ namespace SwipeOrDie.Model
         {
             if (!_validator.ValidDirection(direction))
                 return _transform.position;
-
+    
             var hit = Physics
                 .RaycastAll(_transform.position, _transform.TransformDirection(direction))
                 .OrderBy(i => _transform.Distance(i.point))

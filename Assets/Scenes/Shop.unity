@@ -879,8 +879,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _users
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[SwipeOrDie.Ads.IAdUser, Assembly]],
-        mscorlib
+      Data: 0|SwipeOrDie.Ads.IAdUser[], Assembly
     - Name: 
       Entry: 12
       Data: 1
@@ -898,7 +897,7 @@ MonoBehaviour:
       Data: 1|SwipeOrDie.Ads.AdRandomShowStrategy, Assembly
     - Name: _chance
       Entry: 3
-      Data: 10
+      Data: 100
     - Name: 
       Entry: 8
       Data: 
