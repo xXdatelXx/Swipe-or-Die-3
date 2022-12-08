@@ -37,6 +37,9 @@ namespace SwipeOrDie.Extension
 
         public static IEnumerable<T> RepeatForever<T>(this IEnumerable<T> enumerable)
         {
+            if (!enumerable.Any())
+                yield break;
+            
             while (true)
             {
                 foreach (var i in enumerable)

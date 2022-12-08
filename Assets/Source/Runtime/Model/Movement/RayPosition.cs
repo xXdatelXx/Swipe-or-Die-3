@@ -24,12 +24,12 @@ namespace SwipeOrDie.Model
         {
             if (!_validator.ValidDirection(direction))
                 return _transform.position;
-    
+
             var hit = Physics
                 .RaycastAll(_transform.position, _transform.TransformDirection(direction))
                 .OrderBy(i => _transform.Distance(i.point))
                 .First(j => _validator.ValidHit(j)).point;
-            
+
             return hit != Vector3.zero
                 ? hit + _transform.TransformDirection(_radius.Indent(direction))
                 : _transform.localPosition;
