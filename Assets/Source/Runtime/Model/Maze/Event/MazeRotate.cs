@@ -1,23 +1,23 @@
 using DG.Tweening;
-using Sirenix.OdinInspector;
-using SwipeOrDie.Extension;
 using UnityEngine;
+using System;
+using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.Model
 {
-    public sealed class MazeRotate : SerializedMonoBehaviour, IMazeEvent
+    [Serializable]
+    public sealed class MazeRotate : IMazeEvent
     {
         [SerializeField, Min(0)] private float _duration;
-        private Sequence _playSequence;
+        private Maze _maze;
 
-        private void Awake() => _duration.ThrowExceptionIfValueSubZero();
-
+        public void Init(Maze maze) => _maze = maze.ThrowExceptionIfArgumentNull(nameof(maze));
         public void OnMazeEnabled() => Rotate();
 
         private void Rotate()
         {
-            transform
-                .DOCircleRotateZ(_duration) 
+            _maze.transform
+                .DOCircleRotateZ(_duration)
                 .Looped()
                 .SetEase(Ease.Linear);
         }

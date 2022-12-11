@@ -1,39 +1,42 @@
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using System.Linq;
 using SwipeOrDie.Data;
-using SwipeOrDie.Extension;
 
 namespace SwipeOrDie.Model
 {
-    public sealed class MazeEpilepsy : SerializedMonoBehaviour, IMazeEvent
+    [Serializable]
+    public struct MazeEpilepsy : IMazeEvent
     {
+        [SerializeField, Min(0)] private float _startDelay;
         [SerializeField, Min(0)] private float _duration;
-        [SerializeField, Min(0)] private float _colorForce;
-        private IReadOnlyList<Material> _materials;
-        private RandomColor _randomColor;
+        [SerializeField] private IRandomColor _randomColor;
+        private List<Material> _materials;
+        private Maze _maze;
 
-        private void Awake()
+        public void OnMazeEnabled() => _maze.StartCoroutine(ReColorize());
+
+        public void Init(Maze maze)
         {
-            _materials = GetComponentsInChildren<Renderer>().Select(r => r.material).ToList();
-            _randomColor = new(_colorForce);
-            _duration.ThrowExceptionIfValueSubZero();
+            _materials = maze.GetComponentsInChildren<Renderer>().Select(r => r.material).ToList();
+            _maze = maze;
         }
-
-        public void OnMazeEnabled() => 
-            StartCoroutine(ReColorize());
 
         private IEnumerator ReColorize()
         {
+            var delay = new WaitForSeconds(_duration);
+            
+            yield return new WaitForSeconds(_startDelay);
+
             while (true)
             {
-                _materials.Select(i => 
-                    i.DOColor(_randomColor.Next(), _duration).SetEase(Ease.Linear));
+                foreach (var i in _materials)
+                    i.DOColor(_randomColor.Next(), _duration).SetEase(Ease.Linear);
 
-                yield return new WaitForSeconds(_duration);
+                yield return delay;
             }
         }
     }

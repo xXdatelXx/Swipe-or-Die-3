@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.Utilities;
@@ -34,7 +35,7 @@ namespace SwipeOrDie.Extension
 
         public static T Random<T>(this IEnumerable<T> enumerable) =>
             enumerable.ElementAt(UnityEngine.Random.Range(0, enumerable.Count()));
-
+        
         public static IEnumerable<T> RepeatForever<T>(this IEnumerable<T> enumerable)
         {
             if (!enumerable.Any())

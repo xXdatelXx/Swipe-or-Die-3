@@ -12,7 +12,6 @@ namespace SwipeOrDie.Storage
             Null,
             Movement,
             BulletDestroy,
-            CharacterDestroy
         }
         
         public void SetPosition(Vector3 position) => 

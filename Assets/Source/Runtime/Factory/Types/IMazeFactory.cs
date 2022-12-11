@@ -4,7 +4,7 @@ namespace SwipeOrDie.Factory
 {
     public interface IMazeFactory
     {
-        Maze Create(IScore score);
+        IMaze Create();
         void Destroy();
     }
 }

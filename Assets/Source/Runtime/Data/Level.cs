@@ -5,19 +5,23 @@ using UnityEngine;
 
 namespace SwipeOrDie.Data
 {
-    [CreateAssetMenu(fileName = nameof(Complexity))]
-    public sealed class Complexity : ScriptableObject, IComplexity
+    [CreateAssetMenu(fileName = nameof(Level))]
+    public sealed class Level : ScriptableObject, ILevel
     {
         [SerializeField] private List<int> _level = new();
+        private IScore _score;
+
+        public void Init(IScore score) => 
+            _score = score.ThrowExceptionIfArgumentNull(nameof(score));
 
         private void OnValidate() => 
             _level.SortHerringbone();
 
-        public int Get(IScore score)
+        public int Get()
         {
             for (int i = 0; i < _level.Count; i++)
             {
-                if (score.Value <= _level[i])
+                if (_score.Value <= _level[i])
                     return i;
             }
 

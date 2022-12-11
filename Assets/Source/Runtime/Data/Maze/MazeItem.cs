@@ -13,10 +13,7 @@ namespace SwipeOrDie.Data
 
         public class Validator : AbstractValidator<IMazeItem>
         {
-            public Validator()
-            {
-                RuleFor(item => item.Maze).NotNull();
-            }
+            public Validator() => RuleFor(item => item.Maze).NotNull();
         }
     }
 }

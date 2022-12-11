@@ -26,7 +26,7 @@ namespace SwipeOrDie.Model
         {
             _view?.View();
             _character.Enable();
-            _factory.Create(new Score());
+            _factory.Create();
             _gameTimer.Play();
         }
     }

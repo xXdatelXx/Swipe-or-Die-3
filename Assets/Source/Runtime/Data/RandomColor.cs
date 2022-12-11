@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 using SwipeOrDie.Extension;
+using Random = UnityEngine.Random;
 
 namespace SwipeOrDie.Data
 {
-    public sealed class RandomColor
+    [Serializable]
+    public sealed class RandomColor : IRandomColor
     {
-        private readonly float _force;
+        [SerializeField] private float _force;
 
         public RandomColor(float force) => 
             _force = force.ThrowExceptionIfValueSubZero();
@@ -13,7 +16,6 @@ namespace SwipeOrDie.Data
         public Color Next()
         {
             float RandomPart() => Random.Range(0, _force);
-
             return new Color(RandomPart(), RandomPart(), RandomPart());
         }
     }

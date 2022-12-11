@@ -12,26 +12,24 @@ namespace SwipeOrDie.Data
     public sealed class MazeItems : SerializedScriptableObject, IMazeItems
     {
         [SerializeField] private IReadOnlyList<IMazeItem> _items;
-        [SerializeField] private IComplexity _complexity;
+        [SerializeField] private ILevel _level;
         [SerializeField, Range(0, 10)] private int _minComplexitySubtractor;
         private IMazeItem _previousItem;
 
-        private void OnEnable()
-        {
+        private void OnEnable() => 
             new Validator().ValidateAndThrow(this);
-        }
 
-        public Maze Get(IScore score)
+        public Maze Get()
         {
-            var item = Items(score).Random();
+            var item = Items().Random();
             _previousItem = item;
 
             return item.Maze;
         }
 
-        private IReadOnlyList<IMazeItem> Items(IScore score)
+        private IEnumerable<IMazeItem> Items()
         {
-            var complexity = ComplexityRange(score);
+            var complexity = ComplexityRange();
 
             var items = _items
                 .Where(item => complexity.InRange(item.Complexity))
@@ -40,10 +38,10 @@ namespace SwipeOrDie.Data
             return items.Count == 1 ? items : items.Where(item => item != _previousItem).ToList();
         }
 
-        private Range ComplexityRange(IScore score)
+        private Range ComplexityRange()
         {
             int maxItemValue = _items.Max(i => i.Complexity);
-            int scoreValue = maxItemValue < _complexity.Get(score) ? maxItemValue : _complexity.Get(score);
+            int scoreValue = maxItemValue < _level.Get() ? maxItemValue : _level.Get();
 
             return new Range(scoreValue - _minComplexitySubtractor, scoreValue);
         }
@@ -54,7 +52,7 @@ namespace SwipeOrDie.Data
             {
                 var mazeValidator = new MazeItem.Validator();
 
-                RuleFor(collection => collection._complexity).NotNull();
+                RuleFor(collection => collection._level).NotNull();
                 RuleFor(collection => collection._items.Count()).GreaterThan(0);
                 RuleForEach(collection => collection._items)
                     .SetValidator(mazeValidator)

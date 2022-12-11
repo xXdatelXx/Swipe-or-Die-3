@@ -9,8 +9,10 @@ namespace SwipeOrDie.Factory
     public sealed class MazeFactory : SerializedMonoBehaviour, IMazeFactory
     {
         [SerializeField] private IMazeItems _items;
+        [SerializeField] private IMazeEvents _events;
         [SerializeField] private Transform _enablePoint;
         [SerializeField] private Maze _activeMaze;
+        [ShowInInspector, ReadOnly] private ISpeed _speed = new Speed(30);
         private IGenericFactory<Maze> _factory;
         private Maze _nextMaze;
 
@@ -20,9 +22,11 @@ namespace SwipeOrDie.Factory
             new Validator().ValidateAndThrow(this);
         }
 
-        public Maze Create(IScore score)
+        public IMaze Create()
         {
-            _nextMaze = _factory.Create(_items.Get(score));
+            _nextMaze = _factory.Create(_items.Get());
+            _nextMaze.Init(new InterpolationMovement(_nextMaze.transform, _speed), _events.Get(_nextMaze));
+            
             return _activeMaze;
         }
 
@@ -44,6 +48,7 @@ namespace SwipeOrDie.Factory
                 RuleFor(factory => factory._items).NotNull();
                 RuleFor(factory => factory._enablePoint).NotNull();
                 RuleFor(factory => factory._activeMaze).NotNull();
+                RuleFor(factory => factory._events).NotNull();
             }
         }
     }

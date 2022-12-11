@@ -4,6 +4,6 @@ namespace SwipeOrDie.Data
 {
     public interface IMazeItems
     {
-        Maze Get(IScore score);
+        Maze Get();
     }
 }

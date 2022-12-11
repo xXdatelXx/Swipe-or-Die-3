@@ -1,0 +1,230 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022e09287b554d5498c25a55690d6823, type: 3}
+  m_Name: MazeEvents
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: e507c949917fe87409ddf940aeefa0b0, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _level
+      Entry: 10
+      Data: 0
+    - Name: _events
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[System.ValueTuple`2[[SwipeOrDie.Model.IMazeEvent[],
+        Assembly],[System.Int32, mscorlib]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: System.ValueTuple`2[[SwipeOrDie.Model.IMazeEvent[], Assembly],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: Item1
+      Entry: 7
+      Data: 1|SwipeOrDie.Model.IMazeEvent[], Assembly
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|MazeEvent, Assembly
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Item2
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: System.ValueTuple`2[[SwipeOrDie.Model.IMazeEvent[], Assembly],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: Item1
+      Entry: 7
+      Data: 3|SwipeOrDie.Model.IMazeEvent[], Assembly
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 4|MazeEvent, Assembly
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Item2
+      Entry: 3
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: System.ValueTuple`2[[SwipeOrDie.Model.IMazeEvent[], Assembly],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: Item1
+      Entry: 7
+      Data: 5|SwipeOrDie.Model.IMazeEvent[], Assembly
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 6|SwipeOrDie.Model.MazeRotate, Assembly
+    - Name: _duration
+      Entry: 4
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|SwipeOrDie.Model.MazeInvisibility, Assembly
+    - Name: _duration
+      Entry: 4
+      Data: 1.5
+    - Name: _startDelay
+      Entry: 4
+      Data: 0.5
+    - Name: _endDelay
+      Entry: 4
+      Data: 0.5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|SwipeOrDie.Model.MazeEpilepsy, Assembly
+    - Name: _startDelay
+      Entry: 4
+      Data: 1.5
+    - Name: _duration
+      Entry: 4
+      Data: 3
+    - Name: _randomColor
+      Entry: 7
+      Data: 9|SwipeOrDie.Data.RandomColor, Assembly
+    - Name: _force
+      Entry: 4
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Item2
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: System.ValueTuple`2[[SwipeOrDie.Model.IMazeEvent[], Assembly],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: Item1
+      Entry: 7
+      Data: 10|SwipeOrDie.Model.IMazeEvent[], Assembly
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 11|SwipeOrDie.Model.MazeRotate, Assembly
+    - Name: _duration
+      Entry: 4
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|SwipeOrDie.Model.MazeInvisibility, Assembly
+    - Name: _duration
+      Entry: 4
+      Data: 1.7
+    - Name: _startDelay
+      Entry: 4
+      Data: 0.5
+    - Name: _endDelay
+      Entry: 4
+      Data: 0.7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|SwipeOrDie.Model.MazeEpilepsy, Assembly
+    - Name: _startDelay
+      Entry: 4
+      Data: 1.5
+    - Name: _duration
+      Entry: 4
+      Data: 3
+    - Name: _randomColor
+      Entry: 7
+      Data: 14|SwipeOrDie.Data.RandomColor, Assembly
+    - Name: _force
+      Entry: 4
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Item2
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

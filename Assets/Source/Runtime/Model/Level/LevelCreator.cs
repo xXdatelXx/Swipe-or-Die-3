@@ -25,7 +25,7 @@ namespace SwipeOrDie.Model
             _gameTimer.AddTime();
             _score.Append();
             _factory.Destroy();
-            _teleport.Teleport(_factory.Create(_score).StartPoint);
+            _teleport.Teleport(_factory.Create().StartPoint);
         }
 
         private class Validator : AbstractValidator<LevelCreator>

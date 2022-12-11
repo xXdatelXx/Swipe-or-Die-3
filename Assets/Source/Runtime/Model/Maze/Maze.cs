@@ -1,43 +1,26 @@
-using UnityEngine;
 using FluentValidation;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace SwipeOrDie.Model
 {
-    //TODO: Extract interface
-    [RequireComponent(typeof(IDestroyStrategy)), SelectionBase]
-    public sealed class Maze : SerializedMonoBehaviour
+    public abstract class Maze : SerializedMonoBehaviour, IMaze
     {
-        [SerializeField] private IMazeEvent _event;
-        [ShowInInspector, ReadOnly] private readonly ISpeed _speed = new Speed(30);
-        private IDestroyStrategy _destroyStrategy;
-        private IMovement _movement;
-        public readonly IStartPoint StartPoint;
+        [field: SerializeField] public IStartPoint StartPoint { get; private set; }
 
-        private void Start()
-        {
-            _destroyStrategy = GetComponent<IDestroyStrategy>();
-            _movement = new InterpolationMovement(transform, _speed);
+        public abstract void Init(IMovement movement, IMazeEvent mazeEvent);
+        public abstract void Enable(Transform enablePosition);
+        public abstract void Destroy();
 
+        private void OnValidate() => StartPoint ??= GetComponentInChildren<IStartPoint>();
+
+        private void OnEnable() => 
             new Validator().ValidateAndThrow(this);
-        }
-
-        public void Enable(Transform enablePosition)
-        {
-            _event.OnMazeEnabled();
-            _movement.Move(enablePosition.position);
-        }
-
-        public void Destroy() =>
-            _destroyStrategy.Destroy();
 
         private class Validator : AbstractValidator<Maze>
         {
             public Validator()
             {
-                RuleFor(maze => maze._destroyStrategy).NotNull();
-                RuleFor(maze => maze._movement).NotNull();
-                RuleFor(maze => maze._event).NotNull();
                 RuleFor(maze => maze.GetComponentInChildren<IFinishPoint>()).NotNull();
                 RuleFor(maze => maze.StartPoint)
                     .Equal(maze => maze.GetComponentInChildren<IStartPoint>())
