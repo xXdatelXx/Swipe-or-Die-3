@@ -2725,13 +2725,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _event
-      Entry: 7
-      Data: 0|MazeEvent, Assembly
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: StartPoint
+    - Name: <StartPoint>k__BackingField
       Entry: 10
       Data: 0
 --- !u!114 &7649635152311016701
@@ -4727,7 +4721,7 @@ PrefabInstance:
       objectReference: {fileID: 7667181663185860388, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
     - target: {fileID: 7667181663185860388, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7667181663185860388, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
@@ -4735,7 +4729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7667181663185860388, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7667181663185860388, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
@@ -4747,7 +4741,7 @@ PrefabInstance:
       objectReference: {fileID: 7667181663185860389, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
     - target: {fileID: 7667181663185860389, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7667181663185860389, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
@@ -4755,7 +4749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7667181663185860389, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7667181663185860389, guid: f23ab4c6ccb8da046b724bd8c216b010, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]

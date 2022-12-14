@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Money
       objectReference: {fileID: 0}
+    - target: {fileID: 2974810174104201073, guid: 882e5f71c6d71074489035abb0f0a6f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2974810174104201076, guid: 882e5f71c6d71074489035abb0f0a6f1, type: 3}
       propertyPath: m_Controller
       value: 
@@ -897,7 +901,7 @@ MonoBehaviour:
       Data: 1|SwipeOrDie.Ads.AdRandomShowStrategy, Assembly
     - Name: _chance
       Entry: 3
-      Data: 100
+      Data: 20
     - Name: 
       Entry: 8
       Data: 

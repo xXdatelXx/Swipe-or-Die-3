@@ -12,14 +12,14 @@ namespace SwipeOrDie.Model
 
         public InterpolationMovement(Transform transform, ISpeed speed)
         {
-            _transform = transform;
-            _speed = speed;
+            _transform = transform.ThrowExceptionIfArgumentNull(nameof(transform));
+            _speed = speed.ThrowExceptionIfArgumentNull(nameof(_speed));
         }
 
         public async UniTask Move(Vector3 nextPosition)
         {
             nextPosition = _transform.parent.LocalPosition(nextPosition);
-            var movingTime = _transform.Time(nextPosition, _speed);
+            var movingTime = _transform.TimeTo(nextPosition, _speed);
 
             await _transform.DOLocalMove(nextPosition, movingTime).AsyncWaitForCompletion();
         }

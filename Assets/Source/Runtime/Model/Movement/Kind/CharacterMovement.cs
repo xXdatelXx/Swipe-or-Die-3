@@ -12,10 +12,10 @@ namespace SwipeOrDie.Model
         [CanBeNull] private readonly IMovementView _view;
         private bool _moving;
 
-        public CharacterMovement(Transform transform, ISpeed speed, IPosition position, IMovementView view = null)
+        public CharacterMovement(IMovement movement, IPosition position, IMovementView view = null)
         {
             _position = position;
-            _movement = new InterpolationMovement(transform, speed);
+            _movement = movement;
             _view = view;
 
             new Validator().ValidateAndThrow(this);
@@ -28,9 +28,9 @@ namespace SwipeOrDie.Model
 
             _moving = true;
             _view?.OnMove(direction);
-            
+
             await _movement.Move(_position.Next(direction));
-            
+
             _view?.OnStop();
             _moving = false;
         }

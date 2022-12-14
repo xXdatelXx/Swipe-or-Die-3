@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5be46ae8c00894299de9dadbdb8f56, type: 3}
   m_Name: TimeBalance
   m_EditorClassIdentifier: 
-  <All>k__BackingField: 20
+  <All>k__BackingField: 100
   <OnAdd>k__BackingField: 2

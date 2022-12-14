@@ -9,6 +9,7 @@ namespace SwipeOrDie.View
         [SerializeField, Min(0)] private float _force;
         [SerializeField, Min(0)] private float _moveDuration;
         [SerializeField] private ICameraSnaking _cameraSnaking;
+        [SerializeField] private AudioSource _audio;
         private ISideScale _scale;
 
         private void Awake() =>
@@ -18,6 +19,7 @@ namespace SwipeOrDie.View
         {
             _scale.Scale(direction);
             _cameraSnaking.Snake(direction);
+            _audio.Play();
         }
 
         public void OnStop() => _scale.Reset();

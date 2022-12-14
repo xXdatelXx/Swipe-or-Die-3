@@ -12968,13 +12968,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _event
-      Entry: 7
-      Data: 0|MazeEvent, Assembly
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: StartPoint
+    - Name: <StartPoint>k__BackingField
       Entry: 10
       Data: 0
 --- !u!114 &7649635152311016701
