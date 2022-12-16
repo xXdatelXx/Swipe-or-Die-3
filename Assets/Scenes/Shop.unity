@@ -843,7 +843,7 @@ MonoBehaviour:
   _buyButton: {fileID: 2012118160}
   _leftSwitchButton: {fileID: 1727056671}
   _rightSwitchButton: {fileID: 1829379520}
-  _exitScene: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
+  _exitScene: Game
 --- !u!114 &1548283592
 MonoBehaviour:
   m_ObjectHideFlags: 0

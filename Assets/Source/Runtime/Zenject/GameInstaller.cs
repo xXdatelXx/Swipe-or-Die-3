@@ -38,7 +38,7 @@ namespace SwipeOrDie.Zenject
             _level.Init(score);
             _maxScoreView.View(maxScore.Load());
 
-            Container.BindInstance((IInput)new CharacterInput()).AsSingle();
+            Container.BindInstance((IInput)new NewControls()).AsSingle();
             Container.BindInstance((ILevelCreator)new LevelCreator(_mazeFactory, score, _characterTeleport, gameTimer))
                 .AsSingle();
             Container.BindInstance((IMazeFactory)_mazeFactory).AsSingle();

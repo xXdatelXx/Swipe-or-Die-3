@@ -15,7 +15,7 @@ namespace SwipeOrDie.Roots
         [SerializeField] private BuyButton _buyButton;
         [SerializeField] private GoodSwitchButton _leftSwitchButton;
         [SerializeField] private GoodSwitchButton _rightSwitchButton;
-        [SerializeField] private SceneAsset _exitScene;
+        [SerializeField] private string _exitScene;
         [SerializeField] private IWalletView _walletView;
         
         public override void Compose()

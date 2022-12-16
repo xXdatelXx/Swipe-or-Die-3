@@ -758,7 +758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 63, y: -628.99976}
+  m_AnchoredPosition: {x: 63, y: -628.99963}
   m_SizeDelta: {x: 26, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &278423117
@@ -1415,7 +1415,7 @@ PrefabInstance:
       objectReference: {fileID: 2396878882640825715, guid: 27b9c2f849f1deb4b95a2f782360b536, type: 3}
     - target: {fileID: 2396878882640825715, guid: 27b9c2f849f1deb4b95a2f782360b536, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2396878882640825715, guid: 27b9c2f849f1deb4b95a2f782360b536, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
@@ -1423,7 +1423,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2396878882640825715, guid: 27b9c2f849f1deb4b95a2f782360b536, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[1]
-      value: '"path":"_speed","value":null'
+      value: '"path":"_speed","value":{"$id":0,"$type":"SwipeOrDie.Model.Speed, Assembly","<Value>k__BackingField":2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396878882640825715, guid: 27b9c2f849f1deb4b95a2f782360b536, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[2]
+      value: '"path":"_speed.<Value>k__BackingField","value":{"$id":0,"$type":"System.Single,
+        mscorlib",20}'
       objectReference: {fileID: 0}
     - target: {fileID: 2396878882640825715, guid: 27b9c2f849f1deb4b95a2f782360b536, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
@@ -2647,8 +2652,8 @@ MonoBehaviour:
   _telegram: {fileID: 60689172}
   _rate: {fileID: 1751780589}
   _shop: {fileID: 1293203360}
-  _shopScene: {fileID: 102900000, guid: 9b5ff3e6c7189ea44b9ed65a2e5e6b84, type: 3}
-  _gameScene: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
+  _shopScene: Shop
+  _gameScene: Game
   _restartScene: {fileID: 667846715}
   _option: {fileID: 2052591107}
   _play: {fileID: 1295270652}

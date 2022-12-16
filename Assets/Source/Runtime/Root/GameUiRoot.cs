@@ -6,6 +6,7 @@ using SwipeOrDie.Ui;
 using SwipeOrDie.View;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SwipeOrDie.Roots
 {
@@ -21,8 +22,8 @@ namespace SwipeOrDie.Roots
         [SerializeField] private UrlButton _rate;
         [SerializeField] private Url _rateUrl;
         [SerializeField] private SceneButton _shop;
-        [SerializeField] private SceneAsset _shopScene;
-        [SerializeField] private SceneAsset _gameScene;
+        [SerializeField] private string _shopScene;
+        [SerializeField] private string _gameScene;
         [SerializeField] private SceneButton _restartScene;
         [SerializeField] private OptionButton _option;
         [SerializeField] private PlayButton _play;

@@ -1,0 +1,54 @@
+{
+    "name": "New Controls",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "d1d58c76-4d72-4563-bfad-ba23445e7ea7",
+            "actions": [
+                {
+                    "name": "Position",
+                    "type": "PassThrough",
+                    "id": "c5ce8b8a-ea90-45ae-b384-7118f7c04cb7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Delta",
+                    "type": "PassThrough",
+                    "id": "d7c0dd7b-cd15-4ad1-aceb-57e039868d61",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bd25c096-88d8-4792-aa8f-17d3d2a8582c",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63be3db6-b7b5-4c6d-b149-89f53cd1fc69",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Delta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
