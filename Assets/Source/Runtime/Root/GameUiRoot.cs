@@ -4,9 +4,7 @@ using SwipeOrDie.Model;
 using SwipeOrDie.Storage;
 using SwipeOrDie.Ui;
 using SwipeOrDie.View;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace SwipeOrDie.Roots
 {
@@ -27,7 +25,7 @@ namespace SwipeOrDie.Roots
         [SerializeField] private SceneButton _restartScene;
         [SerializeField] private OptionButton _option;
         [SerializeField] private PlayButton _play;
-
+        
         public override void Compose()
         {
             _sound.Subscribe(new NegateAction(new Volume(new NegateStorage(new BinaryStorage<bool>(nameof(Volume)), _soundView))));

@@ -151,7 +151,7 @@ MonoBehaviour:
       Data: 
     - Name: Item2
       Entry: 3
-      Data: 20
+      Data: 25
     - Name: 
       Entry: 8
       Data: 
@@ -218,7 +218,7 @@ MonoBehaviour:
       Data: 
     - Name: Item2
       Entry: 3
-      Data: 20
+      Data: 25
     - Name: 
       Entry: 8
       Data: 

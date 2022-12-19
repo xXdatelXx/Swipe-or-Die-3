@@ -72,4 +72,10 @@ MonoBehaviour:
   OpenComponentInInspectorAndCloseOthers:
     serializedValue: 0
     changedFromDefault: 0
-  HasShownValidationConfig: 1
+  WatchForChanges:
+    serializedValue: 0
+    changedFromDefault: 0
+  ValidateInBackground:
+    serializedValue: 0
+    changedFromDefault: 0
+  HasShownValidationConfig: 0

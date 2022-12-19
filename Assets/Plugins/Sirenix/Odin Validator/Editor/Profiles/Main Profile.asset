@@ -22,7 +22,7 @@ MonoBehaviour:
     Scene:
       Type: 2
       Value: 
-      IncludeAssetDependencies: 0
+      IncludeAssetDependencies: 1
     AssetBundle: 
     AddressableGroup: 
   - Enabled: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
     Scene:
       Type: 1
       Value: 
-      IncludeAssetDependencies: 0
+      IncludeAssetDependencies: 1
     AssetBundle: 
     AddressableGroup: 
   - Enabled: 1

@@ -23,7 +23,7 @@ namespace SwipeOrDie.Model
         public Vector3 Next(Vector2 direction)
         {
             if (!_validator.ValidDirection(direction))
-                return _transform.position;
+                return _transform.localPosition;
 
             var hit = Physics
                 .RaycastAll(_transform.position, _transform.TransformDirection(direction))

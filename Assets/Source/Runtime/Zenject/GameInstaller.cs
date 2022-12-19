@@ -25,6 +25,7 @@ namespace SwipeOrDie.Zenject
         [SerializeField] private ScoreView _maxScoreView;
         [SerializeField] private ScoreView _loseMaxScoreView;
         [SerializeField] private ScoreView _playedGamesView;
+        [SerializeField] private float _inputSensitivity;
 
         public override void InstallBindings()
         {
@@ -38,7 +39,11 @@ namespace SwipeOrDie.Zenject
             _level.Init(score);
             _maxScoreView.View(maxScore.Load());
 
-            Container.BindInstance((IInput)new NewControls()).AsSingle();
+#if UNITY_ANDROID && !UNITY_EDITOR
+            Container.BindInstance((IInput)new PhoneInput(_inputSensitivity)).AsSingle();
+#else
+            Container.BindInstance((IInput)new ComputerInput()).AsSingle();
+#endif
             Container.BindInstance((ILevelCreator)new LevelCreator(_mazeFactory, score, _characterTeleport, gameTimer))
                 .AsSingle();
             Container.BindInstance((IMazeFactory)_mazeFactory).AsSingle();

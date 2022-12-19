@@ -15,7 +15,7 @@ namespace Sirenix.OdinValidator.Editor
 
     internal static class EnsureCorrectOdinVersion
     {
-        private const string validatorVersion = "3.1.5.0";
+        private const string validatorVersion = "3.1.9.0";
 
         private static bool IsHeadlessOrBatchMode { get { return SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null || UnityEditorInternal.InternalEditorUtility.inBatchMode; } }
 
@@ -54,7 +54,7 @@ namespace Sirenix.OdinValidator.Editor
                         if (File.Exists(versionMismatchFile))
                         {
                             var misMatch = File.ReadAllText(versionMismatchFile).Trim();
-                            if (misMatch == misMatchText) 
+                            if (misMatch == misMatchText)
                                 return;
                         }
                     }
@@ -93,10 +93,14 @@ namespace Sirenix.OdinValidator.Editor
                 var tmp_extension = "_tmp";
                 var assemblyFiles = new string[]
                 {
-                            path + "Assemblies/Sirenix.OdinValidator.Editor.dll",
-                            path + "Assemblies/Sirenix.OdinValidator.Editor.xml",
-                            path + "Assemblies/Sirenix.OdinValidator.Editor.pdb",
+                    path + "Assemblies/Sirenix.OdinValidator.Editor.dll",
+                    path + "Assemblies/Sirenix.OdinValidator.Editor.dll.meta",
+                    path + "Assemblies/Sirenix.OdinValidator.Editor.xml",
+                    path + "Assemblies/Sirenix.OdinValidator.Editor.xml.meta",
+                    path + "Assemblies/Sirenix.OdinValidator.Editor.pdb",
+                    path + "Assemblies/Sirenix.OdinValidator.Editor.pdb.meta",
                 };
+
                 var requireUpdate = File.Exists(assemblyFiles[0] + tmp_extension);
 
                 if (requireUpdate)
@@ -116,12 +120,27 @@ namespace Sirenix.OdinValidator.Editor
 
                             File.Move(newFile, oldFile);
                         }
-
                     }
 
                     AssetDatabase.StopAssetEditing();
-                    AssetDatabase.Refresh();
+                    AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+                    EditorPrefs.SetBool("ODIN_VALIDATOR_SHOW_GETTING_STARTED", true);
                 }
+#if ODIN_INSPECTOR
+                else if (EditorPrefs.GetBool("ODIN_VALIDATOR_SHOW_GETTING_STARTED", false))
+                {
+                    EditorPrefs.SetBool("ODIN_VALIDATOR_SHOW_GETTING_STARTED", false);
+                    EditorApplication.delayCall += () =>
+                    {
+                        var t = Sirenix.Serialization.TwoWaySerializationBinder.Default.BindToType("Sirenix.OdinInspector.Editor.GettingStarted.GettingStartedWindow");
+                        if (t != null)
+                        {
+                            var action = Utilities.Editor.Expressions.ExpressionUtility.ParseAction<bool, bool>("ShowWindow(false, true)", true, t, out var _);
+                            action.Invoke(false, true);
+                        }
+                    };
+                }
+#endif
             }
             else
             {

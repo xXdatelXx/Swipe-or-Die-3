@@ -12,12 +12,16 @@ namespace SwipeOrDie.View
         [SerializeField] private float _loseForce;
         [SerializeField, Min(0)] private float _loseDuration;
         private Camera _camera;
+        private Vector3 _standardPosition;
 
-        private void OnEnable() => 
+        private void OnEnable()
+        {
             _camera = GetComponent<Camera>();
+            _standardPosition = transform.position;
+        }
 
         public void Snake(Vector3 direction) =>
-            transform.DOYOYOMove(direction * _force, _duration);
+            transform.DOYOYOMove(_standardPosition, direction * _force, _duration);
 
         public void LoseSnake()
         {

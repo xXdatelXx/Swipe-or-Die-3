@@ -6802,16 +6802,6 @@
             The value is stored in the PersistentContextCache, which has a customizable max cache size.
             </summary>
         </member>
-        <member name="T:Sirenix.OdinInspector.Editor.OdinEditor">
-            <summary>
-            Not yet documented.
-            </summary>
-        </member>
-        <member name="P:Sirenix.OdinInspector.Editor.OdinEditor.Tree">
-            <summary>
-            Not yet documented.
-            </summary>
-        </member>
         <member name="M:Sirenix.OdinInspector.Editor.OdinEditor.DrawDefaultInspector">
             <summary>
             Draws the default Odin inspector.

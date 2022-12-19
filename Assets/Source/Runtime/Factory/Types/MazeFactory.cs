@@ -26,7 +26,7 @@ namespace SwipeOrDie.Factory
         {
             _nextMaze = _factory.Create(_items.Get());
             _nextMaze.Init(new InterpolationMovement(_nextMaze.transform, _speed), _events.Get(_nextMaze));
-            Logger.Log(_nextMaze.name);
+            
             return _activeMaze;
         }
 

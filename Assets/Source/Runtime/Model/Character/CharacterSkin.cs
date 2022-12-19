@@ -8,7 +8,10 @@ namespace SwipeOrDie.Model
     public sealed class CharacterSkin : MonoBehaviour
     {
         [Inject]
-        public void Construct(IStorage<Mesh> storage) => 
-            GetComponent<MeshFilter>().mesh = storage.Load();
+        public void Construct(IStorage<Mesh> storage)
+        {
+            if (storage.Exists())
+                GetComponent<MeshFilter>().mesh = storage.Load();
+        }
     }
 }

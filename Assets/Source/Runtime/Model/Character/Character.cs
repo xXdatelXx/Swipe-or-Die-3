@@ -24,7 +24,7 @@ namespace SwipeOrDie.Model
             var radius = new Radius(GetComponent<BoxCollider>().ToCube().Radius());
             var position = new RayPosition(transform, radius);
 
-            _movement = new CharacterMovement(new InterpolationMovement(transform, _speed), position, _movementView);
+            _movement = new CharacterMovement(new InterpolationMovement(transform, _speed), position, transform, _movementView);
         }
 
         private void Update() =>

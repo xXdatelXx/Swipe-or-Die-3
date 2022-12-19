@@ -12,16 +12,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SwipeOrDie.Extension;
 using SwipeOrDie.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public partial class @NewControls : IInputActionCollection2, IDisposable, IInput
+public partial class PhoneInput : IInputActionCollection2, IDisposable, IInput
 {
+    private float _sensitivity;
     public InputActionAsset asset { get; }
-    public @NewControls()
+    public PhoneInput(float sensevity)
     {
+        _sensitivity = sensevity.ThrowExceptionIfValueSubOrEqualZero(nameof(sensevity));
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""New Controls"",
     ""maps"": [
@@ -120,21 +123,24 @@ public partial class @NewControls : IInputActionCollection2, IDisposable, IInput
     {
         get
         {
-            var sensevity = 0.4f;
             var delta = m_Newactionmap_Delta.ReadValue<Vector2>();
             var direction = Vector2.zero;
 
             if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
-                if (Mathf.Abs(delta.x) > sensevity)
+            {
+                if (Mathf.Abs(delta.x) > _sensitivity)
                     direction = (delta.x > 0) ? Vector2.right : Vector2.left;
-            else 
-                if (Mathf.Abs(delta.y) > sensevity)
+            }
+            else
+            {
+                if (Mathf.Abs(delta.y) > _sensitivity)
                     direction = (delta.y > 0) ? Vector2.up : Vector2.down;
+            }
 
             return direction;
         }
     }
-    
+
     public void Enable()
     {
         asset.Enable();
@@ -162,8 +168,8 @@ public partial class @NewControls : IInputActionCollection2, IDisposable, IInput
     private readonly InputAction m_Newactionmap_Delta;
     public struct NewactionmapActions
     {
-        private @NewControls m_Wrapper;
-        public NewactionmapActions(@NewControls wrapper) { m_Wrapper = wrapper; }
+        private PhoneInput m_Wrapper;
+        public NewactionmapActions(PhoneInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Position => m_Wrapper.m_Newactionmap_Position;
         public InputAction @Delta => m_Wrapper.m_Newactionmap_Delta;
         public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
