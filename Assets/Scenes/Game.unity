@@ -758,7 +758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 63, y: -628.9995}
+  m_AnchoredPosition: {x: 63, y: -628.99976}
   m_SizeDelta: {x: 26, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &278423117
@@ -781,6 +781,50 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &348657271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348657273}
+  - component: {fileID: 348657272}
+  m_Layer: 0
+  m_Name: CollisionEffectsPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &348657272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348657271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d7e28eb6103c943a95a752448bbeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &348657273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348657271}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &358938867 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5467295520027038860, guid: 4b663f80407917847939e63de4165aff, type: 3}
@@ -1416,7 +1460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.5, y: 22}
+  m_AnchoredPosition: {x: 0.5, y: 22.000061}
   m_SizeDelta: {x: 525.145, y: 409}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &635844831
@@ -4628,7 +4672,7 @@ MonoBehaviour:
   _scoreView: {fileID: 1143620672}
   _updatebles: {fileID: 648058933}
   _level: {fileID: 11400000, guid: e507c949917fe87409ddf940aeefa0b0, type: 2}
-  _collisionEffectsParent: {fileID: 2050164386}
+  _collisionEffectsParent: {fileID: 348657272}
   _maxScoreView: {fileID: 1120017753}
   _loseMaxScoreView: {fileID: 2017728597}
   _playedGamesView: {fileID: 1034156289}
@@ -4964,17 +5008,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029705207}
   m_CullTransparentMesh: 1
---- !u!114 &2050164386 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5467295518362970845, guid: 4b663f80407917847939e63de4165aff, type: 3}
-  m_PrefabInstance: {fileID: 5467295519807057023}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28d7e28eb6103c943a95a752448bbeeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2052591104
 GameObject:
   m_ObjectHideFlags: 0

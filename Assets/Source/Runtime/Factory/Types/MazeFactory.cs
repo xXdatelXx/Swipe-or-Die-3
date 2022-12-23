@@ -12,7 +12,7 @@ namespace SwipeOrDie.Factory
         [SerializeField] private IMazeEvents _events;
         [SerializeField] private Transform _enablePoint;
         [SerializeField] private Maze _activeMaze;
-        [ShowInInspector, ReadOnly] private ISpeed _speed = new Speed(30);
+        [ShowInInspector, ReadOnly] private ISpeed _mazeSpeed = new Speed(30);
         private IGenericFactory<Maze> _factory;
         private Maze _nextMaze;
 
@@ -25,8 +25,8 @@ namespace SwipeOrDie.Factory
         public IMaze Create()
         {
             _nextMaze = _factory.Create(_items.Get());
-            _nextMaze.Init(new InterpolationMovement(_nextMaze.transform, _speed), _events.Get(_nextMaze));
-            
+            _nextMaze.Init(new InterpolationMovement(_nextMaze.transform, _mazeSpeed), _events.Get(_nextMaze));
+
             return _activeMaze;
         }
 
